@@ -1,0 +1,180 @@
+.open-sans-app {
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+/* top of page stuff stuff*/
+.container{
+  display: flex;
+  flex-direction: column;
+}
+.cover{
+  width: 100%;
+}
+.cover img{
+  width: 100%;
+  height: 100%;
+}
+.head{
+  background-color:black;
+  color: white;
+  margin: 0;
+}
+.head h1{
+  font-size: 2rem;
+}
+.nav{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  gap: 0;
+}
+.nav button{
+  flex: 1;
+  width: 200px;
+  background-color: black;
+  border: none;
+}
+.nav-img-load{
+  width: 100%;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+.nav-img{
+  width: 100%;
+}
+.nav-img-hidden{
+  width: 100%;
+  opacity: 0%;
+}
+.nav-img-pop{
+  width: 100%;
+  filter: saturate(2.5);
+  animation-name: pop;
+  animation-duration: 0.1s;
+}
+@keyframes fade {
+    from{opacity: 0%}
+    to{ opacity: 100%}
+}
+@keyframes pop {
+  from{filter: saturate(1)}
+  to{filter: saturate(1.5)}
+}
+/*
+main body
+*/
+.page{
+  font-size: 1rem;
+}
+/*Card stuff  
+*/
+.card{
+  background-color: black;
+  border: solid 1px white;
+  border-radius: 2%;
+
+  color: white;
+
+  width: 400px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+
+  margin: 5px;
+
+}
+
+.cardHeader{
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+}
+.cardHeader > *{
+  padding: 0;
+  margin: 5px;
+  align-items: center;
+}
+.cardHeader > img{
+  float: right;
+}
+
+.cardArt{
+  border-top: solid 2px white;
+
+  width: 100%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardArt img{
+  width: 100%;
+  overflow: hidden;
+  align-self: center;
+}
+
+.cardDescription{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.cardDescription > h3 {
+  width: 50%;
+}
+.cardDescription > p{
+  width: 100%;
+}
+
+
+
+
+/*THE REAL SHIT ABOVE ^^^
+  BOILERPLATE SHIT BELOW vvvv
+*/
+
+
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+

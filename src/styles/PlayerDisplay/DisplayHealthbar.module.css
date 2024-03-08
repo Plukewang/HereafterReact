@@ -1,0 +1,11 @@
+.bar{
+    display: flex;
+    width: 100%;
+    height: 20%;
+}
+.hp{
+    background-color: red;
+}
+.filler{
+    background-color: black;
+}
