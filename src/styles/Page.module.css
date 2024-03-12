@@ -122,3 +122,37 @@ background-image: url("https://www.transparenttextures.com/patterns/crissxcross.
 .contactme-link{
     text-decoration: none;
 }
+
+@media (max-width: 800px){
+    .left{
+        padding: 0;
+        flex-wrap: wrap;
+    }
+    .left > p{
+        width: 100%;
+    }
+    .left > img{
+        width: 100%;
+        float: none
+    }
+    .right{
+        padding: 0;
+        flex-wrap: wrap;
+    }
+    .right > p{
+        width: 100%;
+    }
+    .right > img{
+        width: 100%;
+        float: none
+    }
+    .split{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .splitcol{
+        width: 100%;
+        text-align: center;
+    
+    }
+}

@@ -13,15 +13,15 @@ function DisplayWindow(){//currently placeholder display window
             <div className={styles.displayPortrait}>
                 <img src = "../../color_icons/Agility.png" className={styles.displayPortraitIMG} alt = "placeholder" />
                 <div className={styles.displayPortraitIcon}>
-            </div>
-                
+
+                </div>    
             </div>
 
             <div className={styles.displayMain}>
+
                 <div  className ={styles.playerBars}>
-                <DisplayHealthBar/>
+                    <DisplayHealthBar/>
                 </div>
-                
                 <DisplayFocusBar focus = "5"/>
                 <DisplayStatCheck name = "lorem" value = "15"/>
             </div>

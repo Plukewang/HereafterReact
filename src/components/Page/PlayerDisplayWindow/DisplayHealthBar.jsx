@@ -26,7 +26,7 @@ function DisplayHealthBar(){
         setAdj(adj.map(x=>{
                 if(x.name===event.target.name){
                     return {...x, hover: styles.adjustHealthHover};
-                } else return {...x}
+                } else return {...x, hover: styles.adjustHealth}
             })
         );
     }
@@ -35,7 +35,7 @@ function DisplayHealthBar(){
         setAdj(adj.map(x=>{
                 if(x.name===event.target.name){
                     return {...x, hover: styles.adjustHealth};
-                } else return {...x}
+                } else return {...x, hover: styles.adjustHealth}
             })
         );
     }
