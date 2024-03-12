@@ -26,7 +26,10 @@
     width: 50%;
     background-color: #ebe8ea;
     display: flex;
-    flex-direction: column;
+    
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
 }
 .playerBars{
     height: 15%;

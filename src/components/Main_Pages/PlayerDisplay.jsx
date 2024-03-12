@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../../styles/Page.module.css";
 import Link from "../Links/Link";
-import DisplayWindow from "./PlayerDisplayWindow/DisplayWindow";
+import DisplayWindow from "../Page/PlayerDisplayWindow/DisplayWindow";
 
 import axios from "axios";
 

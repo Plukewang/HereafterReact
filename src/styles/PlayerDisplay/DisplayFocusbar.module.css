@@ -1,0 +1,35 @@
+/* Ellipse 280 */
+.progress{
+    position: absolute;
+    width: 286px;
+    height: 286px;
+    
+    background: #E5E2E4;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* Ellipse 279 */
+
+.fill2{
+    position: absolute;
+    width: 286px;
+    height: 286px;
+    
+    background: #1682AB;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);}
+/* Ellipse 279 */   
+
+.bar{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding-left: 10%;
+    padding-right: 20%;
+}
+.fill{
+    width: 100%;
+}
+.focusbtn{
+    width: 30%
+}
+

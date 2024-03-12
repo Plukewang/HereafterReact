@@ -65,6 +65,12 @@
   from{filter: saturate(1)}
   to{filter: saturate(1.5)}
 }
+.nav-p{
+  color: black;
+}
+.nav-hover{
+  color: white;
+}
 /*
 main body
 */

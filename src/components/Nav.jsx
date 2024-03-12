@@ -1,19 +1,20 @@
 import React from "react";
 import { useState } from "react";
-import Home from "./Home";
+import Home from "./Main_Pages/Home";
 import Page from "./Page/Page";
-import PlayerPage from "./Page/PlayerDisplay";
+import PlayerPage from "./Main_Pages/PlayerDisplay";
+import ContactMe from "./Main_Pages/ContactMe";
 
 
 function Nav(){
     const initial = [
-        {name: "Home", img: "nav-img-hidden", page: <Home/>, src: "../../color_icons/Depth.png"},
-        {name: "PlayerPage", img: "nav-img-hidden", page: <PlayerPage/>, src: "../../color_icons/Instinct.png"},
-        {name: "Page", img: "nav-img-hidden", page: <Page/>, src: "../../color_icons/Agility.png"},
-        {name: "Page", img: "nav-img-hidden", page: <Page/>, src: "../../color_icons/Physique.png"},
-        {name: "Page", img: "nav-img-hidden", page: <Page/>, src: "../../color_icons/Precision.png"},
-        {name: "Page", img: "nav-img-hidden", page: <Page/>, src: "../../color_icons/Level.png"},
-        {name: "Page", img: "nav-img-hidden", page: <Page/>, src: "../../color_icons/Intelligence.png"},
+        {name: "Home", img: "nav-img-hidden", page: <Home/>, src: "../../color_icons/Depth.png", hover: "nav-p"},
+        {name: "Player Page", img: "nav-img-hidden", page: <PlayerPage/>, src: "../../color_icons/Instinct.png " , hover: "nav-p"},
+        {name: "Skills", img: "nav-img-hidden", page: <Page/>, src: "../../color_icons/Agility.png", hover: "nav-p"},
+        {name: "Rules", img: "nav-img-hidden", page: <Page/>, src: "../../color_icons/Physique.png", hover: "nav-p"},
+        {name: "Blog", img: "nav-img-hidden", page: <Page/>, src: "../../color_icons/Precision.png", hover: "nav-p"},
+        {name: "Guide", img: "nav-img-hidden", page: <Page/>, src: "../../color_icons/Level.png", hover: "nav-p"},
+        {name: "Contact Me", img: "nav-img-hidden", page: <ContactMe/>, src: "../../color_icons/Intelligence.png", hover: "nav-p"},
     ];
 
     const [vis, setVis] = useState(initial);
@@ -30,15 +31,15 @@ function Nav(){
     function handleMouseOver(event){
         setVis(vis.map(x=>{
             if(x.name===event.target.name){
-                return {...x, img: "nav-img-pop"};
-            } else return {...x, img: "nav-img"};
+                return {...x, img: "nav-img-pop", hover: "nav-hover"};
+            } else return {...x, img: "nav-img", hover: "nav-p"};
         }));
     }
 
     function handleMouseOut(event){
         setVis(vis.map(x=>{
             if(x.name===event.target.name){
-                return{...x, img: "nav-img"};
+                return{...x, img: "nav-img", hover: "nav-p"};
             } else return {...x, img: "nav-img"};
         }));
     }
@@ -55,7 +56,12 @@ function Nav(){
         <div >
             <div className="nav">
             {vis.map(icon=>{
-                    return (<button><img name = {icon.name} src = {icon.src} alt = "nav icon" className = {icon.img} onLoad={handleLoad} onClick={handleClick} onMouseOver = {handleMouseOver} onMouseOut={handleMouseOut}/></button>);
+                    return (
+                        <button>
+                            <img name = {icon.name} src = {icon.src} alt = "nav icon" className = {icon.img} onLoad={handleLoad} onClick={handleClick} onMouseOver = {handleMouseOver} onMouseOut={handleMouseOut}/>
+                            <h3 className={icon.hover}>{icon.name}</h3>
+                        </button>
+                    );
                 })}
             </div>
             <div className="page">
