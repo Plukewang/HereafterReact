@@ -5,7 +5,7 @@ import axios from "axios";
 
 
 function BlogForm(props){
-    const [add, setAdd] = useState(
+    const [add, setAdd] = useState(//for changing which buttons and fields are visible
         {
             add: styles.visible,
             submit: styles.hidden,

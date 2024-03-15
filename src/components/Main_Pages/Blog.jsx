@@ -2,14 +2,15 @@ import React from "react";
 import styles from "../../styles/Page.module.css";
 import { useEffect, useState } from "react";
 import BlogForm from "../Page/Forms/BlogForm";
+import BlogPost from "../Page/BlogPost";
 import axios from "axios";
 
 
 
 function Blog(){
-    const [posts,setPosts] = useState([]);
+    const [posts,setPosts] = useState([]);//for updating posts
 
-    async function fetchData() {
+    async function fetchData() {//fetch data from backend api
         try {
             const result = await axios.get("http://localhost:8080/blog") ;
             setPosts(result.data);
@@ -17,23 +18,6 @@ function Blog(){
             console.log(err);
         }
     }
-
-    async function handleClickDelete(e){
-        e.preventDefault();
-        const deleteId = e.target.id;
-        const finalFormEndpoint = "http://localhost:8080/blog/delete";
-        try{
-            const result = await axios.post(finalFormEndpoint, {id: deleteId}, {headers: {'content-type': 'application/x-www-form-urlencoded'}});
-            console.log(result.data);
-            reload();
-        }catch(err){
-            console.error(err);
-        }
-    }
-    function handleClickEdit(){
-        
-    }
-        
 
     useEffect(()=>{
         fetchData();
@@ -58,14 +42,8 @@ function Blog(){
 
                 {posts.map(post=>{
                     return (
-                        <div key = {post.id} className = {styles.right} > 
-                            <h2 style={{textAlign: "left"}}>{post.title}</h2>
-                            <h3>{post.post_time}</h3>
-                            <p style={{width: "100%"}}>
-                                {post.post}
-                            </p>
-                            <button id = {post.id} onClick={handleClickDelete}>Delete</button>
-                            <button id = {post.id} onClick = {handleClickEdit}>Edit</button>
+                        <div> 
+                            <BlogPost id ={post.id} title = {post.title} post_time = {post.post_time} post = {post.post} update = {reload}/>
                     </div>
                     );
                 })}
@@ -97,3 +75,12 @@ export default Blog;
                     techniques and implements; the choice is yours.
                     </p>
                 </div>*/
+
+            
+/*<h2 style={{textAlign: "left"}}>{post.title}</h2>
+                            <h3>{post.post_time}</h3>
+                            <p style={{width: "100%"}}>
+                                {post.post}
+                            </p>
+                            <button id = {post.id} onClick={handleClickDelete}>Delete</button>
+                            <button id = {post.id} onClick = {handleClickEdit}>Edit</button> */
