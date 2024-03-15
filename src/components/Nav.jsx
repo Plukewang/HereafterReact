@@ -4,15 +4,16 @@ import Home from "./Main_Pages/Home";
 import Page from "./Page/Page";
 import PlayerPage from "./Main_Pages/PlayerDisplay";
 import ContactMe from "./Main_Pages/ContactMe";
-import Blog from "./Page/Blog";
+import Blog from "./Main_Pages/Blog";
+import Stories from "./Main_Pages/Stories";
 
 
 function Nav(){
     const initial = [
-        {name: "Home", img: "nav-img-hidden", page: <Home/>, src: "../../color_icons/Depth.png", hover: "nav-p"},
+        {name: "Home", img: "nav-img-hidden", page: <Home/>, src: "../../color_icons/Depth.png", hover: "nav-p",},
         {name: "Player Page", img: "nav-img-hidden", page: <PlayerPage/>, src: "../../color_icons/Instinct.png " , hover: "nav-p"},
         {name: "Skills", img: "nav-img-hidden", page: <Page/>, src: "../../color_icons/Agility.png", hover: "nav-p"},
-        {name: "Rules", img: "nav-img-hidden", page: <Page/>, src: "../../color_icons/Physique.png", hover: "nav-p"},
+        {name: "Stories", img: "nav-img-hidden", page: <Stories/>, src: "../../color_icons/Physique.png", hover: "nav-p"},
         {name: "Blog", img: "nav-img-hidden", page: <Blog/>, src: "../../color_icons/Precision.png", hover: "nav-p"},
         {name: "Guide", img: "nav-img-hidden", page: <Page/>, src: "../../color_icons/Level.png", hover: "nav-p"},
         {name: "Contact Me", img: "nav-img-hidden", page: <ContactMe/>, src: "../../color_icons/Intelligence.png", hover: "nav-p"},
@@ -56,9 +57,9 @@ function Nav(){
     return (
         <div >
             <div className="nav">
-            {vis.map(icon=>{
+            {vis.map((icon,i)=>{
                     return (
-                        <button>
+                        <button key = {i}>
                             <img name = {icon.name} src = {icon.src} alt = "nav icon" className = {icon.img} onLoad={handleLoad} onClick={handleClick} onMouseOver = {handleMouseOver} onMouseOut={handleMouseOut}/>
                             <h3 className={icon.hover}>{icon.name}</h3>
                         </button>

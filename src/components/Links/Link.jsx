@@ -16,7 +16,7 @@ function Link(props){
     }
 
     return(
-        <div className={hover} onMouseOver={handleMouseOver} on onMouseOut={handleMouseOut}>
+        <div className={hover} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
             <a href = {props.link}>{props.hook}</a>
         </div>
     );
