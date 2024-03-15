@@ -98,7 +98,7 @@ ul{
 
 .background{
     background-color: #ebe8ea;
-background-image: url("https://www.transparenttextures.com/patterns/crissxcross.png");
+    background-image: url("https://www.transparenttextures.com/patterns/crissxcross.png");
 /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
     display: flex;
     flex-direction: column;
@@ -124,6 +124,9 @@ background-image: url("https://www.transparenttextures.com/patterns/crissxcross.
 }
 
 @media (max-width: 800px){
+    p{
+        font-size: 1rem;
+    }
     .left{
         padding: 0;
         flex-wrap: wrap;

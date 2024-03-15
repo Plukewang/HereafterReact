@@ -1,0 +1,20 @@
+br{
+    margin: 1rem;
+}
+.story{
+    padding-top: 10vh;
+}
+.paragraph{
+    margin: 20vh;
+    margin-top: 0;
+    padding: 10vh;
+    text-align: justify;
+    text-shadow: white 0px 0px 1px,   white 0px 0px 1px,   white 0px 0px 1px,
+    white 0px 0px 1px,   white 0px 0px 1px,   white 0px 0px 1px;
+}
+
+@media (max-width :800px){
+    .paragraph{
+        margin: 0;
+    }
+}
