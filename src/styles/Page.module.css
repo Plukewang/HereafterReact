@@ -14,7 +14,11 @@ ul{
 }
 .wide{
     margin: 5%;
+    padding: 15%;
+    padding-bottom: 0%;
+    padding-top: 0%;
     text-align: center;
+    text-align: left;
 }
 
 .left{
@@ -165,5 +169,8 @@ ul{
         width: 100%;
         text-align: center;
     
+    }
+    .wide{
+        padding: 0;
     }
 }
