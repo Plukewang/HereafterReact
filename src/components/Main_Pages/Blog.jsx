@@ -27,36 +27,25 @@ function Blog(){
         fetchData();
     }
 
-
-
-
     return (
         <div  className = {styles.background} >
             
-            <div className={styles.wide}>
+            <div>
                 <h1>Blog</h1>
                 <h2>Updates Weekly!</h2>
                 <BlogForm update = {reload}/>
             </div>
-            
-            
-            
-            <div>
-            
+
+            <div>        
                 {posts.map(post=>{
                     return (
                         <div> 
                             <BlogPost id ={post.id} title = {post.title} post_time = {post.post_time} post = {post.post} update = {reload}/>
-                    </div>
+                        </div>
                     );
                 })}
-               
-                
-                
+   
             </div>
-            
-
-            
 
         </div>
     )

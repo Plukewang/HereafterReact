@@ -64,19 +64,27 @@ function BlogEditForm(props){
     return(
         <div>
             <form action="http://localhost:8080/blog/edit" method="Post" onSubmit={handleSubmit} className={BlogFormStyle.BlogForm}>
-                <textarea name = "title"className ={edit.submit} placeholder="Title here..." defaultValue={props.title}></textarea>
-                
-                <textarea name = "editPost" className ={edit.submit} placeholder="Your post here..." defaultValue={props.post}>
-                    
-                </textarea>
-                
+
+                <input name = "title"className ={edit.submit} placeholder="Title here..." defaultValue={props.title}/>
+
+                <div className={styles.break}></div>
+
+                <textarea name = "editPost" className ={edit.submit} placeholder="Your post here..." defaultValue={props.post}></textarea>
+
                 <div className={styles.decideEdit}>
                     <button type="submit" name = "submit" onClick = {handleClick}  className ={edit.submit} value = "Submit Edit">Submit</button>
-
                     <button name = "cancel" onClick={ handleClick}  className={edit.submit}>Cancel Edit</button>
                 </div>
-                
-                <input type="submit" name = {"edit"} onClick={ handleClick}  className={edit.edit} value = "Edit Post"/>
+
+                <div className={styles.decideEdit}>
+                    <button type="submit" name = {"edit"} onClick={ handleClick}  className={edit.edit} >Edit Post</button>
+                    <button id = {props.id} onClick={props.deleteWarning} className={edit.edit}>Delete</button>
+                </div>
+
+                <div style={{display: "flex"}}>
+                    <button id = {props.id} onClick={props.delete} className={props.startDel}>Confirm Delete</button>
+                    <button id = {props.id} name = "deny" onClick={props.cancelDelete} className={props.startDel}>Cancel</button>
+                </div>
 
             </form>
             

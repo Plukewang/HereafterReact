@@ -69,23 +69,23 @@ function BlogForm(props){
     return(
         <div className={styles.formContainer}>
             <form className={styles.addBlogForm} action="http://localhost:8080/blog/post" method="Post" onSubmit={handleSubmit}>
-                <textarea name = "title" className ={add.submit} placeholder="Title here...">
+                <input name = "title" className ={add.submit} placeholder="Title here..."/>
 
-                </textarea>
+                <div className={styles.break}></div>
+                        
+                <textarea name = "post" className ={add.submit} placeholder="Your post here..."></textarea>
 
-                <textarea name = "post" className ={add.submit} placeholder="Your post here...">
-
-                </textarea>
+                <div className={styles.decideEdit}>
+                    <button type="button" name = "add" onClick={ handleClick}  className={add.add} value = "Add Post">Add Post</button>
+                    <button type="submit" name = "submit" onClick = {handleClick}  className ={add.submit} value = "Submit Post">Submit</button>
+                    <button type="button" name = "cancel" onClick = {handleClick}  className ={add.submit}>Cancel</button>
+                </div>
                 
-                <input type="submit" name = "add" onClick={ handleClick}  className={add.add} value = "Add Post"/>
-                
-                
-                <button type="submit" name = "submit" onClick = {handleClick}  className ={add.submit} value = "Submit Post">Submit</button>
                 
                 
 
             </form>
-            <button name = "cancel" onClick = {handleClick}  className ={add.submit}>Cancel</button>
+            
         </div>
     )
 }
