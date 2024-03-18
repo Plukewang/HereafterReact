@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import styles from "../../../styles/Forms/BlogForm.module.css";
+import BlogFormStyle from "../../../styles/Forms/BlogForm.module.css"
 import axios from "axios";
 
 
@@ -50,7 +51,7 @@ function BlogEditForm(props){
                 submit: styles.visible,
             });
             event.preventDefault();
-        }else if (name ==="submit") {
+        }else{
             setEdit({
                 edit: styles.visible,
                 submit: styles.hidden,
@@ -62,19 +63,24 @@ function BlogEditForm(props){
 
     return(
         <div>
-            <form action="http://localhost:8080/blog/edit" method="Post" onSubmit={handleSubmit}>
-                <input name = "title"className ={edit.submit} placeholder="Title here..." defaultValue={props.title}/>
-
+            <form action="http://localhost:8080/blog/edit" method="Post" onSubmit={handleSubmit} className={BlogFormStyle.BlogForm}>
+                <textarea name = "title"className ={edit.submit} placeholder="Title here..." defaultValue={props.title}></textarea>
+                
                 <textarea name = "editPost" className ={edit.submit} placeholder="Your post here..." defaultValue={props.post}>
                     
                 </textarea>
+                
+                <div className={styles.decideEdit}>
+                    <button type="submit" name = "submit" onClick = {handleClick}  className ={edit.submit} value = "Submit Edit">Submit</button>
 
+                    <button name = "cancel" onClick={ handleClick}  className={edit.submit}>Cancel Edit</button>
+                </div>
+                
                 <input type="submit" name = {"edit"} onClick={ handleClick}  className={edit.edit} value = "Edit Post"/>
 
-
-                <button type="submit" name = "submit" onClick = {handleClick}  className ={edit.submit} value = "Submit Edit">Submit</button>
-
             </form>
+            
+            
         </div>
     )
 

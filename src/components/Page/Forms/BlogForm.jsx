@@ -55,7 +55,7 @@ function BlogForm(props){
                 submit: styles.visible,
             });
             event.preventDefault();
-        }else if (name ==="submit") {
+        }else {
             setAdd({
                 add: styles.visible,
                 submit: styles.hidden,
@@ -67,21 +67,25 @@ function BlogForm(props){
 
 
     return(
-        <div>
-            <form action="http://localhost:8080/blog/post" method="Post" onSubmit={handleSubmit}>
-                <input name = "title"className ={add.submit} placeholder="Title here..."/>
+        <div className={styles.formContainer}>
+            <form className={styles.addBlogForm} action="http://localhost:8080/blog/post" method="Post" onSubmit={handleSubmit}>
+                <textarea name = "title" className ={add.submit} placeholder="Title here...">
+
+                </textarea>
 
                 <textarea name = "post" className ={add.submit} placeholder="Your post here...">
 
                 </textarea>
-
+                
                 <input type="submit" name = "add" onClick={ handleClick}  className={add.add} value = "Add Post"/>
-
-
+                
+                
                 <button type="submit" name = "submit" onClick = {handleClick}  className ={add.submit} value = "Submit Post">Submit</button>
+                
+                
 
             </form>
-
+            <button name = "cancel" onClick = {handleClick}  className ={add.submit}>Cancel</button>
         </div>
     )
 }

@@ -32,14 +32,17 @@ function Blog(){
 
     return (
         <div  className = {styles.background} >
-            <h1>Blog</h1>
-            <h2>Updates Weekly!</h2>
-            <div>
+            
+            <div className={styles.wide}>
+                <h1>Blog</h1>
+                <h2>Updates Weekly!</h2>
                 <BlogForm update = {reload}/>
             </div>
-
+            
+            
+            
             <div>
-
+            
                 {posts.map(post=>{
                     return (
                         <div> 
@@ -52,6 +55,7 @@ function Blog(){
                 
             </div>
             
+
             
 
         </div>

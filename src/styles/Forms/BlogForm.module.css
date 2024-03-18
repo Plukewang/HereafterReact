@@ -1,7 +1,95 @@
+.formContainer{
+    width: 50vw;
+}
+.BlogForm{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+}
+.addBlogForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.BlogForm *{
+    margin: 5px;
+}
+.decideEdit{
+    display: flex;
+    width: 70%;
+    flex-direction: row;
+    justify-content: end;
+}
+
 .hidden{
-    visibility: hidden;
+    display: none;
 }
 
 .visible{
     visibility: visible;
+    width: 80px;
+    height: 40px;
+    background-color: black;
+    border: 2px solid black;
+    border-radius: 5%;
+    color: #ebe8ea;
+    font-weight: bold;
+    margin:5px;
+}
+.visible:hover{
+    visibility: visible;
+    background: none;
+    border-color: #ebe8ea;
+    color: black;
+    font-weight: bold;
+
+}
+/*line break*/
+.break{
+    flex-basis: 100%;
+    height: 0;
+}
+
+textarea.visible{
+    background-color: #ebe8ea;
+    border-color: black;
+    border-radius: 0;
+    color: black;
+    width: 400px;
+    font-size: 1rem;
+    font-weight: 100;
+}
+
+textarea.visible:hover{
+    background-color: #ebe8ea;
+    border-color: black;
+    border-radius: 0;
+    color: black;
+
+    font-size: 1rem;
+    font-weight: 100;
+}
+
+.visible + textarea{
+    width: 70%;
+    height: 250px;
+}
+
+
+
+@keyframes fade{
+    from{   
+        background-color: black;
+        border: 2px solid black;
+        border-radius: 5%;
+        color: white;
+    }
+    to{
+        background-color: #ebe8ea;
+        border: 2px solid #ebe8ea;
+        border-radius: 5%;
+        color: white;
+    }
 }

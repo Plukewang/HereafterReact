@@ -20,7 +20,7 @@
     justify-content: center;
     align-items: center;
     animation-name: fade;
-    animation-duration: 0.4s;
+    animation-duration: 0.2s;
 }
 @keyframes fade{
     from{   
@@ -32,7 +32,7 @@
         color: white;
     }
     to{
-        background-color: #ebe8ea;
+        background: none;
         width: 200px;
         height: 100px;
         border: 2px solid #ebe8ea;
@@ -44,7 +44,7 @@
     text-align: center;
     text-decoration: none;
     color: black;
-    font-weight: 400;
+    font-weight: bold;
 }
 .link > a {
     text-align: center;

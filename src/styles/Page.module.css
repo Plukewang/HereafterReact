@@ -12,6 +12,10 @@ ul{
     display: flex;
     justify-content: space-around;
 }
+.wide{
+    margin: 5%;
+    text-align: center;
+}
 
 .left{
     text-align: right;
@@ -123,6 +127,10 @@ ul{
     text-decoration: none;
 }
 
+
+
+
+/*media query for tiny screens*/
 @media (max-width: 800px){
     p{
         font-size: 1rem;
