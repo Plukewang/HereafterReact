@@ -55,7 +55,7 @@ function Home(){
             </div>
             <div className = {styles.wiki}>
                 <h2>Want to learn more?</h2>
-                <Link link = "https://humorous-gym-ac1.notion.site/ee538ebf992b416d9a753aee1aa71a54?v=2e7fa65159c1486b852cef33a3f18e66&pvs=4" hook = "Visit the Wiki"/>
+                <Link link = "https://humorous-gym-ac1.notion.site/ee538ebf992b416d9a753aee1aa71a54?v=2e7fa65159c1486b852cef33a3f18e66&pvs=4" hook = "Visit the Wiki" source = "../../color_icons/Level.png"/>
             </div>
             
             

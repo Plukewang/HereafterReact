@@ -2,7 +2,9 @@ import React from "react";
 import styles from "../../styles/Page.module.css";
 import Story from "../Page/Story";
 
+
 function Stories(){
+    
 
     return (
         <div className={styles.background}>
@@ -13,11 +15,9 @@ function Stories(){
                     <p>Whether it's the daily lives of the people in the vertex world or the ancient mythos of civilizations long past, discover it here.</p>
                     
             </div>
-
-            <div>
-                <h2>Newest Releases</h2>
+                <h1>Newest Releases</h1>
                 <Story />
-            </div>
+
             <div>
                 <h2>Find a collection</h2>
             </div>
