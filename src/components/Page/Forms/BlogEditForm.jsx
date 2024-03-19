@@ -28,19 +28,13 @@ function BlogEditForm(props){
         try{    
 
             const result = await axios.patch(finalFormEndpoint, data, {headers: {'content-type': 'application/x-www-form-urlencoded'}});
-
-            
-
             props.update();
             props.clickSubmit();
-            
-            
     
         }catch(err){
             console.error(err);
         }
-        }
-
+    }
 
     function handleClick(event){
         let name = event.target.name;
@@ -57,10 +51,7 @@ function BlogEditForm(props){
                 submit: styles.hidden,
             });
         }
-
-
     }
-
     return(
         <div>
             <form action="http://localhost:8080/blog/edit" method="Post" onSubmit={handleSubmit} className={BlogFormStyle.BlogForm}>

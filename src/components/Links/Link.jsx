@@ -17,6 +17,7 @@ function Link(props){
 
     return(
         <div className={hover} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+            <img src = {props.source} alt = {props.hook} height={30} style = {props.imgStyle}/>
             <a href = {props.link}>{props.hook}</a>
         </div>
     );
