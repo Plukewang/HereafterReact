@@ -16,10 +16,12 @@ function Link(props){
     }
 
     return(
-        <div className={hover} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
-            <img src = {props.source} alt = {props.hook} height={30} style = {props.imgStyle}/>
-            <a href = {props.link}>{props.hook}</a>
-        </div>
+        <a href = {props.link}>
+            <div className={hover} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+                <img src = {props.source} alt = {props.hook} width={30} style = {props.imgStyle}/>
+                <p>{props.hook}</p>
+            </div>
+        </a>
     );
 
 }
