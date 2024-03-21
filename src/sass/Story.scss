@@ -11,17 +11,12 @@ br{
 }
 .story{
     background-color: $light-color;
-    width: 1000px;
+    width: 60%;
     @include theme;
-}
-.paragraph{
-    margin: 10%;
-    padding: 5%;
-    text-align: justify;
 }
 
 @media (max-width :800px){
-    .paragraph{
-        margin: 0;
+    .story{
+        width: 95%
     }
 }

@@ -1,20 +1,18 @@
-br{
-    margin: 1rem;
-}
-.story{
-    padding-top: 10vh;
-}
-.paragraph{
-    margin: 20vh;
-    margin-top: 0;
-    padding: 10vh;
-    text-align: justify;
-    text-shadow: white 0px 0px 1px,   white 0px 0px 1px,   white 0px 0px 1px,
-    white 0px 0px 1px,   white 0px 0px 1px,   white 0px 0px 1px;
+br {
+  margin: 1rem;
 }
 
-@media (max-width :800px){
-    .paragraph{
-        margin: 0;
-    }
+.story {
+  background-color: #ebe8ea;
+  width: 60%;
+  color: black;
+  border: 2px solid black;
 }
+
+@media (max-width: 800px) {
+  .story {
+    width: 95%;
+  }
+}
+
+/*# sourceMappingURL=Story.module.css.map */
