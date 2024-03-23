@@ -1,19 +1,22 @@
 import React from "react";
 import { useState } from "react";
+import styles from "../../../styles/PlayerDisplay/DisplayStatCheck.module.css"
+import axios from 'axios';
+
 
 function DisplayStatCheck(props){
-    const [check, setCheck] = useState();
-
-    function handleClick(){
-        setCheck(Number(props.value)+Math.floor(Math.random()*6));
-    }
 
     return(
-    <div style = {{width: "10%", height: "15%"}}>
-        <h2 style = {{fontSize: "1em"}}> {props.name}</h2>
-        <button onClick={handleClick}>{props.value}</button>
-        <p>{check}</p>
-    </div>)
+    <form onSubmit={props.click} className={styles.statCheck}>
+        <button className={styles.statCheck} type = "submit" value={props.value}>
+            <p >{props.value}</p>
+            <div className={styles.checkImg}>
+                <img src = {props.source} alt = {props.name}/>
+            </div>
+            <p className={styles.hover}>{props.name.toUpperCase()}</p>
+        </button>
+        <input type = "hidden" name = {props.name} value = {props.value}/>
+    </form>)
 }
 
 export default DisplayStatCheck;

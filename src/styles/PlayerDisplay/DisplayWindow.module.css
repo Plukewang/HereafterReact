@@ -3,29 +3,29 @@
     width: 75%;
     height: 500px;
     gap: 5%;
+    background: none;
 }
 
 .displayPortrait{
-    width: 20%;
-    background-color: #ebe8ea;
+    background: none;
+    width: 30%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 .displayPortraitIMG{
-    height: max(400px, 70%);
-    width: max(300px, 90%);
+    background: none;
+    height: min(400px, 70%);
     align-self: center; 
 }
 .displayPortraitIcon{   
+    background: none;
     width:90%;
     height: 35%;
-    background-color: #ebe8ea;
-    
 }
 .displayMain{
+    background: none;
     width: 70%;
-    background-color: #ebe8ea;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -35,36 +35,55 @@
     height: 15%;
     width: 100%;
 }
+.statChecks{
+    display: flex;
+    flex-wrap: wrap;
+    width: 300px;
+    height: 200px;
+}
+.statChecks *{
+    width: 10%
+}
 
-@media (max-width: 800px) {
+@media only screen and (max-width: 1200px) {
     .displayContainer{
         display: flex;
         width: 90%;
-        height: 150vh;
+        height: 100%;
         flex-wrap: wrap;
+        background: none;
         }
     
     .displayPortrait{
-        flex: 1;
+        flex-basis: 100%;
         width: 100%;
-        background-color: #ebe8ea;
         display: flex;
         flex-direction: column;
         
         align-items: center;
     }
     .displayMain{
-        flex: 1;
+        flex-basis: 100%;
+        height: 100%;
         width: 100%;
-        background-color: #ebe8ea;
         display: flex;
-        
         flex-direction: row;
         flex-wrap: wrap;
         align-content: center;
+        justify-content: center;
     }
 
     .displayMain > * {
         margin: 10px;
     }   
+    .playerBars{
+        width: 70%;
+    }
+    .statChecks{
+        width: 100%;
+        justify-content: center;
+    }
+    .statChecks *{
+        width: 14%
+    }
 }
