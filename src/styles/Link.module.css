@@ -5,14 +5,23 @@ a{
 a *{
     margin: 5px;
 }
-
+a .image{
+    border: 2px solid #161315;
+    border-radius: 8px;
+    background: #161315;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .link{
-    background-color: black;
+    background-color: #bd3366;
     height: 60px;
-    border: 2px solid black;
+    border: 2px solid #bd3366;
     border-radius: 5%;
-    color: #ebe8ea;
+    color: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,7 +30,7 @@ a *{
 .hoveredlink{
     opacity: 1;
     height: 60px;
-    border: 2px solid #ebe8ea;
+    border: 2px solid #ffffff;
     border-radius: 5%;
     color: black;
     display: flex;
@@ -33,14 +42,14 @@ a *{
 }
 @keyframes fade{
     from{   
-        background-color: black;
-        border: 2px solid black;
+        background-color: #161315;
+        border: 2px solid #161315;
         border-radius: 5%;
         color: white;
     }
     to{
         background: none;
-        border: 2px solid #ebe8ea;
+        border: 2px solid #ffffff;
         border-radius: 5%;
         color: black;
     }

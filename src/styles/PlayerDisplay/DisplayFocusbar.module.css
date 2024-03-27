@@ -14,4 +14,12 @@
     width: 30%;
     border: none;
 }
+.bar svg{
+    background: none;
+}
+svg text{
+    font-weight: bold;
+    color: #bdbdbd;
+}
+
 

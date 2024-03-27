@@ -2,10 +2,19 @@
 h1{
     font-size: 4rem;
     text-align: center;
+    color: #ffffff;
 }
 h2{
     font-size: 2rem;
     text-align: center;
+    color: #ffffff;
+}
+h3{
+    color: #ffffff;
+}
+p{
+    color: #ffffff;
+    font-size: 20px;
 }
 
 ul{
@@ -28,19 +37,26 @@ ul{
     padding: 15%;
     padding-top: 0%;
     padding-bottom: 0%;
-    display: inline-block;
+    display: flex;
+    
 }
 .left > img{
-    float: left;
-    width: 20%;
+    width: 40%;
+    height: 400px;
     margin: 2%;
 }
-.left > p{
-    float: right;
-    width: 70%;
-    text-align: justify;
+.left .textbox{
+    background-color: #381925;
+    border: 20px solid #381925;
+    border-radius: 16px;
+    width: 60%;
 }
-.left > h2{
+.left  p{
+    float: right;
+    text-align: justify;
+    
+}
+.left  h2{
     font-size: 2rem;
     text-align: center;
 }
@@ -50,13 +66,19 @@ ul{
     padding: 15%;
     padding-top: 0%;
     padding-bottom: 0%;
-    display: inline-block
+    display: flex;
 }
 .right > img{
-    float: right;
-    width: 20%;
+    width: 40%;
+    height: 400px;
     margin: 2%;
     
+}
+.right .textbox{
+    background-color: #284655;
+    border: 20px solid #284655;
+    border-radius: 16px;
+    width: 60%;
 }
 .right > p{
     float: left;
@@ -103,12 +125,19 @@ ul{
 .wiki h2{
     font-size: 2rem;
 }
-
+.changePlayerButtons{
+    display: flex;
+}
+.playerButton{
+    height: 20px;
+    width: 60px;
+    border: none;
+    font-size: 1rem;
+}
 
 .background{
-    background-color: #ebe8ea;
-    background-image: url("https://www.transparenttextures.com/patterns/crissxcross.png");
-/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+    background-color: #161315;
+
     display: flex;
     flex-direction: column;
     align-items: center;

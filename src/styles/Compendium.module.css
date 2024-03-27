@@ -1,0 +1,22 @@
+.compendiumContainer {
+  display: flex;
+  min-height: 1000px;
+  width: 80%;
+}
+.compendiumContainer * {
+  border-radius: 8px;
+  margin: 2%;
+}
+.compendiumContainer .compendiumDisplay {
+  width: 70%;
+  height: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #381925;
+}
+.compendiumContainer .compendiumSearch {
+  width: 25%;
+  height: 1000px;
+  display: flex;
+  background-color: #233540;
+}

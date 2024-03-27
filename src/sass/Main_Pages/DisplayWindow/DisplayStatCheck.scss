@@ -1,4 +1,4 @@
-.statCheck{
+.statCheck {
     display: flex;
     width: 30px;
     flex-direction: column;
@@ -6,43 +6,44 @@
     margin-left: 5px;
     margin-right: 5px;
     border: none;
-}
-.statCheck *{
+  }
+  
+  .statCheck * {
     text-align: center;
     width: 100%;
-}
-.statCheck>button:hover{
-    background-color: black;
+  }
+  
+  .statCheck > button:hover {
+    background-color: #996de3;
     transition: all 0.5s;
     color: white;
-}
-.checkImg{
+  }
+  
+  .checkImg {
     transform: rotateY(0deg) rotate(45deg);
-    background-color: black;
-    width: 20px;
-    height: 20px;
-    border: 1px solid black;
-    border-radius: 2px;
+    background-color: #161315;
+    width: 24px;
+    height: 24px;
     margin: 2px;
-}
-.checkImg:hover{
+    font-size: 2px;
+  }
+  
+  .checkImg:hover {
     background: none;
-    border: none;
-    width: 21px;
-    height: 21px;
-}
-.checkImg > img{
+  }
+  
+  .checkImg > img {
     transform: rotateY(0deg) rotate(-45deg);
-}
-
-.statCheck p {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .statCheck p {
     font-size: 15px;
-}
-.statCheck>button .hover{
-    visibility: hidden;
-    font-size: 10px;
-}
-.statCheck>button:hover .hover{
-    visibility: visible;
+  }
+  
+  .statCheck > button .hover {
     color: white;
-}
+    font-size: 12px;
+  }
+  

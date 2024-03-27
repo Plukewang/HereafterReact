@@ -51,7 +51,7 @@ function DisplayFocusBar(props){
                 duration: 0.3,
                 ease: 'circ',
                 strokeDashoffset: ((100 - pc) * circ) / 100,
-                stroke :"#1682AB",
+                stroke :"#53bee9",
             });
         }
         
@@ -62,11 +62,11 @@ function DisplayFocusBar(props){
     <div style={{height: "25%", width:"100px"}} className={styles.bar}>
         
         
-        <svg  style={{height: "100%", width:"100px", backgroundColor: "#ebe8ea"}}>
+        <svg  style={{height: "100%", width:"100px"}}>
             <defs>
                 <radialGradient  id="myGradient">
-                <stop offset="10%" stop-color="#ffffff"/>
-                <stop offset="90%" stop-color="#1682ab"/>
+                <stop offset="10%" stopColor="#ffffff"/>
+                <stop offset="90%" stopColor="#53bee9"/>
   
                 
                 </radialGradient>
@@ -78,18 +78,18 @@ function DisplayFocusBar(props){
             cx="50%"
             cy="50%" 
             r={r} 
-            fill = "#ebe8ea"
-            stroke = "#1682AB"
+            fill = "#161315"
+            stroke = "#53bee9"
             strokeWidth="25%"
             strokeDasharray={circ}
             strokeDashoffset={pct}
             />
-            <text x="45%" y="55%" style={{textAlign: "center"}}>{Math.round(pc/100*7)}</text>
+            <text x="45%" y="55%" fill = "#bdbdbd" style={{textAlign: "center"}}>{Math.round(pc/100*7)}</text>
         </svg>
         
         
-        <button className = {styles.focusbtn} onClick={handleSubtract}><img src = "../../icons/prev.png" width="20px"/></button>
-        <button className = {styles.focusbtn} onClick={handleAdd}><img src = "../../icons/next.png" width="20px"/></button>
+        <button className = {styles.focusbtn} onClick={handleSubtract}><img src = "../../icons/prev.png" alt = "increase focus" width="20px"/></button>
+        <button className = {styles.focusbtn} onClick={handleAdd}><img src = "../../icons/next.png" alt = "decrease focus" width="20px"/></button>
     </div>)
 }
 

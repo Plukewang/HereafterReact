@@ -1,0 +1,96 @@
+$highlight: #381925;
+$accent: #bd3265;
+$purple: #996de3;
+$black: #161315;
+$blue: #233540;
+
+@mixin highlight-theme{
+    background-color: $highlight;
+    color: white;
+}
+
+.effectsTracker{
+    @include highlight-theme;
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    margin: 10px;
+    border: 2px solid $highlight;
+    border-radius: 8px;
+}
+
+.effectsContainer{
+    @include highlight-theme;
+    flex: 2;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px;
+    border: 2px solid $highlight;
+    border-radius: 8px;
+}
+.effectsDescription{
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px;
+    background-color: $blue;
+    border: 2px solid $blue;
+    border-radius: 8px;
+}
+
+.effectBox{
+    width: 15%;
+    margin:2%;
+    background-color: $accent;
+    border: 2px solid $accent;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.effectBox button{
+    background-color: $accent;
+    border: 2px solid $accent;
+    border-radius: 8px;
+} 
+.effectBox button:hover{
+    background-color: $highlight;
+    border: 2px solid $highlight;
+    border-radius: 8px;
+    color: white;
+} 
+.effectBox p{
+    font-size: 16px;
+} 
+
+.effectForm{
+    flex-basis: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.effectForm > * {
+    background-color: $black;
+    border: 2px solid $black;
+    border-radius: 8px;
+    color: white;
+    margin: 2px;
+    width: 100%;
+}
+.effectForm > button {
+    background-color: $black;
+    border: 2px solid $black;
+    width: 25%;
+}
+
+.effectForm > button:hover {
+    background-color: $purple;
+    border: 2px solid $purple;
+    border-radius: 8px;
+    color: white;
+    margin: 2px;
+    width: 25%;
+}

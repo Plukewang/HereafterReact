@@ -1,33 +1,47 @@
 import React from "react";
 import styles from "../../styles/Page.module.css";
-import Link from "../Links/Link";
+import { useState, useEffect } from "react";
 import DisplayWindow from "../Page/PlayerDisplayWindow/DisplayWindow";
 
 import axios from "axios";
 
-async function callAPI(){
-    try{
-        const test = await axios.get('http://localhost:8080/');
-        console.log(test.data);
-    }catch(err){console.error(err)}
-
-}
+    
 
 function PlayerPage(){
-    //callAPI();
+    const [players, setPlayers] = useState([]);
+    const [activePlayer, setActivePlayer] = useState(0);
+
+    function handleChangePlayer(e){
+        setActivePlayer(e.target.name);
+    }
+    
+
+    useEffect(()=>{
+        async function fetchPlayerData() {//fetch data from backend api
+            try {
+                const result = await axios.get("http://172.20.20.157:8080/players") ;
+                setPlayers(result.data);
+            } catch (err) {
+                console.error(err);
+            }
+        }
+        fetchPlayerData();
+    },[]);
+
+
+
+
     return (
         <div className = {styles.background}>
 
-            <h1>For The Players</h1>
-
-            <DisplayWindow/>
-                
-            <div className = {styles.wiki}>
-                <h2>Want to learn more?</h2>
-                <Link link = "https://humorous-gym-ac1.notion.site/ee538ebf992b416d9a753aee1aa71a54?v=2e7fa65159c1486b852cef33a3f18e66&pvs=4" hook = "Visit the Wiki"/>
+            <h1>Player Pages</h1>       
+            <div className={styles.changePlayerButtons}>
+                {players.map((player,i)=>{
+                    return <button key = {i} className={styles.playerButton} onClick={handleChangePlayer} name={i}>{players[i].player_name}</button>
+                })}
             </div>
-            
-            
+
+            <DisplayWindow player = {players[activePlayer]}/>       
 
         </div>
     )

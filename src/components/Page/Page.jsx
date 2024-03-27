@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../../styles/Page.module.css";
-import Link from "../Links/Link";
+import Link from "../Clickable/Link";
 
 function Page(){
     return (

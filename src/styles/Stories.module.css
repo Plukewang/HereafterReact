@@ -16,6 +16,10 @@ br {
   border: none;
   font-size: 2rem;
 }
+.carousel button:hover {
+  background-color: #996de3;
+  transition: background-color 0.5s;
+}
 
 @media (width = 800px) {
   .story {

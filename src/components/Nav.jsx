@@ -6,13 +6,13 @@ import PlayerPage from "./Main_Pages/PlayerDisplay";
 import ContactMe from "./Main_Pages/ContactMe";
 import Blog from "./Main_Pages/Blog";
 import Stories from "./Main_Pages/Stories";
-
-
+import Compendium from "./Main_Pages/Compendium";
+import Footer from "./Footer";
 function Nav(){
     const initial = [
         {name: "Home", img: "nav-img-hidden", page: <Home/>, src: "../../color_icons/Depth.png", hover: "nav-p",},
         {name: "Player Page", img: "nav-img-hidden", page: <PlayerPage/>, src: "../../color_icons/Instinct.png " , hover: "nav-p"},
-        {name: "Skills", img: "nav-img-hidden", page: <Page/>, src: "../../color_icons/Agility.png", hover: "nav-p"},
+        {name: "Compendium", img: "nav-img-hidden", page: <Compendium />, src: "../../color_icons/Agility.png", hover: "nav-p"},
         {name: "Stories", img: "nav-img-hidden", page: <Stories/>, src: "../../color_icons/Physique.png", hover: "nav-p"},
         {name: "Blog", img: "nav-img-hidden", page: <Blog/>, src: "../../color_icons/Precision.png", hover: "nav-p"},
         {name: "Guide", img: "nav-img-hidden", page: <Page/>, src: "../../color_icons/Level.png", hover: "nav-p"},
@@ -56,7 +56,7 @@ function Nav(){
 
     return (
         <div >
-            <div className="nav">
+            <div className="nav" >
             {vis.map((icon,i)=>{
                     return (
                         <button key = {i}>
@@ -69,7 +69,7 @@ function Nav(){
             <div className="page">
                 {page}
             </div>
-            
+            <Footer />
         </div>
         );
 }

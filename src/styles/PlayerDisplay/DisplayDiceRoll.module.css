@@ -1,4 +1,7 @@
 .dice {
   width: 100px;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

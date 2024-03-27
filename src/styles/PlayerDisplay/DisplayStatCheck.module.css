@@ -14,30 +14,28 @@
 }
 
 .statCheck > button:hover {
-  background-color: black;
+  background-color: #996de3;
   transition: all 0.5s;
   color: white;
 }
 
 .checkImg {
   transform: rotateY(0deg) rotate(45deg);
-  background-color: black;
-  width: 20px;
-  height: 20px;
-  border: 1px solid black;
-  border-radius: 2px;
+  background-color: #161315;
+  width: 24px;
+  height: 24px;
   margin: 2px;
+  font-size: 2px;
 }
 
 .checkImg:hover {
   background: none;
-  border: none;
-  width: 21px;
-  height: 21px;
 }
 
 .checkImg > img {
   transform: rotateY(0deg) rotate(-45deg);
+  width: 24px;
+  height: 24px;
 }
 
 .statCheck p {
@@ -45,11 +43,6 @@
 }
 
 .statCheck > button .hover {
-  visibility: hidden;
-  font-size: 10px;
-}
-
-.statCheck > button:hover .hover {
-  visibility: visible;
   color: white;
+  font-size: 12px;
 }

@@ -1,0 +1,30 @@
+$highlight: #381925;
+$accent: #bd3265;
+$purple: #996de3;
+$black: #161315;
+$blue: #233540;
+
+.compendiumContainer{
+    display: flex;
+    min-height: 1000px;
+    width: 80%;
+
+    *{ 
+        border-radius: 8px;
+        margin: 2%;
+    }
+    .compendiumDisplay{
+        width: 70%;
+        height: 1000px;
+        display: flex;
+        flex-wrap: wrap;
+        background-color: $highlight;
+    }
+    .compendiumSearch{
+        width: 25%;
+        height: 1000px;
+        display: flex;
+        background-color: $blue;
+    }
+}
+

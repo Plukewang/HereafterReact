@@ -11,16 +11,11 @@ function BlogForm(props){
             submit: styles.hidden,
         }
     );
-    const [status, setStatus] = useState('');
-
-    const [message, setMessage] = useState(''); 
 
     const handleSubmit = async (e) => {
 
         e.preventDefault();
-        setStatus('loading');
-        
-        setMessage('');
+
         
         
         const finalFormEndpoint = e.target.action;
@@ -33,8 +28,7 @@ function BlogForm(props){
 
             const result = await axios.post(finalFormEndpoint, data, {headers: {'content-type': 'application/x-www-form-urlencoded'}});
 
-            setMessage("Added Post.");
-            setStatus('Success.');  
+
             
             props.update();
             
