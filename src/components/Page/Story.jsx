@@ -31,7 +31,7 @@ function Story(props){
 
     return (
         <div className = {styles.story}>
-            <h1>{stories[props.active].uri.substring(14, stories[props.active].uri.indexOf('.'))}</h1>
+            <h1 style={{backgroundColor: "#161315", margin: '0'}}>{stories[props.active].uri.substring(14, stories[props.active].uri.indexOf('.'))}</h1>
             <DocViewer documents={stories} activeDocument={stories[props.active]} pluginRenderers={[PDFRenderer]} ref={zoomRef}
                 config={
                     {
