@@ -19,7 +19,7 @@ function PlayerPage(){
     useEffect(()=>{
         async function fetchPlayerData() {//fetch data from backend api
             try {
-                const result = await axios.get("http://172.20.20.157:8080/players") ;
+                const result = await axios.get("https://hereafterproject.onrender.com/players") ;
                 setPlayers(result.data);
             } catch (err) {
                 console.error(err);
