@@ -23,7 +23,7 @@ function BlogPost(props){
         setDel(BlogFormStyle.visible);
         setStartDel(BlogFormStyle.hidden);
         const deleteId = e.target.id;
-        const finalFormEndpoint = "http://localhost:8080/blog/delete";
+        const finalFormEndpoint = "https://hereafterproject.onrender.com/blog/delete";
         try{
             const result = await axios.post(finalFormEndpoint, {id: deleteId}, {headers: {'content-type': 'application/x-www-form-urlencoded'}});
             console.log(result.data);

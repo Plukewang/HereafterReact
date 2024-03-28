@@ -54,7 +54,7 @@ function BlogEditForm(props){
     }
     return(
         <div>
-            <form action="http://localhost:8080/blog/edit" method="Post" onSubmit={handleSubmit} className={BlogFormStyle.BlogForm}>
+            <form action="https://hereafterproject.onrender.com/blog/edit" method="Post" onSubmit={handleSubmit} className={BlogFormStyle.BlogForm}>
 
                 <input name = "title"className ={edit.submit} placeholder="Title here..." defaultValue={props.title}/>
 

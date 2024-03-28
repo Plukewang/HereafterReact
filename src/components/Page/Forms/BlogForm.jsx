@@ -62,7 +62,7 @@ function BlogForm(props){
 
     return(
         <div className={styles.formContainer}>
-            <form className={styles.addBlogForm} action="http://localhost:8080/blog/post" method="Post" onSubmit={handleSubmit}>
+            <form className={styles.addBlogForm} action="https://hereafterproject.onrender.com/blog/post" method="Post" onSubmit={handleSubmit}>
                 <input name = "title" className ={add.submit} placeholder="Title here..."/>
 
                 <div className={styles.break}></div>

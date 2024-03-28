@@ -12,7 +12,7 @@ function Blog(){
 
     async function fetchData() {//fetch data from backend api
         try {
-            const result = await axios.get("http://localhost:8080/blog") ;
+            const result = await axios.get("https://hereafterproject.onrender.com/blog") ;
             setPosts(result.data);
         } catch (err) {
             console.log(err);
