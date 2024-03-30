@@ -16,7 +16,7 @@ function App() {
           <Cover />
           <Head />
           <Nav /> 
-          <Home />
+
         </div>
 
     </div>

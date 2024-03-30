@@ -13,7 +13,7 @@ import {Link, Outlet} from "react-router-dom";
 
 function Nav(){
     const initial = [
-        {name: "Home", img: "nav-img-hidden", page: <Home/>, src: "../../color_icons/Depth.png", hover: "nav-p", url: "home"},
+        {name: "Home", img: "nav-img-hidden", page: <Home/>, src: "../../color_icons/Depth.png", hover: "nav-p", url: ""},
         {name: "Player Page", img: "nav-img-hidden", page: <PlayerPage/>, src: "../../color_icons/Instinct.png " , hover: "nav-p", url: "players"},
         {name: "Compendium", img: "nav-img-hidden", page: <Compendium />, src: "../../color_icons/Agility.png", hover: "nav-p", url: "compendium"},
         {name: "Stories", img: "nav-img-hidden", page: <Stories/>, src: "../../color_icons/Physique.png", hover: "nav-p", url: "stories"},
