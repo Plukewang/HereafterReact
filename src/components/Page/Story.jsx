@@ -15,7 +15,7 @@ function Story(props){
                     {uri: require("../../Stories/Outer Heaven 3.pdf")},
                     ];
     
-
+    //points to zoom default value
     const zoomRef = useRef(null);
 
     const size = useWindowSize();
@@ -31,7 +31,9 @@ function Story(props){
 
     return (
         <div className = {styles.story}>
-            <h1 style={{backgroundColor: "#161315", margin: '0'}}>{stories[props.active].uri.substring(14, stories[props.active].uri.indexOf('.'))}</h1>
+            <h1 style={{backgroundColor: "#161315", margin: '0'}}>
+            {//truly disgusting way to get the title from the url. Fix when we have time. Which is NEVER.
+                stories[props.active].uri.substring(14, stories[props.active].uri.indexOf('.'))}</h1>
             <DocViewer documents={stories} activeDocument={stories[props.active]} pluginRenderers={[PDFRenderer]} ref={zoomRef}
                 config={
                     {

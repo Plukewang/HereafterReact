@@ -24,11 +24,10 @@ function BlogEditForm(props){
         .reduce((obj, input) => Object.assign(obj, { [input.name]: input.value }), {});
 
         Object.assign(data, {id: props.id});
-        
         try{    
-
             const result = await axios.patch(finalFormEndpoint, data, {headers: {'content-type': 'application/x-www-form-urlencoded'}});
-            props.update();
+            const result2 = await axios.get("https://hereafterproject.onrender.com/blog") ;
+            props.update(result2.data);
             props.clickSubmit();
     
         }catch(err){

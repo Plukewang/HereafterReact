@@ -2,10 +2,11 @@ import React from "react";
 import styles from "../../styles/Page.module.css";
 import Link from "../Clickable/Link";
 
+
 function Home(){
     return (
         <div className = {styles.background}>
-
+    
             <h1>Welcome to The Hereafter.</h1>
             <h2>This is the repository for everything related to the Hereafter project.</h2>
             <div>

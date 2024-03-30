@@ -7,16 +7,19 @@ import ContactMe from "./Main_Pages/ContactMe";
 import Blog from "./Main_Pages/Blog";
 import Stories from "./Main_Pages/Stories";
 import Compendium from "./Main_Pages/Compendium";
+import SessionManager from "./Main_Pages/Session";
 import Footer from "./Footer";
+import {Link, Outlet} from "react-router-dom";
+
 function Nav(){
     const initial = [
-        {name: "Home", img: "nav-img-hidden", page: <Home/>, src: "../../color_icons/Depth.png", hover: "nav-p",},
-        {name: "Player Page", img: "nav-img-hidden", page: <PlayerPage/>, src: "../../color_icons/Instinct.png " , hover: "nav-p"},
-        {name: "Compendium", img: "nav-img-hidden", page: <Compendium />, src: "../../color_icons/Agility.png", hover: "nav-p"},
-        {name: "Stories", img: "nav-img-hidden", page: <Stories/>, src: "../../color_icons/Physique.png", hover: "nav-p"},
-        {name: "Blog", img: "nav-img-hidden", page: <Blog/>, src: "../../color_icons/Precision.png", hover: "nav-p"},
-        {name: "Guide", img: "nav-img-hidden", page: <Page/>, src: "../../color_icons/Level.png", hover: "nav-p"},
-        {name: "Contact Me", img: "nav-img-hidden", page: <ContactMe/>, src: "../../color_icons/Intelligence.png", hover: "nav-p"},
+        {name: "Home", img: "nav-img-hidden", page: <Home/>, src: "../../color_icons/Depth.png", hover: "nav-p", url: "home"},
+        {name: "Player Page", img: "nav-img-hidden", page: <PlayerPage/>, src: "../../color_icons/Instinct.png " , hover: "nav-p", url: "players"},
+        {name: "Compendium", img: "nav-img-hidden", page: <Compendium />, src: "../../color_icons/Agility.png", hover: "nav-p", url: "compendium"},
+        {name: "Stories", img: "nav-img-hidden", page: <Stories/>, src: "../../color_icons/Physique.png", hover: "nav-p", url: "stories"},
+        {name: "Blog", img: "nav-img-hidden", page: <Blog/>, src: "../../color_icons/Precision.png", hover: "nav-p", url: "blog"},
+        {name: "Session", img: "nav-img-hidden", page: <SessionManager/>, src: "../../color_icons/Level.png", hover: "nav-p", url: "session"},
+        {name: "Contact Me", img: "nav-img-hidden", page: <ContactMe/>, src: "../../color_icons/Intelligence.png", hover: "nav-p", url: "contactme"},
     ];
 
     const [vis, setVis] = useState(initial);
@@ -60,14 +63,14 @@ function Nav(){
             {vis.map((icon,i)=>{
                     return (
                         <button key = {i}>
-                            <img name = {icon.name} src = {icon.src} alt = "nav icon" className = {icon.img} onLoad={handleLoad} onClick={handleClick} onMouseOver = {handleMouseOver} onMouseOut={handleMouseOut}/>
-                            <h3 className={icon.hover}>{icon.name}</h3>
+                            <Link to={icon.url}><img name = {icon.name} src = {icon.src} alt = "nav icon" className = {icon.img} onLoad={handleLoad} onClick={handleClick} onMouseOver = {handleMouseOver} onMouseOut={handleMouseOut}/>
+                            <h3 className={icon.hover}>{icon.name}</h3></Link>
                         </button>
                     );
                 })}
             </div>
             <div className="page">
-                {page}
+                <Outlet />
             </div>
             <Footer />
         </div>

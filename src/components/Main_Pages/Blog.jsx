@@ -1,46 +1,50 @@
 import React from "react";
 import styles from "../../styles/Page.module.css";
+
 import { useEffect, useState } from "react";
 import BlogForm from "../Page/Forms/BlogForm";
 import BlogPost from "../Page/BlogPost";
 import axios from "axios";
-
+import Nav from "../Nav";
 
 
 function Blog(){
     const [posts,setPosts] = useState([]);//for updating posts
 
-    async function fetchData() {//fetch data from backend api
-        try {
-            const result = await axios.get("https://hereafterproject.onrender.com/blog") ;
-            setPosts(result.data);
-        } catch (err) {
-            console.log(err);
-        }
-    }
-
     useEffect(()=>{
-        fetchData();
-    },[posts]);
+        
+        async function fetchData() {//fetch data from backend api
+            try {
+                const result = await axios.get("http://localhost:8080/blog") ;
+                setPosts(result.data);
+                console.log(posts)
+            } catch (err) {
+                console.log(err);
+            }
+        }
 
-    function reload(){
         fetchData();
+    },[])
+    
+    const reload = (posts)=>{
+        setPosts(prev=>posts)
     }
-
+    
     return (
         <div  className = {styles.background} >
-            
-            <div>
+
+                
                 <h1>Blog</h1>
                 <h2>Updates Weekly!</h2>
                 <BlogForm update = {reload}/>
-            </div>
+                
+            
 
             <div>        
-                {posts.map(post=>{
+                {posts.map((post,i)=>{
                     return (
                         <div> 
-                            <BlogPost id ={post.id} title = {post.title} post_time = {post.post_time} post = {post.post} update = {reload}/>
+                            <BlogPost key = {i} id ={post.id} title = {post.title} post_time = {post.post_time} post = {post.post} update = {reload}/>
                         </div>
                     );
                 })}

@@ -67,7 +67,7 @@ function DisplayWindow(props){//currently placeholder display window
     
   
     return(
-    
+        //TODO: Fix placeholder portraits.
         <div className={styles.displayContainer}>
 
             <div className={styles.displayPortrait}>
@@ -86,6 +86,9 @@ function DisplayWindow(props){//currently placeholder display window
                 <DisplayFocusBar focus = "1"/>
 
                 <div className={styles.statChecks}>
+                    {
+                        //TODO: add new icon images for the elements. What the hell are the types doing there? Check on that.
+                    }
                     {checkBtns.map((stat, i)=>{
                         return <DisplayStatCheck key = {i} name = {stat[0]} value = {stat[1]} source = {stat[2]} background = {colorList[i]} type = "diamond" click={handleSubmit}/>
                     })}
@@ -94,7 +97,9 @@ function DisplayWindow(props){//currently placeholder display window
                         return <DisplayStatCheck key = {i} name = {stat[0]} value = {stat[1]} source = {iconsSrcs[i]} background = {colorList[i]} type = "circle" click={handleSubmit}/>
                     })}
                 </div>  
-                
+                {
+                    //this dice roll needs work on animations.
+                }
                 <DisplayDiceRoll roll = {check[0]} name = {check[1]}/>
                 <DisplayEffectsTracker/>
             </div>

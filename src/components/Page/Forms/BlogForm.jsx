@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState} from "react";
 import styles from "../../../styles/Forms/BlogForm.module.css";
 import axios from "axios";
 
@@ -12,12 +12,10 @@ function BlogForm(props){
         }
     );
 
+
     const handleSubmit = async (e) => {
 
-        e.preventDefault();
-
-        
-        
+       
         const finalFormEndpoint = e.target.action;
         
         const data = Array.from(e.target.elements)
@@ -25,12 +23,9 @@ function BlogForm(props){
         .reduce((obj, input) => Object.assign(obj, { [input.name]: input.value }), {});
         
         try{    
-
             const result = await axios.post(finalFormEndpoint, data, {headers: {'content-type': 'application/x-www-form-urlencoded'}});
-
-
-            
-            props.update();
+  
+   
             
             
     
@@ -49,13 +44,11 @@ function BlogForm(props){
                 submit: styles.visible,
             });
             event.preventDefault();
-        }else {
-            setAdd({
-                add: styles.visible,
-                submit: styles.hidden,
-            });
-        }
-
+        }else{setAdd({
+            add: styles.visible,
+            submit: styles.hidden,
+        });
+    }
         
     }   
 

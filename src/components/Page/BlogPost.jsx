@@ -26,8 +26,8 @@ function BlogPost(props){
         const finalFormEndpoint = "https://hereafterproject.onrender.com/blog/delete";
         try{
             const result = await axios.post(finalFormEndpoint, {id: deleteId}, {headers: {'content-type': 'application/x-www-form-urlencoded'}});
-            console.log(result.data);
-            props.update();
+            const result2 = await axios.get("https://hereafterproject.onrender.com/blog") ;
+            props.update(result2.data);
         }catch(err){
             console.error(err);
         }

@@ -24,7 +24,13 @@ $blue: #233540;
         width: 25%;
         height: 1000px;
         display: flex;
+        flex-direction: column;
         background-color: $blue;
+
+        > * {
+            padding: 10px;
+            text-align: justify;
+        }
     }
 }
 

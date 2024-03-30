@@ -3,8 +3,7 @@ import './App.css';
 import Cover from './components/Cover';
 import Head from './components/Head';
 import Nav from './components/Nav';
-
-
+import Home from './components/Main_Pages/Home';
 //TODO: DOWNLOAD AND REHOST THE PATTERN!
 function App() {
   return (

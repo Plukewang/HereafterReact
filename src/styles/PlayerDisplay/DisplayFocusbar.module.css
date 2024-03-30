@@ -3,16 +3,23 @@
     display:flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 5%;
+
 
 }
 .fill{
     width: 100%;
     fill: linear-gradient(90deg, #0062ff, #da61ff);
 }
+.focusbtns{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px;
+}
 .focusbtn{
-    width: 30%;
+    width: 100%;
     border: none;
+    rotate: 270deg;
 }
 .bar svg{
     background: none;

@@ -18,5 +18,10 @@
   width: 25%;
   height: 1000px;
   display: flex;
+  flex-direction: column;
   background-color: #233540;
+}
+.compendiumContainer .compendiumSearch > * {
+  padding: 10px;
+  text-align: justify;
 }

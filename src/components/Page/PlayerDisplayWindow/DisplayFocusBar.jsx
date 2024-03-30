@@ -59,8 +59,11 @@ function DisplayFocusBar(props){
     },)
 
     return (
-    <div style={{height: "25%", width:"100px"}} className={styles.bar}>
-        
+    <div style={{height: "40%", width:"200px"}} className={styles.bar}>
+        <div className={styles.focusbtns}>
+        <button className = {styles.focusbtn} onClick={handleAdd}><img src = "../../icons/next.png" alt = "decrease focus" width="20px"/></button>
+            <button className = {styles.focusbtn} onClick={handleSubtract}><img src = "../../icons/prev.png" alt = "increase focus" width="20px"/></button>
+        </div>
         
         <svg  style={{height: "100%", width:"100px"}}>
             <defs>
@@ -80,16 +83,15 @@ function DisplayFocusBar(props){
             r={r} 
             fill = "#161315"
             stroke = "#53bee9"
-            strokeWidth="25%"
+            strokeWidth="20%"
             strokeDasharray={circ}
             strokeDashoffset={pct}
             />
-            <text x="45%" y="55%" fill = "#bdbdbd" style={{textAlign: "center"}}>{Math.round(pc/100*7)}</text>
+            <text x="46%" y="53%" fill = "#bdbdbd" style={{textAlign: "center"}}>{Math.round(pc/100*7)}</text>
         </svg>
         
         
-        <button className = {styles.focusbtn} onClick={handleSubtract}><img src = "../../icons/prev.png" alt = "increase focus" width="20px"/></button>
-        <button className = {styles.focusbtn} onClick={handleAdd}><img src = "../../icons/next.png" alt = "decrease focus" width="20px"/></button>
+        
     </div>)
 }
 

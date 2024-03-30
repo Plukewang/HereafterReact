@@ -1,12 +1,17 @@
 import React from "react";
 
 function CardDescription(props){
+    let skillType = props.skillType.substring(0,1).toUpperCase() + props.skillType.substring(1);
     return (
         //placeholder description
-        <div className="cardDescription">
-            <h3>Placeholder type</h3>
-            <h3>Placeholder extras</h3> 
-            <p>Placeholder description</p>
+        <div className="cardDescription"
+        style={{
+            display: "flex",
+            flexDirection: "column",
+            textAlign: "left",
+        }}>
+            <h2>{props.skillName}</h2>
+            <h3>{skillType}</h3>
         </div>
     )
 }   
