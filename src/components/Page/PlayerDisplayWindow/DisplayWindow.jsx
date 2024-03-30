@@ -54,7 +54,7 @@ function DisplayWindow(props){//currently placeholder display window
  
         setCheckBtns(stats);
         setColorBtns(colors);
-        
+
 
     },[props.player]);
 

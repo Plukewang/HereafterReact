@@ -15,20 +15,17 @@ function BlogForm(props){
 
     const handleSubmit = async (e) => {
 
-       
+       e.preventDefault();
         const finalFormEndpoint = e.target.action;
         
         const data = Array.from(e.target.elements)
         .filter((input) => input.name)
         .reduce((obj, input) => Object.assign(obj, { [input.name]: input.value }), {});
         
-        try{    
+        try{  
             const result = await axios.post(finalFormEndpoint, data, {headers: {'content-type': 'application/x-www-form-urlencoded'}});
-  
-   
-            
-            
-    
+            console.log(data) 
+            props.update(data);
         }catch(err){
             console.error(err);
         }

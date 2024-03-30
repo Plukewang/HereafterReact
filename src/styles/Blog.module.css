@@ -1,0 +1,32 @@
+.blogContainer {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+}
+.blogContainer * {
+  border-radius: 8px;
+}
+.blogContainer .blogLinks {
+  width: 15%;
+  background-color: #161315;
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  padding-left: 0;
+  justify-content: start;
+}
+.blogContainer .blogLinks * {
+  text-align: center;
+}
+.blogContainer .blogPosts {
+  width: 50%;
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+}
+.blogContainer .blogPosts * {
+  text-align: left;
+}
+.blogContainer .addPost {
+  width: 20%;
+}

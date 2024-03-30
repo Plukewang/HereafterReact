@@ -1,0 +1,45 @@
+$highlight: #381925;
+$accent: #bd3265;
+$purple: #996de3;
+$black: #161315;
+$blue: #233540;
+
+.blogContainer{
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+
+    *{ 
+        border-radius: 8px;
+    }
+
+    .blogLinks{
+        width: 15%;
+        background-color: $black;
+        display: flex;
+        flex-direction: column;
+        padding-top: 10px;;
+        padding-left: 0;
+
+        justify-content: start;
+        *{
+            text-align: center;
+        }
+    }
+
+    .blogPosts{
+        width: 50%;
+        padding: 5%;
+        display: flex;
+        flex-direction: column;
+        *{
+            text-align: left;
+            
+        }
+    }
+
+    .addPost{
+        width: 20%;
+    }
+    
+}
