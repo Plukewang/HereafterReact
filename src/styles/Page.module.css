@@ -122,16 +122,33 @@ ul{
     flex-direction: column;
     align-items: center;
 }
+
 .wiki h2{
     font-size: 2rem;
 }
 .changePlayerButtons{
     display: flex;
 }
+
 .playerButton{
     height: 20px;
     width: 60px;
     border: none;
+    font-size: 1rem;
+}
+.playerButton:hover{
+    color: black;
+    background-color: #996de3;
+    border: 2px solid #996de3;
+    border-radius: 8px;
+}
+.activePlayerButton{
+    height: 20px;
+    width: 60px;
+    color: black;
+    background-color: #996de3;
+    border: 2px solid #996de3;
+    border-radius: 8px;
     font-size: 1rem;
 }
 

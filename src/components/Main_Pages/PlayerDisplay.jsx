@@ -10,6 +10,7 @@ import axios from "axios";
 function PlayerPage(){
     const [players, setPlayers] = useState([]);
     const [activePlayer, setActivePlayer] = useState(0);
+    const [activeButtons, setActiveButtons] = useState([])
 
     function handleChangePlayer(e){
         setActivePlayer(e.target.name);
@@ -29,7 +30,17 @@ function PlayerPage(){
     },[]);
 
 
-
+    useEffect(()=>{
+        if(players[0]){
+            setActiveButtons(Array(players.length).fill({active: styles.playerButton}).map((x,i)=>{
+   
+                if(i==activePlayer){
+                    return {active: styles.activePlayerButton};
+                }
+                else return {active: styles.playerButton};
+            }));
+        }
+    },[activePlayer])
 
     return (
         <div className = {styles.background}>
@@ -37,7 +48,7 @@ function PlayerPage(){
             <h1>Player Pages</h1>       
             <div className={styles.changePlayerButtons}>
                 {players.map((player,i)=>{
-                    return <button key = {i} className={styles.playerButton} onClick={handleChangePlayer} name={i}>{players[i].player_name}</button>
+                    return <button key = {i} className={activeButtons[0]? activeButtons[i].active:styles.playerButton} onClick={handleChangePlayer} name={i} highlight = {activePlayer}>{player.player_name}</button>
                 })}
             </div>
 
