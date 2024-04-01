@@ -23,6 +23,16 @@ function DisplayWindow(props){//currently placeholder display window
     "../../color_icons/Level.png",
     "../../color_icons/Intelligence.png"];
 
+    const colorSrcs = [
+    "../../element_icons/font.png",
+    "../../element_icons/flame.png",
+    "../../color_icons/Agility.png",
+    "../../element_icons/still.png",
+    "../../color_icons/Precision.png",
+    "../../color_icons/Level.png",
+    "../../color_icons/Intelligence.png"
+    ];
+
     const colorList = [
         "#f10048",
         "#c24300",
@@ -94,7 +104,7 @@ function DisplayWindow(props){//currently placeholder display window
                     })}
                     <div style={{flexBasis: "100%", height: "0"}}></div>
                     {colorBtns.map((stat,i)=>{
-                        return <DisplayStatCheck key = {i} name = {stat[0]} value = {stat[1]} source = {iconsSrcs[i]} background = {colorList[i]} type = "circle" click={handleSubmit}/>
+                        return <DisplayStatCheck key = {i} name = {stat[0]} value = {stat[1]} source = {colorSrcs[i]} background = {colorList[i]} type = "circle" click={handleSubmit}/>
                     })}
                 </div>  
                 {

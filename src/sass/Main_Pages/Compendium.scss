@@ -6,6 +6,7 @@ $blue: #233540;
 
 .compendiumContainer{
     display: flex;
+    flex-wrap: wrap;
     min-height: 1000px;
     width: 80%;
 
@@ -13,24 +14,71 @@ $blue: #233540;
         border-radius: 8px;
         margin: 2%;
     }
+
     .compendiumDisplay{
         width: 70%;
         height: 1000px;
         display: flex;
-        flex-wrap: wrap;
-        background-color: $highlight;
-    }
-    .compendiumSearch{
-        width: 25%;
-        height: 1000px;
-        display: flex;
         flex-direction: column;
-        background-color: $blue;
 
-        > * {
-            padding: 10px;
-            text-align: justify;
+        @media (max-width: 800px){
+            width: 100%;
+        }
+        
+        .compendiumSearchBar{
+            height: 50px;
+            background-color: $accent;
+            margin-bottom: 0;
+            margin-top: 0;
+
+            input{
+                border: 2px solid $black;
+                background-color: #381925;
+                color: white;
+            }
+        }
+        .compendiumCards{
+            display: flex;
+            flex-wrap: wrap;
+            background-color: $highlight;
+            align-items: start;
+            height: 1000px;
+
+            .compendiumCard{
+                width: 200px;
+                height: 300px;
+            }
+            
+        }
+        @media (max-width: 800px){
+            width: 100%;
+            height: 400px;
         }
     }
+    
+    .compendiumSearch{
+        width: 20%;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: $blue;
+        align-items: center;
+        @media (max-width: 800px){
+            width: 100%;
+            height: 450px
+        }
+        > * {
+            margin: 10px;
+            text-align: justify;
+            height: 300px;
+            width: 200px;
+
+            @media (max-width: 800px){
+                width: 300px;
+            }
+        }
+    }
+    
 }
 

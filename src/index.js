@@ -21,6 +21,12 @@ import BlogPostTest, {loader as postLoader} from './components/Page/BlogPost/Blo
 import EditPost from './components/Page/BlogPost/BlogEdit';
 import DeletePost from './components/Page/BlogPost/BlogDelete';
 import AddPost from './components/Page/BlogPost/BlogAdd';
+//compendium routes and actions
+import { compendiumLoader } from './components/Main_Pages/Compendium';
+import { loader as cardLoader } from './components/Card/Card';
+import Card from './components/Card/Card';
+
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -67,7 +73,15 @@ const router = createBrowserRouter([
     },
     {
       path: "/compendium",
-      element: <Compendium />
+      element: <Compendium />,
+      loader: compendiumLoader,
+      children: [
+        {
+          path: ":cardId",
+          element: <Card />,
+          loader: cardLoader,
+        }
+      ],
     },
     {
       path: "/stories",

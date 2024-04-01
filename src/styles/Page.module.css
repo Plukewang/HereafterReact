@@ -146,11 +146,16 @@ ul{
     height: 20px;
     width: 60px;
     color: black;
-    background-color: #996de3;
-    border: 2px solid #996de3;
+    background-color: #53bee9;
+    border: 2px solid #53bee9;
     border-radius: 8px;
     font-size: 1rem;
 }
+.activePlayerButton:hover{
+    background-color: #53bee9;
+    border: 2px solid #53bee9;
+}
+
 
 .background{
     background-color: #161315;

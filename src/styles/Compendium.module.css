@@ -1,5 +1,6 @@
 .compendiumContainer {
   display: flex;
+  flex-wrap: wrap;
   min-height: 1000px;
   width: 80%;
 }
@@ -11,17 +12,64 @@
   width: 70%;
   height: 1000px;
   display: flex;
+  flex-direction: column;
+}
+@media (max-width: 800px) {
+  .compendiumContainer .compendiumDisplay {
+    width: 100%;
+  }
+}
+.compendiumContainer .compendiumDisplay .compendiumSearchBar {
+  height: 50px;
+  background-color: #bd3265;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+.compendiumContainer .compendiumDisplay .compendiumSearchBar input {
+  border: 2px solid #161315;
+  background-color: #381925;
+  color: white;
+}
+.compendiumContainer .compendiumDisplay .compendiumCards {
+  display: flex;
   flex-wrap: wrap;
   background-color: #381925;
+  align-items: start;
+  height: 1000px;
+}
+.compendiumContainer .compendiumDisplay .compendiumCards .compendiumCard {
+  width: 200px;
+  height: 300px;
+}
+@media (max-width: 800px) {
+  .compendiumContainer .compendiumDisplay {
+    width: 100%;
+    height: 400px;
+  }
 }
 .compendiumContainer .compendiumSearch {
-  width: 25%;
-  height: 1000px;
+  width: 20%;
+  height: 400px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   background-color: #233540;
+  align-items: center;
+}
+@media (max-width: 800px) {
+  .compendiumContainer .compendiumSearch {
+    width: 100%;
+    height: 450px;
+  }
 }
 .compendiumContainer .compendiumSearch > * {
-  padding: 10px;
+  margin: 10px;
   text-align: justify;
+  height: 300px;
+  width: 200px;
+}
+@media (max-width: 800px) {
+  .compendiumContainer .compendiumSearch > * {
+    width: 300px;
+  }
 }

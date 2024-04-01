@@ -1,7 +1,7 @@
 import React from "react";
 
 function CardDescription(props){
-    let skillType = props.skillType.substring(0,1).toUpperCase() + props.skillType.substring(1);
+    let skillType = "Winning"
     return (
         //placeholder description
         <div className="cardDescription"
@@ -10,8 +10,7 @@ function CardDescription(props){
             flexDirection: "column",
             textAlign: "left",
         }}>
-            <h2>{props.skillName}</h2>
-            <h3>{skillType}</h3>
+            <p>{props.skillDescription}</p>
         </div>
     )
 }   

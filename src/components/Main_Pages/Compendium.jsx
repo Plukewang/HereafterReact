@@ -1,14 +1,32 @@
 import React from "react";
-import {useState, useEffect, useRef} from "react";
+import {useState, useEffect} from "react";
 import page from "../../styles/Page.module.css";
 import styles from "../../styles/Compendium.module.css";
 import Card from "../Card/Card"; 
 import axios from "axios";
 import Fuse from "fuse.js";
+import {Form, useLoaderData, Outlet, Link, redirect} from "react-router-dom";
+import List from "@mui/material/List";
+import  ListItem  from "@mui/material/ListItem";
+
+export async function compendiumLoader(){
+    try {
+        const result = await axios.get("https://hereafterproject.onrender.com/compendium") ;
+        return result.data;
+    } catch (err) {
+        console.error(err);
+    }
+}
+
 
 const Compendium = ()=>{
+    const compendium = useLoaderData();
     const [cards, setCards] = useState([]);
     const [activeCard, setActiveCard] = useState(0);
+    const [search, setSearch] = useState("");
+
+    
+    
 
     const fuseOptions = {
         // isCaseSensitive: false,
@@ -28,33 +46,29 @@ const Compendium = ()=>{
             'skill_name',
         ]
     };
-    //api backend call
-    async function fetchCards() {//fetch data from backend api
-        try {
-            const result = await axios.get("https://hereafterproject.onrender.com/compendium") ;
-            setCards(result.data);
-        } catch (err) {
-            console.log(err);
-        }
-    }
-    //show the card's description.
+    
+    //show the card's description via route.
     const handleClick = (e) =>{
         setActiveCard(e.target.parentNode.id);
     }
-    //for synching to database
-    useEffect(()=>{
-        fetchCards();
-    },[]);
-    
-    const fuse = new Fuse(cards, fuseOptions);
-
-    const queryCards = (q)=>{
-        if(!q){
-            return [];
-        }
-       return fuse.search(q)[0];
+    //syncing search bar
+    const handleChange = (e)=>{
+        if(search!=e.target.value)
+        setSearch(e.target.value)
     }
+
+    //search bar query sync     
+    useEffect(()=>{ 
+        const fuse = new Fuse(compendium, fuseOptions);
+
+        if(search == "") setCards(compendium);
+        else setCards(fuse.search(search).map(x=>{
+            return x.item;
+        }))
+    },[search])
     
+
+   
     return(
         <div className={page.background}>
             <div>
@@ -62,22 +76,41 @@ const Compendium = ()=>{
                 <h2>Look up various skills, actions, and more!</h2>
             </div>
             <div className={styles.compendiumContainer}>
+                
                 <div className={styles.compendiumDisplay}>
-                        {//individual cards. Wonky way to get the clicks to work but it works. shrug.
-                            cards.map((card, i)=>{
-                            return <div key = {i} name ={i}><Card identifier = {i} click = {handleClick} skillType = {card.skill_type} skillCost = {card.skill_cost} skillName = {card.skill_name}/></div>
+
+                    <div className={styles.compendiumSearchBar}>
+                        <input type="text" placeholder="Search for a card..." onChange={handleChange}/>
+                     
+                    </div>
+
+                    <div className={styles.compendiumCards}>
+                        <List style={{width: "100%", maxHeight: 1000, overflow: 'auto', justifyContent: "left"}}>
+                            {//individual cards. Wonky way to get the clicks to work but it works. shrug.
+                                cards.map((card, i)=>{
+                                return <ListItem
+                                 style={{
+                                    width: 200, 
+                                    height: 300,
+                                    padding: 0}}>
+                                    <Link to={`${card.id}`} className={styles.compendiumCard} key = {i} name ={i}>
+                                        <Card identifier = {i} 
+                                            click = {handleClick} 
+                                            skillType = {card.skill_type} 
+                                            skillCost = {card.skill_cost} 
+                                            skillName = {card.skill_name}
+                                            skillDescription = {card.skill_description}
+                                        />
+                                    </Link>
+                                </ListItem>
                         })}
+                        </List>
+                    </div>
+                        
                 </div>
                 <div className={styles.compendiumSearch}>
-                    <h2>
-                        {activeCard? cards[activeCard].skill_name:""}
-                    </h2>
-                    <p>
-                        {activeCard? cards[activeCard].skill_description:""}
-                    </p>
-                    <h3>
-                        {cards[0] ? queryCards('Blink').item.skill_description: ""}
-                    </h3>
+                    <Outlet />
+                    
                 </div>
             </div>
             
@@ -86,3 +119,30 @@ const Compendium = ()=>{
 }
 
 export default Compendium;
+
+/* {//individual cards. Wonky way to get the clicks to work but it works. shrug.
+                            cards.map((card, i)=>{
+                                return <Link to={`${card.id}`} className={styles.compendiumCard} key = {i} name ={i}>
+                                <Card identifier = {i} 
+                                click = {handleClick} 
+                                skillType = {card.skill_type} 
+                                skillCost = {card.skill_cost} 
+                                skillName = {card.skill_name}
+                                skillDescription = {card.skill_description}
+                                /></Link>
+                        })} */
+
+/* old code 
+//api backend call
+    async function fetchCards() {//fetch data from backend api
+        try {
+            const result = await axios.get("https://hereafterproject.onrender.com/compendium") ;
+            setCards(result.data);
+        } catch (err) {
+            console.log(err);
+        }
+    }
+    //for syncing to database
+    useEffect(()=>{
+        fetchCards();
+    },[]); */

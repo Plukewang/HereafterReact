@@ -7,8 +7,8 @@
 }
 .adjustHealthHover{
     background-color: #161315;
-    border: none;
-    color: #bd3366;
+    border: 1px solid #996de3;
+    border-radius: 8px;
     width: 100%;
     height: 50%;
 }

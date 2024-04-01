@@ -105,6 +105,14 @@ button:hover{
   color: white;
   transition: color 0.5s;
 }
+@media (max-width: 800px) {
+  .nav{
+    background-color: #161315;
+  }
+  .nav-p{
+    font-size: 0.5rem;
+  }
+}
 /*
 main body
 */
@@ -119,12 +127,10 @@ main body
   border: solid 1px #161315;
   border-radius: 8px;
   color: white;
-  width: 200px;
+  width: max(200px, 80%);
   height: 300px;
   display: flex;
   flex-direction: column;
-
-  margin: 5px;
 
 }
 
@@ -162,7 +168,9 @@ main body
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
-  font-size: 10px
+  
+  font-size: 16px;
+  padding: 10px;
 }
 .cardDescription > h3 {
   width: 50%;
@@ -170,15 +178,11 @@ main body
   
 }
 .cardDescription > p{
+
   width: 100%;
-  font-size: 10px;
+  font-size: 16px;
 }
 
 
-
-
-/*THE REAL SHIT ABOVE ^^^
-  BOILERPLATE SHIT BELOW vvvv
-*/
 
 
