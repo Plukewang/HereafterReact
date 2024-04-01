@@ -7,7 +7,7 @@ import axios from "axios";
 
 export async function loader({params}){
     try {
-        const result = await axios.get(`https://hereafterproject.onrender/compendium/${params.cardId}`) ;
+        const result = await axios.get(`https://hereafterproject.onrender.com/compendium/${params.cardId}`) ;
         return result.data;
     } catch (err) {
         console.log(err);
