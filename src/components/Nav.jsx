@@ -18,7 +18,7 @@ import Loading from "./Routes/Loading";
 function Nav(){
     let nav = useNavigation();
     //for mobile sidebar
-    const mobile = useWindowSize().width < 844;
+    const mobile = useWindowSize().width < 1280;
     const [open, setOpen] = useState(false);
 
 

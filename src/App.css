@@ -41,6 +41,7 @@ button:hover{
 .container{
   display: flex;
   flex-direction: column;
+  background-color: #161315;
 }
 .cover{
   width: 100%;
