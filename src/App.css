@@ -42,6 +42,7 @@ button:hover{
   display: flex;
   flex-direction: column;
   background-color: #161315;
+  overflow: hidden;
 }
 .cover{
   width: 100%;
@@ -82,16 +83,17 @@ button:hover{
   position: fixed;
     top: 0px;
     left: 0%;
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
   border-radius: 8px;
+    
 }
 .nav .navFixedButton:hover{
   background-color: #996de3 ;
   width: 80px;
   height: 80px;
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
   border-radius: 8px;
 }
 .nav button{

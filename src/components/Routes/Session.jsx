@@ -49,7 +49,7 @@ const SessionManager = ()=>{
         <div className={styles.background}>
             <h1>Does The Black Moon Howl?</h1>
             <form className={sess.answerForm} onSubmit={handleSubmit} action = "https://hereafterproject.onrender.com/session" method="post">
-                <input className={sess.answerInput} name = "password" type="text" autoFocus="true" autoComplete="off"/>
+                <input className={sess.answerInput} name = "password" type="text" autoFocus={true} autoComplete="off"/>
                 <input name = "username" type="hidden" value="the one"/>
                 <button className={sess.answerButton} type="submit">Answer</button>
             </form>

@@ -89,6 +89,7 @@ const Compendium = ()=>{
                             {//individual cards. Wonky way to get the clicks to work but it works. shrug.
                                 cards.map((card, i)=>{
                                 return <ListItem
+                                 key={i}
                                  style={{
                                     width: 200, 
                                     height: 300,

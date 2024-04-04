@@ -39,6 +39,12 @@ ul{
 }
 .left .textbox{
     width: 100%;
+    
+    @media (max-width: 1200px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
     img{
         float: right;
         margin: 20px;
@@ -46,7 +52,7 @@ ul{
         @media (max-width: 1200px) {
             border-radius: 24px;
             float: none;
-            width: 90%;
+            width: 500px;
             align-self: center;
         }
     }
@@ -55,7 +61,8 @@ ul{
         margin-left: 0px;
         margin-right: 0px;
         @media (max-width: 1200px) {
-            width: 100%;
+            width: 90%;
+            text-align: center;
         }
     }
 }
@@ -73,19 +80,28 @@ ul{
 }
 .right .textbox{
     width: 100%;
+    
+    @media (max-width: 1200px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
     img{
         border-radius: 24px;
         float: left;
         margin: 20px;
         @media (max-width: 1200px) {
             float: none;
-            width: 90%;
+            width: 500px;
         }
     }
     p{
-        padding-top: 20px;
-        margin: 0;
-       
+        margin-left: 0px;
+        margin-right: 0px;
+        @media (max-width: 1200px) {
+            width: 90%;
+            text-align: center;
+        }
     }
 }
 
@@ -203,24 +219,12 @@ ul{
         padding: 0;
         flex-wrap: wrap;
     }
-    .left > p{
-        width: 100%;
-    }
-    .left > img{
-        width: 100%;
-        float: none
-    }
+
     .right{
         padding: 0;
         flex-wrap: wrap;
     }
-    .right > p{
-        width: 100%;
-    }
-    .right > img{
-        width: 100%;
-        float: none
-    }
+
     .split{
         display: flex;
         flex-direction: column;

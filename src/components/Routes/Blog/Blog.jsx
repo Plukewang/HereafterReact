@@ -53,7 +53,7 @@ function Blog(){
             <div className={blogStyle.blogContainer}>
                 
                 <ul className={blogStyle.blogLinks}>
-                    <li><Link to={localStorage.getItem('user-token')? `add` : ``}>{localStorage.getItem('user-token')?'Add Post':''}</Link></li>
+                    <li key={0}><Link to={localStorage.getItem('user-token')? `add` : ``}>{localStorage.getItem('user-token')?'Add Post':''}</Link></li>
                     {//map links to each blog post
                     
                         localStorage.getItem('user-token') &&
@@ -71,7 +71,7 @@ function Blog(){
                 <ul className={blogStyle.blogPosts}>
                 {
                     posts.map(x=>{
-                        return <li>
+                        return <li key={x.id}>
                             <h2>{x.title}</h2>
                             <h3>{x.post_time}</h3>
                             <p>{x.post}</p>
