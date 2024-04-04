@@ -24,10 +24,10 @@ function DisplayWindow(props){//currently placeholder display window
     "../../color_icons/Intelligence.png"];
 
     const colorSrcs = [
-    "../../element_icons/font.png",
-    "../../element_icons/maelstrom.png",
-    "../../element_icons/ray.png",
-    "../../element_icons/still.png",
+    "../../element_icons/red.png",
+    "../../element_icons/orange.png",
+    "../../element_icons/yellow.png",
+    "../../element_icons/green.png",
     "../../color_icons/Precision.png",
     "../../color_icons/Level.png",
     "../../color_icons/Intelligence.png"

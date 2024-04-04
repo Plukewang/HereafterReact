@@ -34,6 +34,8 @@ ul{
 .left{
     margin: 5%;
     padding: 15%;
+    padding-top: 0;
+
 }
 .left .textbox{
     width: 100%;

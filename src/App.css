@@ -50,12 +50,20 @@ button:hover{
   height: 100%;
 }
 .head{
-  background-color:black;
+  height: 50px;
+  background: none;
   color: white;
   margin: 0;
 }
 .head h1{
-  font-size: 2rem;
+  font-size: 1.5rem;
+  position:relative;
+  bottom: 50px;
+}
+.head h2{
+  font-size: 1.5rem;
+  position:relative;
+  bottom: 50px;
 }
 .nav{
   display: flex;
@@ -105,7 +113,7 @@ button:hover{
 }
 .navIcon:hover{
   width: 150px;
-  filter: saturate(2.5);
+  filter: saturate(3);
   @media (max-width:800px) {
     width: 50px;
     
@@ -151,6 +159,8 @@ main body
 .page{
   font-size: 16px;
   color: black;
+  background-color: #161315 ;
+  margin: 0;
 }
 /*Card stuff  
 */

@@ -13,12 +13,14 @@ import {Link, Outlet} from "react-router-dom";
 import { Drawer } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import { useWindowSize } from "@uidotdev/usehooks";
-
-
+import { useNavigation } from 'react-router-dom';
+import Loading from "./Routes/Loading";
 function Nav(){
+    let nav = useNavigation();
     //for mobile sidebar
-    const mobile = useWindowSize().width <= 800;
+    const mobile = useWindowSize().width < 844;
     const [open, setOpen] = useState(false);
+
 
     const toggleDrawer = (newOpen) => {
         setOpen(newOpen);
@@ -75,8 +77,9 @@ function Nav(){
                 {}
                 
             </div>
-
+            
             <div className="page">
+            {nav.state==='loading' && <Loading/>}
                 <Outlet />
             </div>
             <Footer />

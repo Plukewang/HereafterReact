@@ -8,7 +8,7 @@ function Home(){
         <div className = {styles.background}>
     
             <h1>Welcome to The Hereafter.</h1>
-            <h2>This is the repository for everything related to the Hereafter project.</h2>
+            <h3>This is the repository for everything related to the Hereafter project.</h3>
             <div>
                 
                
