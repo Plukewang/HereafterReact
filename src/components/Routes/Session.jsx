@@ -23,8 +23,8 @@ const SessionManager = ()=>{
         .reduce((obj, input) => Object.assign(obj, { [input.name]: input.value }), {});
 
         try{    
-            console.log(data);
-            const result = await axios.post(finalFormEndpoint, data, {headers: {'content-type': 'application/x-www-form-urlencoded'}, withCredentials:true});      
+            
+            const result = await axios.post(finalFormEndpoint, data, {headers: {'content-type': 'application/x-www-form-urlencoded'}});      
             setSession(result.data);
             console.log(result.data)
 
@@ -42,20 +42,8 @@ const SessionManager = ()=>{
         }
     }
 
-    const fetchSession = async()=>{
-        try{    
-   
-            const result = await axios.get("https://hereafterproject.onrender.com/sess",{headers: {'content-type': 'application/x-www-form-urlencoded'}, withCredentials:true});      
-            setSession(result.data);
-            console.log(result.data)
-        }catch(err){
-            console.error(err);
-        }
-    }
-
-    useEffect(()=>{
-        fetchSession();
-    },[]);
+    
+    
     
     return (
         <div className={styles.background}>
