@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "../../styles/Page.module.css";
+import styles from "../../../styles/Page.module.css";
 import { useState, useEffect } from "react";
-import DisplayWindow from "../Page/PlayerDisplayWindow/DisplayWindow";
+import DisplayWindow from "./PlayerDisplayWindow/DisplayWindow";
 
 import axios from "axios";
 

@@ -14,13 +14,22 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 10px;
 }
 .focusbtn{
-    width: 100%;
-    border: none;
+    width: 30px;
     rotate: 270deg;
+    border: none;
+    border-radius: 8px;
+    margin: 5px;
+
+    img{
+        padding-top: 2px;
+    }
 }
+.focusbtn:hover{
+    background-color: #53bee9;
+}
+
 .bar svg{
     background: none;
 }

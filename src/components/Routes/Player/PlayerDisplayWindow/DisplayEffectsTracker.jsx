@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import styles from "../../../styles/PlayerDisplay/DisplayEffectsTracker.module.css";
+import styles from "../../../../styles/PlayerDisplay/DisplayEffectsTracker.module.css";
 function DisplayEffectsTracker(){
     const [effects, setEffects] = useState([]);
     const [hoverEffect, setHoverEffect] = useState(0);

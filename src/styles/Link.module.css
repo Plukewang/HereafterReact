@@ -1,9 +1,8 @@
 a{
-    
     text-decoration: none;
 }
 a *{
-    margin: 5px;
+    margin: 10px;
 }
 a .image{
     border: 2px solid #161315;
@@ -17,11 +16,11 @@ a .image{
 }
 
 .link{
-    background-color: #bd3366;
+    background-color: #53bee9;
     height: 60px;
-    border: 2px solid #bd3366;
-    border-radius: 5%;
-    color: #ffffff;
+    border: 2px solid #53bee9;
+    border-radius: 8px;
+    color: #161315;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,7 +30,7 @@ a .image{
     opacity: 1;
     height: 60px;
     border: 2px solid #ffffff;
-    border-radius: 5%;
+    border-radius: 8px;
     color: black;
     display: flex;
     justify-content: center;
@@ -39,18 +38,20 @@ a .image{
     gap: 5px;
     animation-name: fade;
     animation-duration: 0.5s;
+
+
 }
 @keyframes fade{
     from{   
         background-color: #161315;
         border: 2px solid #161315;
-        border-radius: 5%;
+
         color: white;
     }
     to{
         background: none;
         border: 2px solid #ffffff;
-        border-radius: 5%;
+
         color: black;
     }
 }

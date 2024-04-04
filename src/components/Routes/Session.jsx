@@ -27,6 +27,16 @@ const SessionManager = ()=>{
             const result = await axios.post(finalFormEndpoint, data, {headers: {'content-type': 'application/x-www-form-urlencoded'}, withCredentials:true});      
             setSession(result.data);
             console.log(result.data)
+
+            let token = result.data;
+
+            if(token.message === "Success."){
+                localStorage.clear();
+                localStorage.setItem('user-token', token.message);
+                setTimeout(()=>{
+                    localStorage.clear();
+                }, 1000*60*60);
+            }else localStorage.clear();
         }catch(err){
             console.error(err);
         }
@@ -35,7 +45,7 @@ const SessionManager = ()=>{
     const fetchSession = async()=>{
         try{    
    
-            const result = await axios.get("http://localhost:8080/sess",{headers: {'content-type': 'application/x-www-form-urlencoded'}, withCredentials:true});      
+            const result = await axios.get("https://hereafterproject.onrender.com/sess",{headers: {'content-type': 'application/x-www-form-urlencoded'}, withCredentials:true});      
             setSession(result.data);
             console.log(result.data)
         }catch(err){
@@ -50,14 +60,17 @@ const SessionManager = ()=>{
     return (
         <div className={styles.background}>
             <h1>Does The Black Moon Howl?</h1>
-            <form onSubmit={handleSubmit} action = "http://localhost:8080/session" method="post">
-                <input name = "password" type="text"/>
+            <form className={sess.answerForm} onSubmit={handleSubmit} action = "https://hereafterproject.onrender.com/session" method="post">
+                <input className={sess.answerInput} name = "password" type="text" autoFocus="true" autoComplete="off"/>
                 <input name = "username" type="hidden" value="the one"/>
-                <button type="submit">Submit</button>
+                <button className={sess.answerButton} type="submit">Answer</button>
             </form>
-            <div className={sess.container}>
+            {
+                localStorage.getItem('user-token') && <div className={sess.container}>
                 <h1>{session.message}</h1>
             </div>
+            }
+            
             
 
         </div>

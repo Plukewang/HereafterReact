@@ -4,33 +4,37 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter,RouterProvider } from 'react-router-dom';
+
 //import main pages.
-import Blog from './components/Main_Pages/Blog';
-import PlayerPage from './components/Main_Pages/PlayerDisplay';
-import Compendium from './components/Main_Pages/Compendium';
-import SessionManager from './components/Main_Pages/Session';
-import ContactMe from './components/Main_Pages/ContactMe';
-import Stories from './components/Main_Pages/Stories';
-import Home from './components/Main_Pages/Home';
+import Blog from './components/Routes/Blog/Blog';
+import PlayerPage from './components/Routes/Player/PlayerDisplay';
+import Compendium from './components/Routes/Compendium/Compendium';
+import SessionManager from './components/Routes/Session';
+import ContactMe from './components/Routes/ContactMe';
+import Stories from './components/Routes/Stories/Stories';
+import Home from './components/Routes/Home';
+import Error from './components/Routes/Error';
 //blog routes and actions
-import { blogLoader, action as addBlogAction } from './components/Main_Pages/Blog';
-import { action as blogEditAction } from './components/Page/BlogPost/BlogEdit';
-import { action as blogDeleteAction } from './components/Page/BlogPost/BlogDelete';
-import { action as blogAddAction } from './components/Page/BlogPost/BlogAdd';
-import BlogPostTest, {loader as postLoader} from './components/Page/BlogPost/BlogPostTest';
-import EditPost from './components/Page/BlogPost/BlogEdit';
-import DeletePost from './components/Page/BlogPost/BlogDelete';
-import AddPost from './components/Page/BlogPost/BlogAdd';
+import { blogLoader, action as addBlogAction } from './components/Routes/Blog/Blog';
+import { action as blogEditAction } from './components/Routes/Blog/BlogPost/BlogAdd'
+import { action as blogDeleteAction } from './components/Routes/Blog/BlogPost/BlogDelete';
+import { action as blogAddAction } from './components/Routes/Blog/BlogPost/BlogAdd';
+import BlogPostTest, {loader as postLoader} from './components/Routes/Blog/BlogPost/BlogPostTest';
+import EditPost from './components/Routes/Blog/BlogPost/BlogEdit';
+import DeletePost from './components/Routes/Blog/BlogPost/BlogDelete';
+import AddPost from './components/Routes/Blog/BlogPost/BlogAdd';
 //compendium routes and actions
-import { compendiumLoader } from './components/Main_Pages/Compendium';
-import { loader as cardLoader } from './components/Card/Card';
-import Card from './components/Card/Card';
+import { compendiumLoader } from './components/Routes/Compendium/Compendium';
+import { loader as cardLoader } from './components/Routes/Compendium/Card/Card';
+import Card from './components/Routes/Compendium/Card/Card';
+
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <Error />,
     children: [   
     {
       path: "/",

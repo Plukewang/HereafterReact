@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useState,useRef } from "react";
 import {gsap} from "gsap";
-import styles from "../../../styles/PlayerDisplay/DisplayFocusbar.module.css"
+import styles from "../../../../styles/PlayerDisplay/DisplayFocusbar.module.css"
 
 
 function DisplayFocusBar(props){

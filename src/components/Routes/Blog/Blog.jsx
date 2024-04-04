@@ -1,12 +1,11 @@
 import React from "react";
-import styles from "../../styles/Page.module.css";
-import blogFormStyle from "../../styles/Forms/BlogForm.module.css";
-import blogStyle from "../../styles/Blog.module.css";
-import { useEffect, useState } from "react";
-import BlogForm from "../Page/Forms/BlogForm";
-import BlogPost from "../Page/BlogPost";
+import styles from "../../../styles/Page.module.css";
+import blogFormStyle from "../../../styles/Forms/BlogForm.module.css";
+import blogStyle from "../../../styles/Blog.module.css";
+import { useNavigation } from "react-router-dom";
+import Loading from "../Loading";
 import axios from "axios";
-import Nav from "../Nav";
+
 
 import {
     Outlet,
@@ -18,7 +17,7 @@ import {
 
 export async function blogLoader(){
     try {
-        const result = await axios.get("https://hereafterproject.onrender.com/blog") ;
+        const result = await axios.get("https://hereafterproject.onrender.com/blog", {withCredentials:true}) ;
         return result.data;
     } catch (err) {
         console.error(err);
@@ -28,12 +27,12 @@ export async function blogLoader(){
 export async function action({request, params}){
         const formData = await request.formData();
         const add = Object.fromEntries(formData);
-        const finalFormEndpoint = "http://localhost:8080/blog/post";
+        const finalFormEndpoint = "https://hereafterproject.onrender.com/blog/post";
 
         try{
-            console.log(true)
-            const result = await axios.post(finalFormEndpoint, add, {headers: {'content-type': 'application/x-www-form-urlencoded'}});
-            console.log(true)
+
+            const result = await axios.post(finalFormEndpoint, add, {headers: {'content-type': 'application/x-www-form-urlencoded'}, withCredentials: true});
+
             return redirect('')
         }catch(err){
             console.error(err);
@@ -42,18 +41,22 @@ export async function action({request, params}){
 }
 
 function Blog(){
+    const nav = useNavigation();
     const posts = useLoaderData();
     
     return(
         <div className={styles.background}>
-
+            <h1>{nav.state=="Loading" && <Loading/>}</h1>
             <h1>Blog</h1>
+            
             <Outlet/>
             <div className={blogStyle.blogContainer}>
                 
                 <ul className={blogStyle.blogLinks}>
-                    <li><Link to={`add`}>Add Post</Link></li>
+                    <li><Link to={localStorage.getItem('user-token')? `add` : ``}>{localStorage.getItem('user-token')?'Add Post':''}</Link></li>
                     {//map links to each blog post
+                    
+                        localStorage.getItem('user-token') &&
                         posts.map((post,i)=>{
                             return <li key = {post.id}>
                                 <Link to={`${post.id}`}>

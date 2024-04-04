@@ -4,13 +4,13 @@ import {
     Link,
     useLoaderData,
   } from "react-router-dom";
-import { blogLoader } from "../../Main_Pages/Blog";
-import BlogFormStyle from "../../../styles/Forms/BlogForm.module.css"
+import { blogLoader } from "../../../Routes/Blog/Blog";
+import BlogFormStyle from '../../../../styles/Forms/BlogForm.module.css'
 import axios from "axios";
 
 export async function loader({params}){
     try {
-        const result = await axios.get(`http://localhost:8080/blog/${params.blogid}`) ;
+        const result = await axios.get(`https://hereafterproject.onrender.com/${params.blogid}`) ;
         return result.data;
     } catch (err) {
         console.log(err);

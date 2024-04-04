@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import styles from "../../../styles/PlayerDisplay/DisplayStatCheck.module.css"
+import styles from "../../../../styles/PlayerDisplay/DisplayStatCheck.module.css"
 
 
 

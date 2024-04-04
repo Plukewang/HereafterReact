@@ -1,7 +1,55 @@
 $base: #381925;
+$accent: #bd3265;
+$purple: #996de3;
+$black: #161315;
+$blue: #233540;
+$outline: #53bee9;
+
+
+.answerForm{
+    background-color: $base;
+    border: 2px solid $base;
+    border-radius: 8px;
+    *{
+        margin: 10px;
+    }
+    .answerInput{
+        background-color: $base;
+        border: 2px solid $accent;
+        border-radius: 8px;
+        color: white;
+        
+    }
+    .answerInput:focus{
+        outline: 2px solid $outline;
+    }
+    
+    .answerButton{
+        background-color: $base;
+        border: 2px solid $base;
+        border-radius: 8px;
+        margin: 10px;
+        font-size: 16px;
+    }
+    .answerButton:hover{
+        color: white;
+        background-color: $accent;
+        border: 2px solid $accent;
+        border-radius: 8px;
+        margin: 10px;
+    }
+}
+
+
 .container{
     background-color: $base;
     width: 1000px;
     height: 600px;
     margin: 100px;
+    border-radius: 8px;;
+
+    @media (max-width: 800px) {
+        width: 90%;
+        margin: 5%;
+    }
 }

@@ -32,30 +32,32 @@ ul{
 }
 
 .left{
-    text-align: right;
     margin: 5%;
     padding: 15%;
-    padding-top: 0%;
-    padding-bottom: 0%;
-    display: flex;
-    
-}
-.left > img{
-    width: 40%;
-    height: 400px;
-    margin: 2%;
 }
 .left .textbox{
-    background-color: #381925;
-    border: 20px solid #381925;
-    border-radius: 16px;
-    width: 60%;
+    width: 100%;
+    img{
+        float: right;
+        margin: 20px;
+
+        @media (max-width: 1200px) {
+            border-radius: 24px;
+            float: none;
+            width: 90%;
+            align-self: center;
+        }
+    }
+    p{
+        margin: 100px;
+        margin-left: 0px;
+        margin-right: 0px;
+        @media (max-width: 1200px) {
+            width: 100%;
+        }
+    }
 }
-.left  p{
-    float: right;
-    text-align: justify;
-    
-}
+
 .left  h2{
     font-size: 2rem;
     text-align: center;
@@ -64,27 +66,27 @@ ul{
     text-align: left;
     margin: 5%;
     padding: 15%;
-    padding-top: 0%;
-    padding-bottom: 0%;
-    display: flex;
-}
-.right > img{
-    width: 40%;
-    height: 400px;
-    margin: 2%;
-    
+    padding-bottom: 0;
+
 }
 .right .textbox{
-    background-color: #284655;
-    border: 20px solid #284655;
-    border-radius: 16px;
-    width: 60%;
+    width: 100%;
+    img{
+        border-radius: 24px;
+        float: left;
+        margin: 20px;
+        @media (max-width: 1200px) {
+            float: none;
+            width: 90%;
+        }
+    }
+    p{
+        padding-top: 20px;
+        margin: 0;
+       
+    }
 }
-.right > p{
-    float: left;
-    width: 70%;
-    text-align: justify;
-}
+
 .right > h2{
     font-size: 2rem;
     text-align: center;
@@ -112,6 +114,9 @@ ul{
     flex: 1;
     width: 45%;
     text-align: center;
+    @media (max-width: 1200px){
+        width: 100%;
+    }
 
 }
 .splitcol > p{
@@ -131,29 +136,33 @@ ul{
 }
 
 .playerButton{
-    height: 20px;
+    height: 30px;
     width: 60px;
     border: none;
     font-size: 1rem;
+    margin: 5px;
 }
 .playerButton:hover{
     color: black;
     background-color: #996de3;
     border: 2px solid #996de3;
     border-radius: 8px;
+    margin: 5px;
 }
 .activePlayerButton{
-    height: 20px;
+    height: 30px;
     width: 60px;
     color: black;
     background-color: #53bee9;
     border: 2px solid #53bee9;
     border-radius: 8px;
     font-size: 1rem;
+    margin: 5px;
 }
 .activePlayerButton:hover{
     background-color: #53bee9;
     border: 2px solid #53bee9;
+    margin: 5px;
 }
 
 
@@ -187,10 +196,7 @@ ul{
 
 
 /*media query for tiny screens*/
-@media (max-width: 800px){
-    p{
-        font-size: 1rem;
-    }
+@media (max-width: 1200px){
     .left{
         padding: 0;
         flex-wrap: wrap;
@@ -215,10 +221,10 @@ ul{
     }
     .split{
         display: flex;
-        flex-wrap: wrap;
+        flex-direction: column;
     }
     .splitcol{
-        width: 100%;
+        flex: 1;
         text-align: center;
     
     }

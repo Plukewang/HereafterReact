@@ -1,18 +1,18 @@
 import React from "react";
-import styles from "../../styles/Story.module.css";
+import styles from "../../../styles/Story.module.css";
 import DocViewer, {PDFRenderer} from "@cyntler/react-doc-viewer";
 import { useWindowSize } from "@uidotdev/usehooks";
 import { useRef } from "react";
 
 function Story(props){
     //TODO: MAKE INTO NON PLACEHOLDER
-    const stories = [{uri: require("../../Stories/A World of Two Artists.pdf")},
-                    {uri: require("../../Stories/A World of Two Artists.pdf")},  
-                    {uri: require("../../Stories/A World of Two Artists.pdf")},
-                    {uri: require("../../Stories/A World of Two Artists.pdf")},
-                    {uri: require("../../Stories/Outer Heaven 1.pdf")},
-                    {uri: require("../../Stories/Outer Heaven 2.pdf")},
-                    {uri: require("../../Stories/Outer Heaven 3.pdf")},
+    const stories = [{uri: require("../../../Stories/A World of Two Artists.pdf")},
+                    {uri: require("../../../Stories/A World of Two Artists.pdf")},  
+                    {uri: require("../../../Stories/A World of Two Artists.pdf")},
+                    {uri: require("../../../Stories/A World of Two Artists.pdf")},
+                    {uri: require("../../../Stories/Outer Heaven 1.pdf")},
+                    {uri: require("../../../Stories/Outer Heaven 2.pdf")},
+                    {uri: require("../../../Stories/Outer Heaven 3.pdf")},
                     ];
     
     //points to zoom default value
@@ -21,8 +21,8 @@ function Story(props){
     const size = useWindowSize();
     //adjust size
     React.useEffect(()=>{
-        if(size.width<=300){
-            zoomRef.current = 2;
+        if(size.width<=800){
+            zoomRef.current = 1.3;
         }else{
             zoomRef.current = 1;
         }

@@ -60,35 +60,63 @@ button:hover{
 .nav{
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  text-align: center;
+  justify-content: space-around;
   align-items: center;
-
-}
-.nav button{
-  flex: 1;
-  width: 200px;
-  border: 2px solid #161315;
-}
-.nav button:hover{
   background-color: #161315;;
 }
-.nav-img-load{
-  width: 100%;
-  animation-name: fade;
-  animation-duration: 1.5s;
+
+.MuiDrawer-root .MuiDrawer-paper{
+  background-color: #161315;
 }
-.nav-img{
-  width: 100%;
+.nav  .navFixedButton{
+  position: fixed;
+    top: 0px;
+    left: 0%;
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
 }
-.nav-img-hidden{
-  width: 100%;
-  opacity: 0%;
+.nav .navFixedButton:hover{
+  background-color: #996de3 ;
+  width: 80px;
+  height: 80px;
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
 }
-.nav-img-pop{
-  width: 100%;
+.nav button{
+  width: 160px;
+  border: 2px solid #161315;
+  color: white;
+  
+}
+.nav button:hover{
+  width: 160px;
+  background-color: #161315;
+
+}
+.navIcon{
+  width: 150px;
+  @media (max-width:800px) {
+    width: 50px;
+    
+  }
+}
+.navIcon:hover{
+  width: 150px;
   filter: saturate(2.5);
-  animation-name: pop;
-  animation-duration: 0.1s;
+  @media (max-width:800px) {
+    width: 50px;
+    
+  }
+}
+.navButton{
+  background-color: #161315;
+  border: none;
+}
+.navButton:hover{
+  background-color: #161315;
 }
 @keyframes fade {
     from{opacity: 0%}
@@ -108,14 +136,18 @@ button:hover{
 @media (max-width: 800px) {
   .nav{
     background-color: #161315;
+    display: flex;
+    flex-wrap: wrap;
   }
-  .nav-p{
-    font-size: 0.5rem;
+  .nav button{
+    width: 150px;
   }
+  
 }
 /*
 main body
 */
+
 .page{
   font-size: 16px;
   color: black;

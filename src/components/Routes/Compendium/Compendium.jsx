@@ -1,8 +1,8 @@
 import React from "react";
 import {useState, useEffect} from "react";
-import page from "../../styles/Page.module.css";
-import styles from "../../styles/Compendium.module.css";
-import Card from "../Card/Card"; 
+import page from "../../../styles/Page.module.css";
+import styles from "../../../styles/Compendium.module.css";
+import Card from "./Card/Card"; 
 import axios from "axios";
 import Fuse from "fuse.js";
 import {Form, useLoaderData, Outlet, Link, redirect} from "react-router-dom";

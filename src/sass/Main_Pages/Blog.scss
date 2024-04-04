@@ -25,6 +25,9 @@ $blue: #233540;
         *{
             text-align: center;
         }
+        @media (max-width: 800px){
+            width: 100%;
+        }
     }
 
     .blogPosts{

@@ -1,6 +1,6 @@
 import {Form, useLoaderData, redirect} from "react-router-dom";
 import axios from "axios";
-import BlogFormStyle from "../../../styles/Forms/BlogForm.module.css";
+import BlogFormStyle from '../../../../styles/Forms/BlogForm.module.css'
 
 export async function action({request,params}){
     
@@ -10,7 +10,7 @@ export async function action({request,params}){
         if(updates.cancel){
             return redirect(`/blog`);
         }
-        const result = await axios.post(`http://localhost:8080/blog/${params.blogid}/edit`, updates, {headers: {'content-type': 'application/x-www-form-urlencoded'}});
+        const result = await axios.post(`https://hereafterproject.onrender.com/${params.blogid}/edit`, updates, {headers: {'content-type': 'application/x-www-form-urlencoded'}});
         return redirect(`/blog`)
     } catch (err) {
         console.log(err);

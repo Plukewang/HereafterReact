@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "../../styles/Page.module.css";
-import storiesStyle from "../../styles/Stories.module.css"
-import Story from "../Page/Story";
+import styles from "../../../styles/Page.module.css";
+import storiesStyle from "../../../styles/Stories.module.css"
+import Story from "./Story";
 import { Swiper, SwiperSlide} from 'swiper/react';
 import { Navigation, Pagination} from 'swiper/modules';
 import { useState, useRef, useCallback } from "react";
@@ -47,15 +47,23 @@ function Stories(){
             <div className={storiesStyle.carousel}> 
             
                 <button className="prev-arrow" onClick={handlePrev}> <img src = "../../icons/prev.png" alt = "previous button" width="40px"/> </button>
-                <Swiper style={{height: "300px", width: "85%", "--swiper-pagination-color": "#996de3", "--swiper-pagination-bullet-inactive-color": "#ffffff",}} ref={sliderRef}
+                <Swiper style={{height: "300px", width: "70%", "--swiper-pagination-color": "#996de3", "--swiper-pagination-bullet-inactive-color": "#ffffff",}} ref={sliderRef}
                         // install Swiper modules
                         //PLACEHOLDER IMAGES. REPLACE WITH LINKS
                     modules={[Navigation, Pagination]}
                     spaceBetween={100}
                     slidesPerView={4}
+                    breakpoints={{
+                        300:{
+                            spaceBetween:0,
+                            slidesPerView:2,
+                        },
+                        800:{
+                            spaceBetween:100,
+                            slidesPerView:4,
+                        },
+                    }}
                     pagination={{ clickable: true }}
-                    onSwiper={(swiper) => console.log(swiper)}
-                    onSlideChange={() => console.log('slide change')}
                     loop
                     >
                     <SwiperSlide onClick={handleClick}><img src= "../../color_icons/Depth.png" alt = "1" height="200px" /><p style={{textAlign:"center"}}></p></SwiperSlide>

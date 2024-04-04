@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import styles from "../../../styles/PlayerDisplay/DisplayHealthbar.module.css"
+import styles from "../../../../styles/PlayerDisplay/DisplayHealthbar.module.css"
 
 
 function DisplayHealthBar(props){

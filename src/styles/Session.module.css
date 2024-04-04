@@ -1,6 +1,45 @@
+.answerForm {
+  background-color: #381925;
+  border: 2px solid #381925;
+  border-radius: 8px;
+}
+.answerForm * {
+  margin: 10px;
+}
+.answerForm .answerInput {
+  background-color: #381925;
+  border: 2px solid #bd3265;
+  border-radius: 8px;
+  color: white;
+}
+.answerForm .answerInput:focus {
+  outline: 2px solid #53bee9;
+}
+.answerForm .answerButton {
+  background-color: #381925;
+  border: 2px solid #381925;
+  border-radius: 8px;
+  margin: 10px;
+  font-size: 16px;
+}
+.answerForm .answerButton:hover {
+  color: white;
+  background-color: #bd3265;
+  border: 2px solid #bd3265;
+  border-radius: 8px;
+  margin: 10px;
+}
+
 .container {
   background-color: #381925;
   width: 1000px;
   height: 600px;
   margin: 100px;
+  border-radius: 8px;
+}
+@media (max-width: 800px) {
+  .container {
+    width: 90%;
+    margin: 5%;
+  }
 }

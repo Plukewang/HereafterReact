@@ -1,5 +1,5 @@
 import React from "react";
-import BlogFormStyle from "../../../styles/Forms/BlogForm.module.css";
+import BlogFormStyle from '../../../../styles/Forms/BlogForm.module.css';
 import {Form, useLoaderData, redirect} from "react-router-dom";
 import axios from "axios";
 
@@ -12,7 +12,7 @@ export async function action({request}){
         if(add.cancel){
             return redirect(`/blog`);
         }
-        const finalFormEndpoint = "http://localhost:8080/blog/post";
+        const finalFormEndpoint = "https://hereafterproject.onrender.com/blog/post";
         const result = await axios.post(finalFormEndpoint, add, {headers: {'content-type': 'application/x-www-form-urlencoded'}});
         return redirect('/blog')
     }catch(err){

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import styles from '../../../styles/PlayerDisplay/DisplayWindow.module.css';
+import styles from '../../../../styles/PlayerDisplay/DisplayWindow.module.css';
 import DisplayHealthBar from "./DisplayHealthBar";
 import DisplayFocusBar from "./DisplayFocusBar";
 import DisplayStatCheck from "./DisplayStatCheck";
@@ -25,8 +25,8 @@ function DisplayWindow(props){//currently placeholder display window
 
     const colorSrcs = [
     "../../element_icons/font.png",
-    "../../element_icons/flame.png",
-    "../../color_icons/Agility.png",
+    "../../element_icons/maelstrom.png",
+    "../../element_icons/ray.png",
     "../../element_icons/still.png",
     "../../color_icons/Precision.png",
     "../../color_icons/Level.png",
