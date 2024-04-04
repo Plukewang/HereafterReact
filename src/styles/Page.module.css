@@ -185,6 +185,7 @@ ul{
 
 
 .background{
+    min-height: 1200px;
     background-color: #161315;
 
     display: flex;
