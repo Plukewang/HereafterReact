@@ -43,6 +43,7 @@ button:hover{
   flex-direction: column;
   background-color: #161315;
   overflow: hidden;
+  
 }
 .cover{
   width: 100%;
@@ -163,7 +164,8 @@ main body
   font-size: 16px;
   color: black;
   background-color: #161315 ;
-  margin: 0;
+  min-height: 1200px;
+  overflow: scroll;
 }
 /*Card stuff  
 */

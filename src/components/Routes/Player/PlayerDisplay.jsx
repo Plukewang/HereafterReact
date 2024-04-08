@@ -22,6 +22,8 @@ function PlayerPage(){
             try {
                 const result = await axios.get("https://hereafterproject.onrender.com/players") ;
                 setPlayers(result.data);
+                
+                
             } catch (err) {
                 console.error(err);
             }
@@ -33,14 +35,14 @@ function PlayerPage(){
     useEffect(()=>{
         if(players[0]){
             setActiveButtons(Array(players.length).fill({active: styles.playerButton}).map((x,i)=>{
-   
+                
                 if(i==activePlayer){
                     return {active: styles.activePlayerButton};
                 }
                 else return {active: styles.playerButton};
             }));
         }
-    },[activePlayer])
+    },[activePlayer, players])
 
     return (
         <div className = {styles.background}>

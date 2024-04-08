@@ -24,9 +24,9 @@ const SessionManager = ()=>{
 
         try{    
             
-            const result = await axios.post(finalFormEndpoint, data, {headers: {'content-type': 'application/x-www-form-urlencoded'}});      
+            const result = await axios.post(finalFormEndpoint, data, {headers: {'content-type': 'application/x-www-form-urlencoded'}, withCredentials: true});      
             setSession(result.data);
-            console.log(result.data)
+            //console.log(result.data)
 
             let token = result.data;
 
@@ -48,15 +48,17 @@ const SessionManager = ()=>{
     return (
         <div className={styles.background}>
             <h1>Does The Black Moon Howl?</h1>
-            <form className={sess.answerForm} onSubmit={handleSubmit} action = "https://hereafterproject.onrender.com/session" method="post">
+            <h2>For the GM</h2>
+            <form className={sess.answerForm} onSubmit={handleSubmit} action = "http://localhost:8080/session" method="post">
                 <input className={sess.answerInput} name = "password" type="text" autoFocus={true} autoComplete="off"/>
                 <input name = "username" type="hidden" value="the one"/>
                 <button className={sess.answerButton} type="submit">Answer</button>
             </form>
             {
-                localStorage.getItem('user-token') && <div className={sess.container}>
-                <h1>{session.message}</h1>
-            </div>
+                localStorage.getItem('user-token') ? <div className={sess.container}>
+                    <h1>Welcome.</h1>
+                    <h2>New functionalities are now available.</h2>
+                </div> : <h1>Unauthorized.</h1>
             }
             
             

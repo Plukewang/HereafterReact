@@ -6,6 +6,11 @@ import DisplayFocusBar from "./DisplayFocusBar";
 import DisplayStatCheck from "./DisplayStatCheck";
 import DisplayDiceRoll from "./DisplayDiceRoll";
 import DisplayEffectsTracker from "./DisplayEffectsTracker";
+import DisplayTraitsList from "./DisplayTraitsList";
+import DisplayInventory from "./DisplayInventory";
+import Loading from "../../Loading";
+
+import { List, Collapse } from "@mui/material";
 
 function DisplayWindow(props){//currently placeholder display window
     //takes player object and turns its stats into an array (stats are 3 lettered objects always)
@@ -13,7 +18,7 @@ function DisplayWindow(props){//currently placeholder display window
     const [colorBtns, setColorBtns] = useState([]);
     const [check, setCheck] = useState([0, ""]);
     const [health, setHealth] = useState(5);
-
+ 
     const iconsSrcs = [
     "../../color_icons/Depth.png",
     "../../color_icons/Instinct.png",
@@ -28,9 +33,9 @@ function DisplayWindow(props){//currently placeholder display window
     "../../element_icons/orange.png",
     "../../element_icons/yellow.png",
     "../../element_icons/green.png",
-    "../../color_icons/Precision.png",
-    "../../color_icons/Level.png",
-    "../../color_icons/Intelligence.png"
+    "../../element_icons/blue.png",
+    "../../element_icons/indigo.png",
+    "../../element_icons/purple.png"
     ];
 
     const colorList = [
@@ -58,6 +63,9 @@ function DisplayWindow(props){//currently placeholder display window
                 return x[0] === 'phy';
             });
             setHealth(h[0][1])
+            
+
+
         }
         let stats = temp.slice(0,7); //1st half physical stats
         let colors = temp.slice(7);//2nd half color affinities
@@ -65,8 +73,10 @@ function DisplayWindow(props){//currently placeholder display window
         setCheckBtns(stats);
         setColorBtns(colors);
 
-
+        
+        
     },[props.player]);
+
 
     function handleSubmit(e){
         e.preventDefault();
@@ -81,7 +91,9 @@ function DisplayWindow(props){//currently placeholder display window
         <div className={styles.displayContainer}>
 
             <div className={styles.displayPortrait}>
-                <img src = "../../color_icons/Agility.png" className={styles.displayPortraitIMG} alt = "placeholder" />
+                <img src = {props.player && props.player.player_img} className={styles.displayPortraitIMG}
+                 alt = "player card" 
+                 style={{border: `2px solid #bd3366`, borderRadius: 8}}/>
                 <div className={styles.displayPortraitIcon}>
 
                 </div>    
@@ -99,7 +111,7 @@ function DisplayWindow(props){//currently placeholder display window
                     {
                         //TODO: add new icon images for the elements. What the hell are the types doing there? Check on that.
                     }
-                    {checkBtns.map((stat, i)=>{
+                    {checkBtns.length=== 0 ? <Loading/> :checkBtns.map((stat, i)=>{
                         return <DisplayStatCheck key = {i} name = {stat[0]} value = {stat[1]} source = {stat[2]} background = {colorList[i]} type = "diamond" click={handleSubmit}/>
                     })}
                     <div style={{flexBasis: "100%", height: "0"}}></div>
@@ -110,9 +122,12 @@ function DisplayWindow(props){//currently placeholder display window
                 {
                     //this dice roll needs work on animations.
                 }
-                <DisplayDiceRoll roll = {check[0]} name = {check[1]}/>
+                {checkBtns.length>0&&<DisplayDiceRoll roll = {check[0]} name = {check[1]}/>}
                 <DisplayEffectsTracker/>
             </div>
+            
+            <DisplayTraitsList/>
+            <DisplayInventory/>
         </div>
 
     )
