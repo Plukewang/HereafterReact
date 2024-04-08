@@ -91,6 +91,7 @@ function DisplayWindow(props){//currently placeholder display window
         <div className={styles.displayContainer}>
 
             <div className={styles.displayPortrait}>
+                <h2>{props.player && props.player.player_name}</h2>
                 <img src = {props.player && props.player.player_img} className={styles.displayPortraitIMG}
                  alt = "player card" 
                  style={{border: `2px solid #bd3366`, borderRadius: 8}}/>

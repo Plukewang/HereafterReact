@@ -15,6 +15,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { useWindowSize } from "@uidotdev/usehooks";
 import { useNavigation } from 'react-router-dom';
 import Loading from "./Routes/Loading";
+
 function Nav(){
     let nav = useNavigation();
     //for mobile sidebar

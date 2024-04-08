@@ -19,6 +19,13 @@ br{
         width: 90%;
     }
 
+    img{
+        &:hover{
+            filter: saturate(3.5);
+            transition: all 1s;
+        }
+    }
+
 }
 .carousel button{
     background:none;
@@ -29,6 +36,8 @@ br{
     background-color: $purple;
     border-radius: 8px;
     font-size: 2rem;
+
+    
 }
 
 @media(max-width: 800px){

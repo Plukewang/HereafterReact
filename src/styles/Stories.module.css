@@ -15,6 +15,10 @@ br {
     width: 90%;
   }
 }
+.carousel img:hover {
+  filter: saturate(3.5);
+  transition: all 1s;
+}
 
 .carousel button {
   background: none;

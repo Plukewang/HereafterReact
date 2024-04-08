@@ -66,13 +66,46 @@ function Stories(){
                     pagination={{ clickable: true }}
                     loop
                     >
-                    <SwiperSlide onClick={handleClick}><img src= "../../color_icons/Depth.png" alt = "1" height="200px" /><p style={{textAlign:"center"}}></p></SwiperSlide>
-                    <SwiperSlide onClick={handleClick}><img src= "../../color_icons/Instinct.png" alt = "2" height="200px"/><p style={{textAlign:"center"}}></p></SwiperSlide>
-                    <SwiperSlide onClick={handleClick}><img src= "../../color_icons/Agility.png" alt = "3" height="200px"/><p style={{textAlign:"center"}}></p></SwiperSlide>
-                    <SwiperSlide onClick={handleClick}><img src= "../../color_icons/Physique.png" alt = "4" height="200px"/><p style={{textAlign:"center"}}>A World of Two Artists</p></SwiperSlide>
-                    <SwiperSlide onClick={handleClick}><img src= "../../color_icons/Precision.png" alt = "5" height="200px"/><p style={{textAlign:"center"}}></p></SwiperSlide>
-                    <SwiperSlide onClick={handleClick}><img src= "../../color_icons/Level.png" alt = "6" height="200px"/><p style={{textAlign:"center"}}></p></SwiperSlide>
-                    <SwiperSlide onClick={handleClick}><img src= "../../color_icons/Intelligence.png" alt = "7" height="200px"/><p style={{textAlign:"center"}}></p></SwiperSlide>
+                    <SwiperSlide onClick={handleClick}><img src= "../../color_icons/Depth.png" alt = "1" height="200px" />
+                        <p style={{textAlign:"center"}}>
+                            A World of Two Artists
+                        </p>
+                    </SwiperSlide>
+
+                    <SwiperSlide onClick={handleClick}><img src= "../../color_icons/Instinct.png" alt = "2" height="200px"/>
+                        <p style={{textAlign:"center"}}>
+                            Outer Heaven: I
+                        </p>
+                    </SwiperSlide>
+                    <SwiperSlide onClick={handleClick}><img src= "../../color_icons/Agility.png" alt = "3" height="200px"/>
+                        <p style={{textAlign:"center"}}>
+                            Outer Heaven: II
+                        </p>
+                    </SwiperSlide>
+
+                    <SwiperSlide onClick={handleClick}><img src= "../../color_icons/Physique.png" alt = "4" height="200px"/>
+                        <p style={{textAlign:"center"}}>
+                            Outer Heaven: III
+                        </p>
+                    </SwiperSlide>
+
+                    <SwiperSlide onClick={handleClick}><img src= "../../color_icons/Precision.png" alt = "5" height="200px"/>
+                        <p style={{textAlign:"center"}}>
+
+                        </p>
+                    </SwiperSlide>
+                    <SwiperSlide onClick={handleClick}>
+                        <img src= "../../color_icons/Level.png" alt = "6" height="200px"/>
+                        <p style={{textAlign:"center"}}>
+
+                        </p>
+                    </SwiperSlide>
+
+                    <SwiperSlide onClick={handleClick}><img src= "../../color_icons/Intelligence.png" alt = "7" height="200px"/>
+                        <p style={{textAlign:"center"}}>
+
+                        </p>
+                    </SwiperSlide>
                 </Swiper>
                 <br/>
                 
