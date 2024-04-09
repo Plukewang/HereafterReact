@@ -7,7 +7,7 @@ import { createBrowserRouter,RouterProvider } from 'react-router-dom';
 
 //import main pages.
 import Blog from './components/Routes/Blog/Blog';
-import PlayerPage from './components/Routes/Player/PlayerDisplay';
+import PlayerPage, { playerLoader } from './components/Routes/Player/PlayerDisplay';
 import Compendium from './components/Routes/Compendium/Compendium';
 import SessionManager from './components/Routes/Session';
 import ContactMe from './components/Routes/ContactMe';
@@ -27,9 +27,11 @@ import AddPost from './components/Routes/Blog/BlogPost/BlogAdd';
 import { compendiumLoader } from './components/Routes/Compendium/Compendium';
 import { loader as cardLoader } from './components/Routes/Compendium/Card/Card';
 import Card from './components/Routes/Compendium/Card/Card';
-
-
-
+//player page routes and actions
+import DisplayInventory from './components/Routes/Player/PlayerDisplayWindow/DisplayInventory';
+import DisplayWindow from './components/Routes/Player/PlayerDisplayWindow/DisplayWindow';
+import { loader as windowLoader } from './components/Routes/Player/PlayerDisplayWindow/DisplayWindow';
+import { Navigate } from 'react-router-dom';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -40,13 +42,13 @@ const router = createBrowserRouter([
       path: "/",
       element: <Home />
     },
-    {
+    { //for the blogs
       path: "/blog",
       element: <Blog />,
       loader: blogLoader,
       action: addBlogAction,
       children: [
-        {
+        {//loads an individual blog for edit/delete
           path: ":blogid",
           element: <BlogPostTest />,
           loader: postLoader,
@@ -63,7 +65,7 @@ const router = createBrowserRouter([
           loader: postLoader,
           action: blogDeleteAction,
         },
-        {
+        {//for adding a new blog post
           path: "add",
           element: <AddPost />,
           action: blogAddAction,
@@ -71,9 +73,20 @@ const router = createBrowserRouter([
 
       ]
     },
-    {
+    {//shows general player page
       path: "/players",
-      element: <PlayerPage />
+      element: <PlayerPage />,
+      loader: playerLoader,
+      children: [
+
+        //loading individual player's stuff
+        { index: true, element: <Navigate to="/players/player/1" replace />},
+        {
+          path: "player/:playerid",
+          element: <DisplayWindow/>,
+          loader: windowLoader,
+        },
+      ],
     },
     {
       path: "/compendium",

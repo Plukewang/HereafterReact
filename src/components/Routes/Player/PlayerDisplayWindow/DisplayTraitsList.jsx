@@ -1,6 +1,16 @@
 import { useState } from "react";
 import styles from '../../../../styles/PlayerDisplay/DisplayWindow.module.css';
 import { List, Collapse } from "@mui/material";
+import { useLoaderData } from "react-router-dom";
+
+export async function itemsLoader({params}){
+    try {
+        const result = await axios.get(`http://localhost:8080/player/items/${params.playerid}`) ;
+        return result.data;
+    } catch (err) {
+        console.error(err);
+    }
+}
 
 export default function DisplayTraitsList(props){
     const [open, setOpen] = useState(0);
@@ -8,6 +18,8 @@ export default function DisplayTraitsList(props){
     const handleTraitClick = (e)=>{
         setOpen(e.target.value);
     }
+
+    const traits = useLoaderData();
     return (
         <div className={styles.displayPortrait}>
             

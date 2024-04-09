@@ -1,0 +1,38 @@
+$light-color: #ebe8ea;
+$dark-color: black;
+$highlight: #381925;
+$accent: #bd3265;
+$purple: #996de3;
+$black: #161315;
+$blue: #233540;
+$outline: #53bee9;
+
+.itemIcon{
+    width: 80px;
+    height: 80px;
+    background-color:#161315;
+    margin: 2px;
+    border-radius: 8px;
+    overflow: hidden;
+
+    img{
+        width: 80px;
+        height: 80px;
+        background-color:#161315;   
+        border-radius: 8px;
+        margin: 2px;
+
+    }
+}
+
+.itemHover{
+    font-size: 12px;
+
+    h2{
+        font-size: 12px;
+    }
+    p{
+        font-size: 12px;
+    }
+
+}

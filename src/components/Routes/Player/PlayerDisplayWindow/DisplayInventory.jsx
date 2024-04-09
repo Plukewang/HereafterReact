@@ -2,9 +2,15 @@ import { useState } from "react";
 import { Tooltip } from "@mui/material";
 import {List, ListItem} from "@mui/material";
 import styles from "../../../../styles/PlayerDisplay/DisplayWindow.module.css";
+import inventoryStyle from "../../../../styles/PlayerDisplay/DisplayInventory.module.css"
+import { useLoaderData } from "react-router-dom";
+import axios from "axios";
+
 
 export default function DisplayInventory(props){
     const items = Array(30).fill("");
+
+    const inventory = props.inv;
 
     return(
         <div className={styles.displayMain} style={{
@@ -22,11 +28,35 @@ export default function DisplayInventory(props){
                 overflow: 'auto',
                 scrollbarColor: '#ffffff #381925',
                 }}>
-                {items.map(x=>{
-                    return <div style={{width: '80px', height: '80px', backgroundColor:'#161315', margin: 2, borderRadius: 8}}>
-                                <p>{x}</p>
-                           </div>
-                })}
+
+                    {
+                        inventory.map((x)=>{
+                            return <div className={inventoryStyle.itemIcon} key = {x.item_id}>
+                                    <Tooltip title={
+                                        <div className={inventoryStyle.itemHover}>
+                                            <h2>
+                                                {x.item_name}
+                                            </h2>
+                                            <p>
+                                                {x.item_description}
+                                            </p>
+                                            <p>
+                                                {x.perk_1.split('|')[0]==='n/a'? '': x.perk_1.split('|')[0]}
+                                            </p>
+                                            <p>
+                                                {x.perk_2.split('|')[0]==='n/a'? '': x.perk_2.split('|')[0]}
+                                            </p>
+                                            <p>
+                                                {x.perk_3.split('|')[0]==='n/a'? '': x.perk_3.split('|')[0]}
+                                            </p>
+                                        </div>
+                                        }>
+                                        <img src={x.item_icon} />
+                                    </Tooltip>  
+                                    </div>
+                        })
+                    }
+                
             </List>
 
         </div>

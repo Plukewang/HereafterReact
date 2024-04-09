@@ -9,8 +9,19 @@ import DisplayEffectsTracker from "./DisplayEffectsTracker";
 import DisplayTraitsList from "./DisplayTraitsList";
 import DisplayInventory from "./DisplayInventory";
 import Loading from "../../Loading";
+import {Link, Outlet} from 'react-router-dom';
+import { useLoaderData } from "react-router-dom";
+import axios from "axios";
+import { List, Collapse, Tooltip} from "@mui/material";
 
-import { List, Collapse } from "@mui/material";
+export async function loader({params}){
+    try {
+        const result = await axios.get(`http://localhost:8080/player/${params.playerid}`) ;
+        return result.data;
+    } catch (err) {
+        console.error(err);
+    }
+}
 
 function DisplayWindow(props){//currently placeholder display window
     //takes player object and turns its stats into an array (stats are 3 lettered objects always)
@@ -18,6 +29,8 @@ function DisplayWindow(props){//currently placeholder display window
     const [colorBtns, setColorBtns] = useState([]);
     const [check, setCheck] = useState([0, ""]);
     const [health, setHealth] = useState(5);
+    //0 are stats, 1 are the items [0][0] for the player's stats. [1] for the player's items.
+    const player = useLoaderData()[0][0];
  
     const iconsSrcs = [
     "../../color_icons/Depth.png",
@@ -47,12 +60,14 @@ function DisplayWindow(props){//currently placeholder display window
         "#2905b4",
         "#8617ba",
     ]
+
+
     //for properly loading async sql retrieval
     useEffect(()=>{
         let temp = [];
         let h = health;
-        if(props.player){
-            temp = Object.entries(props.player).filter(x=>{
+        if(player){
+            temp = Object.entries(player).filter(x=>{
                 return x[0].length===3;
             });
             temp.map((x,i)=>{
@@ -75,7 +90,7 @@ function DisplayWindow(props){//currently placeholder display window
 
         
         
-    },[props.player]);
+    },[player]);
 
 
     function handleSubmit(e){
@@ -91,8 +106,8 @@ function DisplayWindow(props){//currently placeholder display window
         <div className={styles.displayContainer}>
 
             <div className={styles.displayPortrait}>
-                <h2>{props.player && props.player.player_name}</h2>
-                <img src = {props.player && props.player.player_img} className={styles.displayPortraitIMG}
+                <h2>{player && player.player_name}</h2>
+                <img src = {player && player.player_img} className={styles.displayPortraitIMG}
                  alt = "player card" 
                  style={{border: `2px solid #bd3366`, borderRadius: 8}}/>
                 <div className={styles.displayPortraitIcon}>
@@ -128,7 +143,10 @@ function DisplayWindow(props){//currently placeholder display window
             </div>
             
             <DisplayTraitsList/>
-            <DisplayInventory/>
+            <DisplayInventory inv = {useLoaderData()[1]}/>
+            
+            
+
         </div>
 
     )
