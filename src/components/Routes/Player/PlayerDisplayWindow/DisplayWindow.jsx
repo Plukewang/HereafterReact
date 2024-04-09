@@ -16,7 +16,7 @@ import { List, Collapse, Tooltip} from "@mui/material";
 
 export async function loader({params}){
     try {
-        const result = await axios.get(`http://localhost:8080/player/${params.playerid}`) ;
+        const result = await axios.get(`https://hereafterproject.onrender.com/player/${params.playerid}`) ;
         return result.data;
     } catch (err) {
         console.error(err);
