@@ -23,3 +23,22 @@
 .itemHover p {
   font-size: 12px;
 }
+
+.trait {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.trait * {
+  width: 120px;
+  border-radius: 8px;
+}
+.trait li {
+  border: 1px solid #bd3265;
+  border-radius: 8px;
+  text-align: center;
+  margin: 2px;
+}
+.trait li p {
+  margin: 2px;
+}

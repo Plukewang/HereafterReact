@@ -32,8 +32,8 @@ export default function DisplayInventory(props){
                     {
                         inventory.map((x)=>{
                             return <div className={inventoryStyle.itemIcon} key = {x.item_id}>
-                                    <Tooltip title={
-                                        <div className={inventoryStyle.itemHover}>
+                                    <Tooltip  title={
+                                        <div className={inventoryStyle.itemHover} >
                                             <h2>
                                                 {x.item_name}
                                             </h2>
@@ -50,7 +50,7 @@ export default function DisplayInventory(props){
                                                 {x.perk_3.split('|')[0]==='n/a'? '': x.perk_3.split('|')[0]}
                                             </p>
                                         </div>
-                                        }>
+                                        } >
                                         <img src={x.item_icon} />
                                     </Tooltip>  
                                     </div>
