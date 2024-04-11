@@ -8,11 +8,15 @@ import DisplayDiceRoll from "./DisplayDiceRoll";
 import DisplayEffectsTracker from "./DisplayEffectsTracker";
 import DisplayTraitsList from "./DisplayTraitsList";
 import DisplayInventory from "./DisplayInventory";
+import DisplaySkills from "./DisplaySkills";
 import Loading from "../../Loading";
+
+
 import {Link, Outlet} from 'react-router-dom';
 import { useLoaderData } from "react-router-dom";
 import axios from "axios";
 import { List, Collapse, Tooltip} from "@mui/material";
+
 
 export async function loader({params}){
     try {
@@ -143,11 +147,22 @@ function DisplayWindow(props){//currently placeholder display window
             </div>
             
             <DisplayTraitsList traits = {useLoaderData()[2]}/>
-            <DisplayInventory inv = {useLoaderData()[1]}/>
-            
-            
 
+            <DisplayInventory inv = {useLoaderData()[1]}/>
+
+            <div className={styles.displayPortrait}></div>
+
+            <div className={styles.displayMain}
+            style={{
+            backgroundColor: '#381925',
+            width: '59.5%',
+            margin: '10px',
+            border: '2px solid #381925',
+            borderRadius: '8px'}}>
+                <DisplaySkills skills = {useLoaderData()[3]}/>
+            </div>
         </div>
+        
 
     )
 }

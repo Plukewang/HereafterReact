@@ -2,8 +2,10 @@ import React from "react";
 import CardHeader from "./CardHeader";
 import CardDescription from "./CardDescription";
 import CardArt from "./CardArt";
-import {Form, useLoaderData, Outlet, Link, redirect} from "react-router-dom";
+import {Form, useLoaderData} from "react-router-dom";
 import axios from "axios";
+import inventoryStyle from "../../../../styles/PlayerDisplay/DisplayInventory.module.css";
+import { Tooltip } from "@mui/material";
 
 export async function loader({params}){
     try {
@@ -17,14 +19,23 @@ export async function loader({params}){
 
 
 function Card(props){
-    const card = useLoaderData();
+    
     //TODO: Get props in here to make it not a placeholder for the children.
     return (
-        <div className="card" id={card.id}>
-            <CardHeader title = {card.skill_name || props.skillName} skillType = {card.skill_type || props.skillType} skillCost = {card.skill_cost}/>
+        <Tooltip title={
+            <div className={inventoryStyle.itemHover} >
+                <CardHeader title = {props.skillName} skillType = {props.skillType} skillCost = {props.skillCost}/>
+                <CardArt />
+                <CardDescription skillType={props.skillType} skillDescription = {props.skillDescription}/>
+            </div>
+            } >
+            <div className="card" id={props.identifier}>
+            <CardHeader title = {props.skillName } skillType = {props.skillType} skillCost = {props.skillCost}/>
             <CardArt />
-            <CardDescription skillType={card.skill_type} skillDescription = {card.skill_description || props.skillDescription}/>
-        </div> )
+            
+        </div>
+        </Tooltip>
+         )
     
 }
 

@@ -48,7 +48,7 @@ export default function DisplayTraitsList(props){
         <div className={styles.displayPortrait}>
             
                 <List sx={{width: '150px', display: "flex", flexDirection: 'column'}}>
-                    <button className={open=='0' && styles.active} 
+                    <button className={open=='0'? styles.active: ''} 
                         type = "submit" 
                         name = "Intrinsic Traits" 
                         value = "0" 
@@ -82,7 +82,7 @@ export default function DisplayTraitsList(props){
                             </ul>
                         </Collapse>
                     <button 
-                    className={open=='1' && styles.active}
+                    className={open=='1'? styles.active: ''}
                         type = "submit"
                         name = "Extrinsic Traits" 
                         value = "1" 
@@ -117,7 +117,7 @@ export default function DisplayTraitsList(props){
                             </ul>
                         </Collapse>
                     <button
-                        className={open=='2' && styles.active}
+                        className={open=='2'? styles.active: ''}
                         type = "submit"
                         name = "Special Traits"
                         value = "2"

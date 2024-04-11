@@ -1,7 +1,6 @@
 .compendiumContainer {
   display: flex;
   flex-wrap: wrap;
-  min-height: 1000px;
   width: 80%;
 }
 .compendiumContainer * {
@@ -9,10 +8,10 @@
   margin: 2%;
 }
 .compendiumContainer .compendiumDisplay {
-  width: 70%;
-  height: 1000px;
+  width: 75%;
   display: flex;
   flex-direction: column;
+  min-height: 600px;
 }
 @media (max-width: 800px) {
   .compendiumContainer .compendiumDisplay {
@@ -35,13 +34,12 @@
   flex-wrap: wrap;
   background-color: #381925;
   align-items: start;
-  height: 1000px;
 }
 .compendiumContainer .compendiumDisplay .compendiumCards .compendiumCard {
   width: 200px;
   height: 300px;
 }
-@media (max-width: 800px) {
+@media (max-width: 1200px) {
   .compendiumContainer .compendiumDisplay {
     width: 100%;
     height: 400px;

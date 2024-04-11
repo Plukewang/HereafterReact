@@ -93,11 +93,6 @@ const router = createBrowserRouter([
       element: <Compendium />,
       loader: compendiumLoader,
       children: [
-        {
-          path: ":cardId",
-          element: <Card />,
-          loader: cardLoader,
-        }
       ],
     },
     {

@@ -2,7 +2,7 @@ import React from "react";
 import {useState, useEffect} from "react";
 import page from "../../../styles/Page.module.css";
 import styles from "../../../styles/Compendium.module.css";
-import Card from "./Card/Card"; 
+import Card from "./Card/Card";
 import axios from "axios";
 import Fuse from "fuse.js";
 import {Form, useLoaderData, Outlet, Link, redirect} from "react-router-dom";
@@ -85,7 +85,7 @@ const Compendium = ()=>{
                     </div>
 
                     <div className={styles.compendiumCards}>
-                        <List style={{width: "100%", maxHeight: 1000, overflow: 'auto', justifyContent: "left"}}>
+                        <List style={{width: "100%", maxHeight: 1000, overflowY: 'auto', justifyContent: "left", flexWrap:'wrap'}}>
                             {//individual cards. Wonky way to get the clicks to work but it works. shrug.
                                 cards.map((card, i)=>{
                                 return <ListItem
@@ -93,8 +93,9 @@ const Compendium = ()=>{
                                  style={{
                                     width: 200, 
                                     height: 300,
-                                    padding: 0}}>
-                                    <Link to={`${card.id}`} className={styles.compendiumCard} key = {i} name ={i}>
+                                    padding: 0,
+                                    margin: 5}}>
+                                    
                                         <Card identifier = {i} 
                                             click = {handleClick} 
                                             skillType = {card.skill_type} 
@@ -102,17 +103,14 @@ const Compendium = ()=>{
                                             skillName = {card.skill_name}
                                             skillDescription = {card.skill_description}
                                         />
-                                    </Link>
+                                    
                                 </ListItem>
                         })}
                         </List>
                     </div>
                         
                 </div>
-                <div className={styles.compendiumSearch}>
-                    <Outlet />
-                    
-                </div>
+                
             </div>
             
         </div>

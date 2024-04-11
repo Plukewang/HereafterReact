@@ -2,7 +2,7 @@
   width: 80px;
   height: 80px;
   background-color: #161315;
-  margin: 2px;
+  margin: 5px;
   border-radius: 8px;
   overflow: hidden;
 }
@@ -11,11 +11,13 @@
   height: 80px;
   background-color: #161315;
   border-radius: 8px;
-  margin: 2px;
 }
 
 .itemHover {
   font-size: 12px;
+  background-color: #161315;
+  border: 2px solid #161315;
+  border-radius: 8px;
 }
 .itemHover h2 {
   font-size: 12px;
