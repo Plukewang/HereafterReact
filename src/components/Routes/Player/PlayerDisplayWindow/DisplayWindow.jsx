@@ -9,13 +9,13 @@ import DisplayEffectsTracker from "./DisplayEffectsTracker";
 import DisplayTraitsList from "./DisplayTraitsList";
 import DisplayInventory from "./DisplayInventory";
 import DisplaySkills from "./DisplaySkills";
+import DisplayAdvantage from "./DisplayAdvantage";
 import Loading from "../../Loading";
-
+import parseBonus from "../../../calc/ParseBonuses";
 
 import {Link, Outlet} from 'react-router-dom';
 import { useLoaderData } from "react-router-dom";
 import axios from "axios";
-import { List, Collapse, Tooltip} from "@mui/material";
 
 
 export async function loader({params}){
@@ -33,6 +33,7 @@ function DisplayWindow(props){//currently placeholder display window
     const [colorBtns, setColorBtns] = useState([]);
     const [check, setCheck] = useState([0, ""]);
     const [health, setHealth] = useState(5);
+    const [bonuses, setBonuses] = useState(new Map());
     //0 are stats, 1 are the items [0][0] for the player's stats. [1] for the player's items.
     const player = useLoaderData()[0][0];
  
@@ -99,10 +100,26 @@ function DisplayWindow(props){//currently placeholder display window
 
     function handleSubmit(e){
         e.preventDefault();
-        setCheck([Number(e.target["1"].value)+Math.floor(Math.random()*6),e.target["1"].name]);
+        let bon = bonuses.get(e.target['1'].name)? bonuses.get(e.target['1'].name) : 0;
+        setCheck([Number(e.target["1"].value)+Math.floor(Math.random()*6)+bon,e.target["1"].name]);
     }
 
+    const handleActiveTrait = (e) =>{
+        //console.log(parseBonus(e.target.id));
 
+        let bon = Object.entries(...parseBonus(e.target.id));
+        let hash = new Map(bonuses);
+
+        for(const bonus of bon){
+            if(hash.has(bonus[0])){
+                hash.set(bonus[0],hash.get(bonus[0])+bonus[1]);
+            }else{
+                hash.set(bonus[0],bonus[1]);
+            }
+        }
+        
+        setBonuses(hash);
+    }
     
   
     return(
@@ -115,8 +132,9 @@ function DisplayWindow(props){//currently placeholder display window
                  alt = "player card" 
                  style={{border: `2px solid #bd3366`, borderRadius: 8}}/>
                 <div className={styles.displayPortraitIcon}>
-
-                </div>    
+                <DisplayAdvantage/>
+                </div>
+                
             </div>
 
             <div className={styles.displayMain}>
@@ -132,21 +150,39 @@ function DisplayWindow(props){//currently placeholder display window
                         //TODO: add new icon images for the elements. What the hell are the types doing there? Check on that.
                     }
                     {checkBtns.length=== 0 ? <Loading/> :checkBtns.map((stat, i)=>{
-                        return <DisplayStatCheck key = {i} name = {stat[0]} value = {stat[1]} source = {stat[2]} background = {colorList[i]} type = "diamond" click={handleSubmit}/>
+                        return <DisplayStatCheck 
+                        key = {i} 
+                        name = {stat[0]} 
+                        value = {stat[1]} 
+                        source = {stat[2]} 
+                        background = {colorList[i]} 
+                        type = "diamond" 
+                        click={handleSubmit}
+                        bonus = { bonuses.has(stat[0]) ? bonuses.get(stat[0]) : '0'}
+                        />
                     })}
                     <div style={{flexBasis: "100%", height: "0"}}></div>
                     {colorBtns.map((stat,i)=>{
-                        return <DisplayStatCheck key = {i} name = {stat[0]} value = {stat[1]} source = {colorSrcs[i]} background = {colorList[i]} type = "circle" click={handleSubmit}/>
+                        return <DisplayStatCheck key = {i} 
+                            name = {stat[0]} 
+                            value = {stat[1]} 
+                            source = {colorSrcs[i]} 
+                            background = {colorList[i]} 
+                            type = "circle" 
+                            click={handleSubmit}
+                            bonus = { bonuses.has(stat[0]) ? bonuses.get(stat[0]) : '0'}    
+                            />
+                        
                     })}
                 </div>  
                 {
                     //this dice roll needs work on animations.
                 }
                 {checkBtns.length>0&&<DisplayDiceRoll roll = {check[0]} name = {check[1]}/>}
-                <DisplayEffectsTracker/>
+                <DisplayEffectsTracker bonuses = {bonuses}/>
             </div>
             
-            <DisplayTraitsList traits = {useLoaderData()[2]}/>
+            <DisplayTraitsList traits = {useLoaderData()[2]} click = {handleActiveTrait}/>
 
             <DisplayInventory inv = {useLoaderData()[1]}/>
 

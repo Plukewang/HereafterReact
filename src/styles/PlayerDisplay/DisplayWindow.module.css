@@ -48,6 +48,10 @@
     background: none;
     width:90%;
     height: 35%;
+    
+    img{
+        width: 40px;    
+    }
 }
 .displayMain{
     background: none;

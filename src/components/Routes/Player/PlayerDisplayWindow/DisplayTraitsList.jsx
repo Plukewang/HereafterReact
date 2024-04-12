@@ -2,7 +2,8 @@ import { useState } from "react";
 import styles from '../../../../styles/PlayerDisplay/DisplayWindow.module.css';
 import inventoryStyle from "../../../../styles/PlayerDisplay/DisplayInventory.module.css"
 import { List, Collapse, Tooltip } from "@mui/material";
-import { useLoaderData } from "react-router-dom";
+import parseBonus from "../../../calc/ParseBonuses";
+
 
 export async function itemsLoader({params}){
     try {
@@ -13,7 +14,7 @@ export async function itemsLoader({params}){
     }
 }
 
-function parseTraits(traits){
+const parseTraits = (traits)=>{
     const int = [];
     const ext = [];
     const spc = [];
@@ -35,8 +36,12 @@ function parseTraits(traits){
     return [int,ext,spc];
 }
 
+
+
+
 export default function DisplayTraitsList(props){
     const [open, setOpen] = useState(0);
+    const [activeTraits, setActiveTraits] = useState([]);
 
     const handleTraitClick = (e)=>{
         setOpen(e.target.value);
@@ -56,13 +61,14 @@ export default function DisplayTraitsList(props){
                         onClick={handleTraitClick}>
                         Intrinsic Traits
                     </button>
+
                         <Collapse in={open=='0'} sx={{width: '100%'}}>
                             <ul className={inventoryStyle.trait}>
                                 {//list traits with hoverable tooltips
                                     props.traits && int.map((x,i)=>{
                                         return <li key={i}><Tooltip 
                                         placement="right"
-                                        title = {
+                                        title = {//for the tooltip. 
                                             <div className={inventoryStyle.itemHover}>
                                                 <h2>
                                                     {x.trait_name}
@@ -75,7 +81,7 @@ export default function DisplayTraitsList(props){
                                                 </p>
                                             </div>
                                         }>
-                                            <p style={{fontSize: 16}}>{x.trait_name}</p>
+                                            <p id={x.trait_effect}  onClick = {props.click} style={{fontSize: 16}}>{x.trait_name}</p>
                                         </Tooltip></li>
                                     })
                                 }
@@ -110,7 +116,7 @@ export default function DisplayTraitsList(props){
                                                 </p>
                                             </div>
                                         } >
-                                            <p style={{fontSize: 16}}>{x.trait_name}</p>
+                                            <p id={x.trait_effect} onClick = {props.click}  style={{fontSize: 16}}>{x.trait_name}</p>
                                         </Tooltip></li>
                                     })
                                 }
@@ -144,7 +150,7 @@ export default function DisplayTraitsList(props){
                                                 </p>
                                             </div>
                                         }>
-                                            <p style={{fontSize: 16}}>{x.trait_name}</p>
+                                            <p id={x.trait_effect} onClick = {props.click}  style={{fontSize: 16}}>{x.trait_name}</p>
                                         </Tooltip></li>
                                     })
                                 }

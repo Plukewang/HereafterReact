@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import styles from "../../../../styles/PlayerDisplay/DisplayStatCheck.module.css"
-import { Tooltip } from "@mui/material";
+import { Tooltip, Badge } from "@mui/material";
 
 
 
@@ -20,7 +20,7 @@ function DisplayStatCheck(props){
             <form onSubmit={props.click} className={styles.statCheck}>
         
             <button onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} className={styles.statCheck} type = "submit" value={props.value} style = {{backgroundColor: hover}}>
-                <p >{props.value}</p>
+                <Badge badgeContent={props.bonus==0? '': props.bonus}><p >{props.value}</p></Badge>
                 <div className={styles.checkImg} style = {{backgroundColor: "#161315",}}>
                     <img src = {props.source} alt = {props.name}/>
                 </div>

@@ -65,7 +65,7 @@ function DisplayFocusBar(props){
             <button className = {styles.focusbtn} onClick={handleSubtract}><img src = "../../icons/prev.png" alt = "increase focus" width="20px"/></button>
         </div>
         
-        <svg  style={{height: "100%", width:"100px"}}>
+        <svg  style={{height: "150px", width:"150px", alignSelf:'center'}}>
             <defs>
                 <radialGradient  id="myGradient">
                 <stop offset="10%" stopColor="#ffffff"/>
@@ -87,7 +87,7 @@ function DisplayFocusBar(props){
             strokeDasharray={circ}
             strokeDashoffset={pct}
             />
-            <text x="46%" y="53%" fill = "#bdbdbd" style={{textAlign: "center"}}>{Math.round(pc/100*7)}</text>
+            <text x="47%" y="53%" fill = "#bdbdbd" style={{textAlign: "center"}}>{Math.round(pc/100*7)}</text>
         </svg>
         
         
