@@ -26,6 +26,18 @@ a .image{
     align-items: center;
     gap: 5px;
 }
+.link:hover{
+    opacity: 1;
+    height: 60px;
+    border: 2px solid #ffffff;
+    border-radius: 8px;
+    color: white;
+    background-color: #161315;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
 .hoveredlink{
     opacity: 1;
     height: 60px;
