@@ -28,7 +28,14 @@ function Card(props){
                 <CardArt />
                 <CardDescription skillType={props.skillType} skillDescription = {props.skillDescription}/>
             </div>
-            } >
+            }
+            slotProps={{
+                tooltip: {
+                    sx: {
+                        background: 'none',
+                    }
+                        }
+            }}>
             <div className="card" id={props.identifier}>
                 <CardHeader title = {props.skillName } skillType = {props.skillType} skillCost = {props.skillCost}/>
                 <CardArt />

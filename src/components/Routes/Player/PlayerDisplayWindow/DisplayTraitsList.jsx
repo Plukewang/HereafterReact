@@ -99,7 +99,14 @@ export default function DisplayTraitsList(props){
                                                     {x.trait_effect.split('|')[0]}
                                                 </p>
                                             </div>
-                                        }>
+                                        } 
+                                        slotProps={{
+                                            tooltip: {
+                                                sx: {
+                                                backgroundColor: '#161315'
+                                                }
+                                            }
+                                        }}>
                                             <p id={x.trait_effect}  onClick = {handleActiveClick} style={{fontSize: 16}}>{x.trait_name}</p>
                                         </Tooltip></li>
                                     })
@@ -134,7 +141,14 @@ export default function DisplayTraitsList(props){
                                                     {x.trait_effect.split('|')[0]}
                                                 </p>
                                             </div>
-                                        } >
+                                        } 
+                                        slotProps={{
+                                            tooltip: {
+                                                sx: {
+                                                backgroundColor: '#161315'
+                                                }
+                                            }
+                                        }}>
                                             <p id={x.trait_effect} onClick = {handleActiveClick}  style={{fontSize: 16}}>{x.trait_name}</p>
                                         </Tooltip></li>
                                     })
@@ -168,7 +182,14 @@ export default function DisplayTraitsList(props){
                                                     {x.trait_effect.split('|')[0]}
                                                 </p>
                                             </div>
-                                        }>
+                                        }
+                                        slotProps={{
+                                            tooltip: {
+                                                sx: {
+                                                backgroundColor: '#161315'
+                                                }
+                                            }
+                                        }}>
                                             <p id={x.trait_effect} onClick = {handleActiveClick}  style={{fontSize: 16}}>{x.trait_name}</p>
                                         </Tooltip></li>
                                     })

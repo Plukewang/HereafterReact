@@ -136,7 +136,6 @@ function DisplayWindow(props){//currently placeholder display window
     return(
         //TODO: Fix placeholder portraits.
         <div className={styles.displayContainer}>
-
             <div className={styles.displayPortrait}>
                 <h2>{player && player.player_name}</h2>
                 <img src = {player && player.player_img} className={styles.displayPortraitIMG}
@@ -187,7 +186,7 @@ function DisplayWindow(props){//currently placeholder display window
                     //this dice roll needs work on animations.
                 }
                 {checkBtns.length>0&&<DisplayDiceRoll roll = {check[0]} name = {check[1]}/>}
-                <DisplayEffectsTracker bonuses = {bonuses}/>
+                <DisplayEffectsTracker />
             </div>
             
             <DisplayTraitsList traits = {useLoaderData()[2]} click = {handleActiveTrait} clickAgain = {removeActiveTrait}/>

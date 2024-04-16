@@ -2,11 +2,17 @@ import { useLayoutEffect } from "react";
 import gsap from "gsap";
 export default function Loading(){
     useLayoutEffect(()=>{
+        gsap.from("#image", {
+            rotation: 0,
+            duration: 1,
+            repeat: -1, // -1 for infinite loop
+            ease: 'linear',
+          });
         gsap.to("#image", {
             rotation: 360,
-            duration: 2,
+            duration: 1,
             repeat: -1, // -1 for infinite loop
-            ease: "linear"
+            ease: 'linear',
           });
     },[]);
     

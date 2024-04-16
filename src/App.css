@@ -207,8 +207,7 @@ main body
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  z-index: 1;
-
+  align-items: center;
 }
 
 .cardArt img{
