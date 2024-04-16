@@ -105,7 +105,6 @@ function DisplayWindow(props){//currently placeholder display window
     }
 
     const handleActiveTrait = (e) =>{
-        //console.log(parseBonus(e.target.id));
 
         let bon = Object.entries(...parseBonus(e.target.id));
         let hash = new Map(bonuses);
@@ -120,7 +119,19 @@ function DisplayWindow(props){//currently placeholder display window
         
         setBonuses(hash);
     }
-    
+    const removeActiveTrait = (e) =>{
+
+        let bon = Object.entries(...parseBonus(e.target.id));
+        let hash = new Map(bonuses);
+
+        for(const bonus of bon){
+            if(hash.has(bonus[0])){
+                hash.set(bonus[0],hash.get(bonus[0])-bonus[1]);
+            }
+        }
+        
+        setBonuses(hash);
+    }
   
     return(
         //TODO: Fix placeholder portraits.
@@ -146,9 +157,6 @@ function DisplayWindow(props){//currently placeholder display window
                 <DisplayFocusBar focus = "1"/>
 
                 <div className={styles.statChecks}>
-                    {
-                        //TODO: add new icon images for the elements. What the hell are the types doing there? Check on that.
-                    }
                     {checkBtns.length=== 0 ? <Loading/> :checkBtns.map((stat, i)=>{
                         return <DisplayStatCheck 
                         key = {i} 
@@ -182,7 +190,7 @@ function DisplayWindow(props){//currently placeholder display window
                 <DisplayEffectsTracker bonuses = {bonuses}/>
             </div>
             
-            <DisplayTraitsList traits = {useLoaderData()[2]} click = {handleActiveTrait}/>
+            <DisplayTraitsList traits = {useLoaderData()[2]} click = {handleActiveTrait} clickAgain = {removeActiveTrait}/>
 
             <DisplayInventory inv = {useLoaderData()[1]}/>
 

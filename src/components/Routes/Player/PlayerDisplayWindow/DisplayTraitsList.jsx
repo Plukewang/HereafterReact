@@ -2,7 +2,7 @@ import { useState } from "react";
 import styles from '../../../../styles/PlayerDisplay/DisplayWindow.module.css';
 import inventoryStyle from "../../../../styles/PlayerDisplay/DisplayInventory.module.css"
 import { List, Collapse, Tooltip } from "@mui/material";
-import parseBonus from "../../../calc/ParseBonuses";
+
 
 
 export async function itemsLoader({params}){
@@ -41,10 +41,28 @@ const parseTraits = (traits)=>{
 
 export default function DisplayTraitsList(props){
     const [open, setOpen] = useState(0);
-    const [activeTraits, setActiveTraits] = useState([]);
+    const [activeTraits, setActiveTraits] = useState(new Set);
 
     const handleTraitClick = (e)=>{
         setOpen(e.target.value);
+    }
+
+    const handleActiveClick = (e) =>{
+        //console.log(e.target.innerHTML); 
+        let hash = new Set(activeTraits);
+        
+        if(activeTraits.has(e.target.textContent)){
+            hash.delete(e.target.textContent);
+            setActiveTraits(hash);
+            props.clickAgain(e);
+            
+        }else{
+            hash.add(e.target.textContent);
+            setActiveTraits(hash);
+            
+            props.click(e);
+        }
+        
     }
 
     const [int, ext,spc] = parseTraits(props.traits);
@@ -66,10 +84,11 @@ export default function DisplayTraitsList(props){
                             <ul className={inventoryStyle.trait}>
                                 {//list traits with hoverable tooltips
                                     props.traits && int.map((x,i)=>{
-                                        return <li key={i}><Tooltip 
+                                        return <li key={i} style={activeTraits.has(x.trait_name)?{border: '2px solid #53bee9'}:{}}>
+                                        <Tooltip 
                                         placement="right"
                                         title = {//for the tooltip. 
-                                            <div className={inventoryStyle.itemHover}>
+                                            <div className={inventoryStyle.itemHover} >
                                                 <h2>
                                                     {x.trait_name}
                                                 </h2>
@@ -81,7 +100,7 @@ export default function DisplayTraitsList(props){
                                                 </p>
                                             </div>
                                         }>
-                                            <p id={x.trait_effect}  onClick = {props.click} style={{fontSize: 16}}>{x.trait_name}</p>
+                                            <p id={x.trait_effect}  onClick = {handleActiveClick} style={{fontSize: 16}}>{x.trait_name}</p>
                                         </Tooltip></li>
                                     })
                                 }

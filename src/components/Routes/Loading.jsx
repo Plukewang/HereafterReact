@@ -1,12 +1,15 @@
-import gsap from "gsap"
-
+import { useLayoutEffect } from "react";
+import gsap from "gsap";
 export default function Loading(){
-    gsap.to("#image", {
-        rotation: 360,
-        duration: 2,
-        repeat: -1, // -1 for infinite loop
-        ease: "linear"
-      });
+    useLayoutEffect(()=>{
+        gsap.to("#image", {
+            rotation: 360,
+            duration: 2,
+            repeat: -1, // -1 for infinite loop
+            ease: "linear"
+          });
+    },[]);
+    
     
     return (
         <div style={{backgroundColor: "#161315", display: "flex", flexDirection: "column", alignItems: "center"}}>
