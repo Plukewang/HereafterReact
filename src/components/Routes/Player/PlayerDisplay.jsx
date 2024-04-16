@@ -2,7 +2,7 @@ import React from "react";
 import styles from "../../../styles/Page.module.css";
 import { useState, useEffect } from "react";
 import DisplayWindow from "./PlayerDisplayWindow/DisplayWindow";
-import { Link, Outlet, useLoaderData } from "react-router-dom";
+import { Link, Outlet, useLoaderData, NavLink } from "react-router-dom";
 import axios from "axios";
 
 export async function playerLoader(){
@@ -17,27 +17,16 @@ export async function playerLoader(){
 
 function PlayerPage(){
     const [activePlayer, setActivePlayer] = useState(0);
-    const [activeButtons, setActiveButtons] = useState([])
-    
 
     const players = useLoaderData();
 
     function handleChangePlayer(e){
+        console.log(e.target.name)
         setActivePlayer(e.target.name);
+        console.log(activePlayer)
     }
 
 
-    useEffect(()=>{
-        if(players[0]){
-            setActiveButtons(Array(players.length).fill({active: styles.playerButton}).map((x,i)=>{
-                
-                if(i==activePlayer){
-                    return {active: styles.activePlayerButton};
-                }
-                else return {active: styles.playerButton};
-            }));
-        }
-    },[activePlayer, players])
 
     return (
         <div className = {styles.background}>
@@ -45,15 +34,19 @@ function PlayerPage(){
             <h1>Player Pages</h1>       
             <div className={styles.changePlayerButtons}>
                 {players.map((player,i)=>{
-                    return <Link to={`player/${i+1}`} key = {i}>
+                    return <NavLink to={`player/${i+1}`} style={({ isActive, isPending, isTransitioning }) => {
+                        return {
+                        borderRadius: 8,
+                        backgroundColor: isActive ? "#996de3" : "#161315",
+                        };
+                    }}key = {i}>
                     <button  
-                        className={activeButtons[0]? activeButtons[i].active:styles.playerButton} 
+                        className={styles.playerButton} 
                         onClick={handleChangePlayer} 
                         name={i} 
-                        highlight = {activePlayer}
                     >
                         {player.player_name}
-                    </button></Link>
+                    </button></NavLink>
                 })}
             </div>
 

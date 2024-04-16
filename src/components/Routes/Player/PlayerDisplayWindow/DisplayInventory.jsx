@@ -27,12 +27,13 @@ export default function DisplayInventory(props){
                 maxHeight: 200,
                 overflow: 'auto',
                 scrollbarColor: '#ffffff #381925',
+                padding: 3,
                 }}>
 
                     {
                         inventory.map((x)=>{
                             return <div className={inventoryStyle.itemIcon} key = {x.item_id}>
-                                    <Tooltip  title={
+                                    <Tooltip title={
                                         <div className={inventoryStyle.itemHover} >
                                             <h2>
                                                 {x.item_name}
@@ -50,10 +51,23 @@ export default function DisplayInventory(props){
                                                 {x.perk_3.split('|')[0]==='n/a'? '': x.perk_3.split('|')[0]}
                                             </p>
                                         </div>
-                                        } >
+                                        }
+                                        slotProps={{
+                                            tooltip: {
+                                                sx: {
+                                                backgroundColor: '#161315'
+                                                }
+                                            }
+                                        }}>
                                         <img src={x.item_icon} />
                                     </Tooltip>  
                                     </div>
+                        })
+                    }
+
+                    {//fill out the rows in case there aren't that many items right now.
+                        Array(20-inventory.length).fill('').map(x=>{
+                            return <div className={inventoryStyle.itemIcon} key = {x.item_id}></div>
                         })
                     }
                 

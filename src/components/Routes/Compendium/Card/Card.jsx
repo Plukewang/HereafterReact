@@ -30,10 +30,9 @@ function Card(props){
             </div>
             } >
             <div className="card" id={props.identifier}>
-            <CardHeader title = {props.skillName } skillType = {props.skillType} skillCost = {props.skillCost}/>
-            <CardArt />
-            
-        </div>
+                <CardHeader title = {props.skillName } skillType = {props.skillType} skillCost = {props.skillCost}/>
+                <CardArt />
+             </div>
         </Tooltip>
          )
     

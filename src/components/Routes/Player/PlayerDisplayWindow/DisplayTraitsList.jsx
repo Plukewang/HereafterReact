@@ -119,7 +119,7 @@ export default function DisplayTraitsList(props){
                             <ul className={inventoryStyle.trait}>    
                                 {//list traits with hoverable tooltips
                                     props.traits && ext.map((x,i)=>{
-                                        return <li key={i}>
+                                        return <li key={i} style={activeTraits.has(x.trait_name)?{border: '2px solid #53bee9'}:{}}>
                                         <Tooltip 
                                             placement="right"
                                             title = {
@@ -135,7 +135,7 @@ export default function DisplayTraitsList(props){
                                                 </p>
                                             </div>
                                         } >
-                                            <p id={x.trait_effect} onClick = {props.click}  style={{fontSize: 16}}>{x.trait_name}</p>
+                                            <p id={x.trait_effect} onClick = {handleActiveClick}  style={{fontSize: 16}}>{x.trait_name}</p>
                                         </Tooltip></li>
                                     })
                                 }
@@ -154,7 +154,7 @@ export default function DisplayTraitsList(props){
                             <ul className={inventoryStyle.trait}>
                                 {//list traits with hoverable tooltips
                                     props.traits && spc.map((x,i)=>{
-                                        return <li key={i}><Tooltip 
+                                        return <li key={i} style={activeTraits.has(x.trait_name)?{border: '2px solid #53bee9'}:{}}><Tooltip 
                                         placement="right"
                                         title = {
                                             <div className={inventoryStyle.itemHover}>
@@ -169,7 +169,7 @@ export default function DisplayTraitsList(props){
                                                 </p>
                                             </div>
                                         }>
-                                            <p id={x.trait_effect} onClick = {props.click}  style={{fontSize: 16}}>{x.trait_name}</p>
+                                            <p id={x.trait_effect} onClick = {handleActiveClick}  style={{fontSize: 16}}>{x.trait_name}</p>
                                         </Tooltip></li>
                                     })
                                 }

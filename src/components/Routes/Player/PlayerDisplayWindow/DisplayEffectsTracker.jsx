@@ -1,11 +1,21 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "../../../../styles/PlayerDisplay/DisplayEffectsTracker.module.css";
-
+import axios from "axios";
 
 function DisplayEffectsTracker(){
     const [effects, setEffects] = useState([]);
     const [hoverEffect, setHoverEffect] = useState(0);
+    const [commonEffects, setCommonEffects] = useState([]);
+    //fetch the actual common effects.
+    useEffect(()=>{
+        const fetchEffects = async ()=>{
+            const result = await axios.get("https://hereafterproject.onrender.com/players/effects");
+            setCommonEffects(result.data) ;
+        }
+        fetchEffects();
+
+    },[]);
     //This is for deleting an effect.
     function handleClick(e){
         
@@ -37,11 +47,24 @@ function DisplayEffectsTracker(){
                         </div>
                     })
                 }
-                <form className= {styles.effectForm} onSubmit={handleSubmit}>
-                    <input name = "effectName"/>
-                    <textarea name = "effectDescription" placeholder="Effect Description here" autoComplete="off" ></textarea>
-                    <button type = "submit">Add Effect</button>
-                </form>
+                
+                    <form className= {styles.effectForm} onSubmit={handleSubmit}>
+                        <input name = "effectName"/>
+                        <textarea name = "effectDescription" placeholder="Effect Description here" autoComplete="off" ></textarea>
+                        <button type = "submit">Add Effect</button>
+                    </form>
+                    <div style={{display:"flex", width: '100%'}} >
+                    {
+                            commonEffects.length && commonEffects.map((x,i)=>{
+                                return <form className={styles.effectForm}  onSubmit={handleSubmit}>
+                                    <input type='hidden' name = "effectName" value = {x.name}/>
+                                    <input type='hidden' name = "effectDescription" value={x.description} />
+                                    <button type = "submit" style={{width: 100}}>{x.name}</button>
+                                </form>
+                            })
+                        }
+                </div>
+                
             </div>
             <div className={styles.effectsDescription} >
                 <p>
