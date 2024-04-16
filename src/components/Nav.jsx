@@ -80,8 +80,8 @@ function Nav(){
             </div>
             
             <div className="page">
-            {nav.state==='loading' && <Loading/>}
-                <Outlet />
+            {nav.state==='loading'?<Loading/>: <Outlet />}
+                
             </div>
             <Footer />
         </div>
