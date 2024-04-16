@@ -4,7 +4,7 @@ import Cover from './components/Cover';
 import Head from './components/Head';
 import Nav from './components/Nav';
 import Home from './components/Routes/Home';
-
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 function App() {
 
@@ -18,7 +18,7 @@ function App() {
           <Cover />
           <Head />
           <Nav /> 
-
+          <SpeedInsights/>
         </div>
 
     </div>
