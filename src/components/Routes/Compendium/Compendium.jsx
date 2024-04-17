@@ -24,8 +24,8 @@ export async function action({request, params}){
     const formData = await request.formData();
     const add = Object.fromEntries(formData);
     console.log(add);
-    //const finalFormEndpoint = "https://hereafterproject.onrender.com/blog/post";
-    const finalFormEndpoint = "http://localhost:8080/compendium/add";
+    const finalFormEndpoint = "https://hereafterproject.onrender.com/compendium/add";
+    //const finalFormEndpoint = "http://localhost:8080/compendium/add";
     try{
 
         const result = await axios.post(finalFormEndpoint, add, {headers: {'content-type': 'application/x-www-form-urlencoded'}});
