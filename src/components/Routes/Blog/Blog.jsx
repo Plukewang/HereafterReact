@@ -5,7 +5,7 @@ import blogStyle from "../../../styles/Blog.module.css";
 import { useNavigation } from "react-router-dom";
 import Loading from "../Loading";
 import axios from "axios";
-
+import auth from "../../calc/Auth";
 
 import {
     Outlet,
@@ -28,7 +28,7 @@ export async function action({request, params}){
         const formData = await request.formData();
         const add = Object.fromEntries(formData);
         const finalFormEndpoint = "https://hereafterproject.onrender.com/blog/post";
-
+        
         try{
 
             const result = await axios.post(finalFormEndpoint, add, {headers: {'content-type': 'application/x-www-form-urlencoded'}, withCredentials: true});
@@ -43,7 +43,7 @@ export async function action({request, params}){
 function Blog(){
     const nav = useNavigation();
     const posts = useLoaderData();
-    
+    const access = auth();
     return(
         <div className={styles.background}>
             <h1>{nav.state=="Loading" && <Loading/>}</h1>
@@ -56,7 +56,7 @@ function Blog(){
                     <li key={0}><Link to={localStorage.getItem('user-token')? `add` : ``}>{localStorage.getItem('user-token')?'Add Post':''}</Link></li>
                     {//map links to each blog post
                     
-                        localStorage.getItem('user-token') &&
+                        access &&
                         posts.map((post,i)=>{
                             return <li key = {post.id}>
                                 <Link to={`${post.id}`}>

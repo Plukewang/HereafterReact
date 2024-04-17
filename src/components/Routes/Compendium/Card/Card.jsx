@@ -25,7 +25,7 @@ function Card(props){
         <Tooltip title={
             <div className={inventoryStyle.itemHover} >
                 <CardHeader title = {props.skillName} skillType = {props.skillType} skillCost = {props.skillCost}/>
-                <CardArt />
+                <CardArt  icon = {props.skillIcon}/>
                 <CardDescription skillType={props.skillType} skillDescription = {props.skillDescription}/>
             </div>
             }
@@ -38,7 +38,7 @@ function Card(props){
             }}>
             <div className="card" id={props.identifier}>
                 <CardHeader title = {props.skillName } skillType = {props.skillType} skillCost = {props.skillCost}/>
-                <CardArt />
+                <CardArt icon = {props.skillIcon} />
              </div>
         </Tooltip>
          )

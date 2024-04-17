@@ -8,6 +8,8 @@ import Fuse from "fuse.js";
 import {Form, useLoaderData, Outlet, Link, redirect} from "react-router-dom";
 import List from "@mui/material/List";
 import  ListItem  from "@mui/material/ListItem";
+import CompendiumAdd from "./CompendiumAdd";
+import Auth from "../../calc/Auth";
 
 export async function compendiumLoader(){
     try {
@@ -18,6 +20,22 @@ export async function compendiumLoader(){
     }
 }
 
+export async function action({request, params}){
+    const formData = await request.formData();
+    const add = Object.fromEntries(formData);
+    console.log(add);
+    //const finalFormEndpoint = "https://hereafterproject.onrender.com/blog/post";
+    const finalFormEndpoint = "http://localhost:8080/compendium/add";
+    try{
+
+        const result = await axios.post(finalFormEndpoint, add, {headers: {'content-type': 'application/x-www-form-urlencoded'}});
+
+        return redirect('')
+    }catch(err){
+        console.error(err);
+    }
+    
+}
 
 const Compendium = ()=>{
     const compendium = useLoaderData();
@@ -66,7 +84,9 @@ const Compendium = ()=>{
             return x.item;
         }))
     },[search])
+
     
+    let access = Auth();
 
    
     return(
@@ -75,6 +95,9 @@ const Compendium = ()=>{
                 <h1>The Skills Compendium</h1>
                 <h2>Look up various skills, actions, and more!</h2>
             </div>
+
+            
+
             <div className={styles.compendiumContainer}>
                 
                 <div className={styles.compendiumDisplay}>
@@ -107,9 +130,21 @@ const Compendium = ()=>{
                                 </ListItem>
                         })}
                         </List>
+                    
+
                     </div>
                         
                 </div>
+
+               
+
+                
+            {//authorized section
+                access && <div className={styles.compendiumSearch}>
+                    <CompendiumAdd/>
+                </div>
+            }
+                 
                 
             </div>
             

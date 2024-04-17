@@ -27,6 +27,7 @@ import AddPost from './components/Routes/Blog/BlogPost/BlogAdd';
 import { compendiumLoader } from './components/Routes/Compendium/Compendium';
 import { loader as cardLoader } from './components/Routes/Compendium/Card/Card';
 import Card from './components/Routes/Compendium/Card/Card';
+import {action as compendiumAddAction} from './components/Routes/Compendium/Compendium';
 //player page routes and actions
 import DisplayInventory from './components/Routes/Player/PlayerDisplayWindow/DisplayInventory';
 import DisplayWindow from './components/Routes/Player/PlayerDisplayWindow/DisplayWindow';
@@ -92,6 +93,7 @@ const router = createBrowserRouter([
       path: "/compendium",
       element: <Compendium />,
       loader: compendiumLoader,
+      action: compendiumAddAction,
       children: [
       ],
     },

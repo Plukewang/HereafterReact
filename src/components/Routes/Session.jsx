@@ -3,11 +3,12 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "../../styles/Page.module.css";
 import sess from "../../styles/Session.module.css"
-
+import auth from "../calc/Auth";
 
 const SessionManager = ()=>{
     const [session, setSession] = useState([]);
     let now = new Date();
+    const access = auth();
    
 
     const handleSubmit = async (e)=>{
@@ -51,16 +52,16 @@ const SessionManager = ()=>{
         <div className={styles.background}>
             <h1>Does The Black Moon Howl?</h1>
             <h2>For the GM</h2>
-            <form className={sess.answerForm} onSubmit={handleSubmit} action = "https://hereafterproject.onrender.com/session" method="post">
+            {!access && <form className={sess.answerForm} onSubmit={handleSubmit} action = "https://hereafterproject.onrender.com/session" method="post">
                 <input className={sess.answerInput} name = "password" type="text" autoFocus={true} autoComplete="off"/>
                 <input name = "username" type="hidden" value="the one"/>
                 <button className={sess.answerButton} type="submit">Answer</button>
-            </form>
+            </form>}
             {
-                localStorage.getItem('user-token') && JSON.parse(localStorage.getItem('user-token')).expiry > now.getTime() ? <div className={sess.container}>
+                access ? <div className={sess.container}>
                     <h1>Welcome.</h1>
                     <h2>New functionalities are now available.</h2>
-                    <h2>Time Remaining: {JSON.parse(localStorage.getItem('user-token')).expiry - now.getTime()}</h2>
+                    <h2>Time Remaining: {Math.floor((JSON.parse(localStorage.getItem('user-token')).expiry - now.getTime())/1000)} seconds</h2>
                 </div> : <h1>Unauthorized.</h1>
             }
             

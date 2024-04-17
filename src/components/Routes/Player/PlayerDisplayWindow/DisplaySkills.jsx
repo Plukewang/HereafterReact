@@ -68,6 +68,7 @@ export default function(props){
                                     skillCost = {card.skill_cost} 
                                     skillName = {card.skill_name}
                                     skillDescription = {card.skill_description}
+                                    skillIcon = {card.skill_icon}
                                 />
                                 
                         </ListItem>

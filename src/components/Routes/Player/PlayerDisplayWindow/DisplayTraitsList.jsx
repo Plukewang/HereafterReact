@@ -189,7 +189,7 @@ export default function DisplayTraitsList(props){
                                                 backgroundColor: '#161315'
                                                 }
                                             }
-                                        }}>
+                                        }}  >
                                             <p id={x.trait_effect} onClick = {handleActiveClick}  style={{fontSize: 16}}>{x.trait_name}</p>
                                         </Tooltip></li>
                                     })
