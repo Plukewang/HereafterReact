@@ -25,14 +25,12 @@ import DeletePost from './components/Routes/Blog/BlogPost/BlogDelete';
 import AddPost from './components/Routes/Blog/BlogPost/BlogAdd';
 //compendium routes and actions
 import { compendiumLoader } from './components/Routes/Compendium/Compendium';
-import { loader as cardLoader } from './components/Routes/Compendium/Card/Card';
-import Card from './components/Routes/Compendium/Card/Card';
 import {action as compendiumAddAction} from './components/Routes/Compendium/Compendium';
 //player page routes and actions
-import DisplayInventory from './components/Routes/Player/PlayerDisplayWindow/DisplayInventory';
 import DisplayWindow from './components/Routes/Player/PlayerDisplayWindow/DisplayWindow';
 import { loader as windowLoader } from './components/Routes/Player/PlayerDisplayWindow/DisplayWindow';
 import { Navigate } from 'react-router-dom';
+
 const router = createBrowserRouter([
   {
     path: "/",

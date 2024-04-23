@@ -1,8 +1,8 @@
 import React from "react";
-import { useState, useRef, useEffect} from "react";
-//import { gsap } from "gsap";
-import styles from "../../../../styles/PlayerDisplay/DisplayDiceRoll.module.css" 
+import { useState, useEffect} from "react";
 
+import styles from "../../../../styles/PlayerDisplay/DisplayDiceRoll.module.css" 
+import { Tooltip } from "@mui/material";
 export default DisplayDiceRoll;
 
 function DisplayDiceRoll(props){
@@ -16,7 +16,15 @@ function DisplayDiceRoll(props){
 
     return (
         <div className={styles.dice}>
+            <Tooltip title={'Effectiveness'}>
+                <p>{props.bonuses? props.bonuses.get('eff'): ''}</p>
+            </Tooltip>
+            
+            
             <h1>{roll}</h1>
+            <Tooltip title={'Defense'}>
+                <p>{props.bonuses? props.bonuses.get('def'): ''}</p>
+            </Tooltip>
         </div>
     )
 }

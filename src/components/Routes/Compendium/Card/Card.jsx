@@ -32,7 +32,7 @@ function Card(props){
             slotProps={{
                 tooltip: {
                     sx: {
-                        background: 'none',
+                        backgroundColor: '#161315',
                     }
                         }
             }}>

@@ -1,13 +1,5 @@
-import React from "react";
+
 import { useState } from "react";
-import Home from "./Routes/Home";
-import Page from "./Page/Page";
-import PlayerPage from "./Routes/Player/PlayerDisplay";
-import ContactMe from "./Routes/ContactMe";
-import Blog from "./Routes/Blog/Blog";
-import Stories from "./Routes/Stories/Stories";
-import Compendium from "./Routes/Compendium/Compendium";
-import SessionManager from "./Routes/Session";
 import Footer from "./Footer";
 import {Link, Outlet} from "react-router-dom";
 import { Drawer } from "@mui/material";
@@ -28,13 +20,13 @@ function Nav(){
       };
 
     const initial = [
-        {name: "Home", img: "nav-img-hidden", page: <Home/>, src: "../../color_icons/Depth.png", hover: "nav-p", url: ""},
-        {name: "Player Page", img: "nav-img-hidden", page: <PlayerPage/>, src: "../../color_icons/Instinct.png " , hover: "nav-p", url: "players"},
-        {name: "Compendium", img: "nav-img-hidden", page: <Compendium />, src: "../../color_icons/Agility.png", hover: "nav-p", url: "compendium"},
-        {name: "Stories", img: "nav-img-hidden", page: <Stories/>, src: "../../color_icons/Physique.png", hover: "nav-p", url: "stories"},
-        {name: "Blog", img: "nav-img-hidden", page: <Blog/>, src: "../../color_icons/Precision.png", hover: "nav-p", url: "blog"},
-        {name: "Session", img: "nav-img-hidden", page: <SessionManager/>, src: "../../color_icons/Level.png", hover: "nav-p", url: "session"},
-        {name: "Contact Me", img: "nav-img-hidden", page: <ContactMe/>, src: "../../color_icons/Intelligence.png", hover: "nav-p", url: "contactme"},
+        {name: "Home", img: "nav-img-hidden", src: "../../color_icons/Depth.png", hover: "nav-p", url: ""},
+        {name: "Player Page", img: "nav-img-hidden", src: "../../color_icons/Instinct.png " , hover: "nav-p", url: "players"},
+        {name: "Compendium", img: "nav-img-hidden",  src: "../../color_icons/Agility.png", hover: "nav-p", url: "compendium"},
+        {name: "Stories", img: "nav-img-hidden",  src: "../../color_icons/Physique.png", hover: "nav-p", url: "stories"},
+        {name: "Blog", img: "nav-img-hidden", src: "../../color_icons/Precision.png", hover: "nav-p", url: "blog"},
+        {name: "Session", img: "nav-img-hidden", src: "../../color_icons/Level.png", hover: "nav-p", url: "session"},
+        {name: "Contact Me", img: "nav-img-hidden", src: "../../color_icons/Intelligence.png", hover: "nav-p", url: "contactme"},
     ];
 
 

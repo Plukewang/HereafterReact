@@ -205,14 +205,15 @@ main body
   width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: column;
-  overflow: hidden;
+  justify-content: space-around;
   align-items: center;
+  overflow: hidden;
 }
 
 .cardArt img{
   width: 90%;
-  overflow: hidden;
+  margin-left: 0;
+
 
 }
 

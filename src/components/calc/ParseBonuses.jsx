@@ -12,6 +12,7 @@ const parseBonus = (bonus)=>{
         let b = eff.substring(1,eff.length-1);//remove the [].
         let stat = b.substring(0,3);// get the 3-letter code
         let sign = b.charAt(3);//sign is whether the 4th char (always + or -) is positive or negative
+        
         switch(stat){
             //add the actual bonus to the list.
             case stat = 'DPT':
@@ -64,7 +65,14 @@ const parseBonus = (bonus)=>{
                     break;   
         }
     }
+    //console.log(out)
     return out;
 
 }
+
+const parseBonuses = (bonuses) =>{
+    //bonuses is a hashmap of item names and bonuses
+}
+
 export default parseBonus;
+export {parseBonuses};

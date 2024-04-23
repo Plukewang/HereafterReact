@@ -5,12 +5,34 @@ import styles from "../../../../styles/PlayerDisplay/DisplayWindow.module.css";
 import inventoryStyle from "../../../../styles/PlayerDisplay/DisplayInventory.module.css"
 import { useLoaderData } from "react-router-dom";
 import axios from "axios";
-
+import parseBonus from "../../../calc/ParseBonuses";
 
 export default function DisplayInventory(props){
     const items = Array(30).fill("");
-
+    const [activeItems, setActiveItems] = useState(new Set);
     const inventory = props.inv;
+
+    const handleActiveItem = (e) =>{
+        console.log(e.target.id)
+    }
+
+    const handleActiveClick = (e) =>{
+        console.log(e.target.id); 
+        let hash = new Set(activeItems);
+        
+        if(activeItems.has(e.target.id)){
+            hash.delete(e.target.id);
+            setActiveItems(hash);
+            props.clickAgain(e);
+            
+        }else{
+            hash.add(e.target.id);
+            setActiveItems(hash); 
+            
+            props.click(e);
+        }
+        
+    }
 
     return(
         <div className={styles.displayMain} style={{
@@ -32,7 +54,7 @@ export default function DisplayInventory(props){
 
                     {
                         inventory.map((x)=>{
-                            return <div className={inventoryStyle.itemIcon} key = {x.item_id}>
+                            return <div className={inventoryStyle.itemIcon} key = {x.item_id} id = {x.item_name}>
                                     <Tooltip title={
                                         <div className={inventoryStyle.itemHover} >
                                             <h2>
@@ -59,7 +81,9 @@ export default function DisplayInventory(props){
                                                 }
                                             }
                                         }}>
-                                        <img src={x.item_icon} />
+                                        <img id = {(x.perk_1.split('|')[0]!='n/a' && x.perk_1.split('|')[1]) + 
+                                        (x.perk_2.split('|')[0]!='n/a' && x.perk_2.split('|')[1]) + 
+                                        ( x.perk_3 !='n/a'? x.perk_3.split('|')[1] : '')} src={x.item_icon} alt = {x.item_name}  onClick={handleActiveClick}/>
                                     </Tooltip>  
                                     </div>
                         })

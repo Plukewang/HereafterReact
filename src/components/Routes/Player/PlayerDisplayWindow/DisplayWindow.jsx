@@ -101,30 +101,42 @@ function DisplayWindow(props){//currently placeholder display window
     function handleSubmit(e){
         e.preventDefault();
         let bon = bonuses.get(e.target['1'].name)? bonuses.get(e.target['1'].name) : 0;
-        setCheck([Number(e.target["1"].value)+Math.floor(Math.random()*6)+bon,e.target["1"].name]);
+        bon+= bonuses.get('eff');
+        setCheck([Number(e.target["1"].value)+Math.floor(Math.random()*6)+bon, e.target["1"].name]);
     }
 
     const handleActiveTrait = (e) =>{
-
-        let bon = Object.entries(...parseBonus(e.target.id));
+        //id is a list of effects [(XXX)(Y)(Z)] [(XXX)(Y)(Z)] [(XXX)(Y)(Z)] ... etc.
+        //returns a parsed list of objects with the stat attribute name and bonus 
+        let bon = parseBonus(e.target.id);
+        //hashmap to store the new state
         let hash = new Map(bonuses);
+        //we turn the object entries into a tuple with [0] being the name and [1] being the bonus for ease of reading
+        const bonusStats = bon.map(x=>{
+            return Object.entries(x)[0];
+        })
 
-        for(const bonus of bon){
+        for(const bonus of bonusStats){
+            //if the bonus already exists, we add to it, if it doesn,t ew add it to the map
             if(hash.has(bonus[0])){
                 hash.set(bonus[0],hash.get(bonus[0])+bonus[1]);
             }else{
                 hash.set(bonus[0],bonus[1]);
             }
         }
-        
+
         setBonuses(hash);
     }
     const removeActiveTrait = (e) =>{
-
-        let bon = Object.entries(...parseBonus(e.target.id));
+        //same as above but removal
+        let bon = parseBonus(e.target.id);
         let hash = new Map(bonuses);
+        const bonusStats = bon.map(x=>{
+            return Object.entries(x)[0];
+        })
 
-        for(const bonus of bon){
+        for(const bonus of bonusStats){
+            //this is the only step that differs.
             if(hash.has(bonus[0])){
                 hash.set(bonus[0],hash.get(bonus[0])-bonus[1]);
             }
@@ -185,23 +197,27 @@ function DisplayWindow(props){//currently placeholder display window
                 {
                     //this dice roll needs work on animations.
                 }
-                {checkBtns.length>0&&<DisplayDiceRoll roll = {check[0]} name = {check[1]}/>}
+                {
+                    checkBtns.length>0 && 
+                    <DisplayDiceRoll roll = {check[0]} name = {check[1]} bonuses = {bonuses}/>}
+
                 <DisplayEffectsTracker />
             </div>
             
             <DisplayTraitsList traits = {useLoaderData()[2]} click = {handleActiveTrait} clickAgain = {removeActiveTrait}/>
 
-            <DisplayInventory inv = {useLoaderData()[1]}/>
+            <DisplayInventory inv = {useLoaderData()[1]} click = {handleActiveTrait} clickAgain = {removeActiveTrait}/>
 
             <div className={styles.displayPortrait}></div>
 
             <div className={styles.displayMain}
-            style={{
-            backgroundColor: '#381925',
-            width: '59.5%',
-            margin: '10px',
-            border: '2px solid #381925',
-            borderRadius: '8px'}}>
+                style={{
+                backgroundColor: '#381925',
+                width: '59.5%',
+                margin: '10px',
+                border: '2px solid #381925',
+                borderRadius: '8px'}}
+            >
                 <DisplaySkills skills = {useLoaderData()[3]}/>
             </div>
 

@@ -56,7 +56,7 @@ function DisplayEffectsTracker(){
                     <div style={{display:"flex", width: '100%'}} >
                     {
                             commonEffects.length && commonEffects.map((x,i)=>{
-                                return <form className={styles.effectForm}  onSubmit={handleSubmit}>
+                                return <form key = {i} className={styles.effectForm}  onSubmit={handleSubmit}>
                                     <input type='hidden' name = "effectName" value = {x.name}/>
                                     <input type='hidden' name = "effectDescription" value={x.description} />
                                     <button type = "submit" style={{width: 100}}>{x.name}</button>

@@ -58,7 +58,7 @@ export default function DisplayTraitsList(props){
             
         }else{
             hash.add(e.target.textContent);
-            setActiveTraits(hash);
+            setActiveTraits(hash); 
             
             props.click(e);
         }
@@ -70,7 +70,12 @@ export default function DisplayTraitsList(props){
     return (
         <div className={styles.displayPortrait}>
             
-                <List sx={{width: '150px', display: "flex", flexDirection: 'column'}}>
+                <List sx={{
+                    width: '150px', 
+                    display: "flex", 
+                    flexDirection: 'column',
+                    overflow: 'auto',
+                }}>
                     <button className={open=='0'? styles.active: ''} 
                         type = "submit" 
                         name = "Intrinsic Traits" 
