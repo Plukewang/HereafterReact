@@ -101,7 +101,7 @@ function DisplayWindow(props){//currently placeholder display window
     function handleSubmit(e){
         e.preventDefault();
         let bon = bonuses.get(e.target['1'].name)? bonuses.get(e.target['1'].name) : 0;
-        bon+= bonuses.get('eff');
+        bon+= bonuses.has('eff') ? bonuses.get('eff') : 0;
         setCheck([Number(e.target["1"].value)+Math.floor(Math.random()*6)+bon, e.target["1"].name]);
     }
 
