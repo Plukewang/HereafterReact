@@ -40,13 +40,13 @@ export async function action({request, params}){
         
 }
 
-function Blog(){
+function Blog(): JSX.Element{
     const nav = useNavigation();
     const posts = useLoaderData();
     const access = auth();
     return(
         <div className={styles.background}>
-            <h1>{nav.state=="Loading" && <Loading/>}</h1>
+            <h1>{nav.state=="loading" && <Loading/>}</h1>
             <h1>Blog</h1>
             
             <Outlet/>
