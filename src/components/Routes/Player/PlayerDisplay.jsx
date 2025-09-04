@@ -1,13 +1,14 @@
-import React from "react";
+
 import styles from "../../../styles/Page.module.css";
 import { useState, useEffect } from "react";
-import DisplayWindow from "./PlayerDisplayWindow/DisplayWindow";
 import { Link, Outlet, useLoaderData, NavLink } from "react-router-dom";
 import axios from "axios";
 
 export async function playerLoader(){
+    
     try {
         const result = await axios.get("https://hereafterproject.onrender.com/players") ;
+        console.log('request sent');
         return result.data;
     } catch (err) {
         console.error(err);

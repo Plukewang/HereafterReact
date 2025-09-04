@@ -53,8 +53,8 @@ export default function DisplayInventory(props){
                 }}>
 
                     {
-                        inventory.map((x)=>{
-                            return <div className={inventoryStyle.itemIcon} key = {x.item_id} id = {x.item_name}>
+                        inventory.map((x,i)=>{
+                            return <div className={inventoryStyle.itemIcon} key = {i} id = {x.item_name}>
                                     <Tooltip title={
                                         <div className={inventoryStyle.itemHover} >
                                             <h2>
@@ -90,8 +90,8 @@ export default function DisplayInventory(props){
                     }
 
                     {//fill out the rows in case there aren't that many items right now.
-                        Array(20-inventory.length).fill('').map(x=>{
-                            return <div className={inventoryStyle.itemIcon} key = {x.item_id}></div>
+                        Array(20-inventory.length).fill('').map((x,i)=>{
+                            return <div className={inventoryStyle.itemIcon} key = {i}></div>
                         })
                     }
                 
