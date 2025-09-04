@@ -10,7 +10,8 @@ import axios from "axios";
 
 export async function loader({params}){
     try {
-        const result = await axios.get(`https://hereafterproject.onrender.com/${params.blogid}`) ;
+        const result = await axios.get(`https://hereafterproject.onrender.com/blog/${params.blogid}`) ;
+        console.log(result.data)
         return result.data;
     } catch (err) {
         console.log(err);
@@ -21,7 +22,7 @@ function BlogPostTest(){
     const post = useLoaderData()
 
     return (
-    <div >
+    <div style={{width: "50%"}}>
         <h2 style={{textAlign: "left"}}>{post.title}</h2>
 
         <h3>{post.post_time}</h3>
