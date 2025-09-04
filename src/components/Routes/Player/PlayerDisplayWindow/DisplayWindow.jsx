@@ -12,22 +12,36 @@ import DisplaySkills from "./DisplaySkills";
 import DisplayAdvantage from "./DisplayAdvantage";
 import Loading from "../../Loading";
 import parseBonus from "../../../calc/ParseBonuses";
-
-import {Link, Outlet} from 'react-router-dom';
 import { useLoaderData } from "react-router-dom";
 import axios from "axios";
 
 
 export async function loader({params}){
+    
+    //check if localStorage has the thing.
+    if(localStorage.getItem(`player_${params.playerid}`)){
+        const playerCachedData =  JSON.parse(localStorage.getItem(`player_${params.playerid}`));
+        const now = new Date().getTime();
+        if(playerCachedData.expiry > now){//check if the call has expired.
+            console.log('cache call')
+            localStorage.removeItem(`player_${params.playerid}`);
+            return playerCachedData.value;
+        }
+        
+    }   
+
     try {
+        console.log('api call')
         const result = await axios.get(`https://hereafterproject.onrender.com/player/${params.playerid}`) ;
+        const toStore = JSON.stringify({value: result.data, expiry: (new Date().getTime()+60*60*1000).toString()});//strngify for caching.
+        localStorage.setItem(`player_${params.playerid}`, toStore);
         return result.data;
     } catch (err) {
         console.error(err);
     }
 }
 
-function DisplayWindow(props){//currently placeholder display window
+function DisplayWindow(props){
     //takes player object and turns its stats into an array (stats are 3 lettered objects always)
     const [checkBtns, setCheckBtns] = useState([]);
     const [colorBtns, setColorBtns] = useState([]);

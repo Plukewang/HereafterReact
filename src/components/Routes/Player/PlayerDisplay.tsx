@@ -17,13 +17,14 @@ export async function playerLoader(){
 
 
 function PlayerPage(){
-    const [activePlayer, setActivePlayer] = useState(0);
+    const [activePlayer, setActivePlayer] = useState("0");
 
-    const players = useLoaderData();
+    const players:any = useLoaderData();
 
-    function handleChangePlayer(e){
-        console.log(e.target.name)
-        setActivePlayer(e.target.name);
+    function handleChangePlayer(e: any){
+        const event = e.target as HTMLButtonElement;
+        console.log(event.name)
+        setActivePlayer(event.name);
         console.log(activePlayer)
     }
 
@@ -34,7 +35,7 @@ function PlayerPage(){
 
             <h1>Player Pages</h1>       
             <div className={styles.changePlayerButtons}>
-                {players.map((player,i)=>{
+                {players.map((player:any,i:number)=>{
                     return <NavLink to={`player/${i+1}`} style={({ isActive, isPending, isTransitioning }) => {
                         return {
                         borderRadius: 8,
@@ -44,7 +45,7 @@ function PlayerPage(){
                     <button  
                         className={styles.playerButton} 
                         onClick={handleChangePlayer} 
-                        name={i} 
+                        name={i+""} 
                     >
                         {player.player_name}
                     </button></NavLink>
