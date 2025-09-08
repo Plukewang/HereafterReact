@@ -17,7 +17,10 @@ export async function action({request,params}){
         return redirect(`/blog`);
     } catch (err) {
         console.log(err);
+        return redirect(`/blog`);
     }
+    //just redirect if there's an error
+    
 }
 
 const DeletePost = ()=>{
@@ -34,5 +37,6 @@ const DeletePost = ()=>{
         </Form>
     )
 }
+
 
 export default DeletePost;

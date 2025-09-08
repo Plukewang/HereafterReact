@@ -11,21 +11,33 @@ import {
     Outlet,
     Link,
     useLoaderData,
-    Form,
     redirect,
   } from "react-router-dom";
 
-export async function blogLoader(){
+
+interface post{
+    title:string;
+    id: number;
+    post_time: string;
+    post: string;
+}
+
+interface blogActionArgs{
+    request: Request;
+}
+
+export async function blogLoader(): Promise<post[]>{
     try {
         const result = await axios.get("https://hereafterproject.onrender.com/blog", {withCredentials:true}) ;
-        return result.data;
+        return result.data as post[];
     } catch (err) {
         console.error(err);
     }
+    return [];
 }
-
-export async function action({request, params}){
+export async function action({request}:blogActionArgs){
         const formData = await request.formData();
+
         const add = Object.fromEntries(formData);
         const finalFormEndpoint = "https://hereafterproject.onrender.com/blog/post";
         
@@ -42,7 +54,7 @@ export async function action({request, params}){
 
 function Blog(): JSX.Element{
     const nav = useNavigation();
-    const posts = useLoaderData();
+    const posts: post[] = useLoaderData() as post[];
     const access = auth();
     return(
         <div className={styles.background}>
