@@ -8,7 +8,7 @@ export async function playerLoader(){
     
     try {
         const result = await axios.get("https://hereafterproject.onrender.com/players") ;
-        console.log('request sent');
+        //console.log('request sent');
         return result.data;
     } catch (err) {
         console.error(err);
@@ -23,9 +23,7 @@ function PlayerPage(){
 
     function handleChangePlayer(e: any){
         const event = e.target as HTMLButtonElement;
-        console.log(event.name)
         setActivePlayer(event.name);
-        console.log(activePlayer)
     }
 
 

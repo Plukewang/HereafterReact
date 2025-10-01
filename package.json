@@ -36,7 +36,8 @@
   "scripts": {
     "start": "vite",
     "build": "vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "test": "vitest"
   },
   "eslintConfig": {
     "extends": [
@@ -59,6 +60,7 @@
   "devDependencies": {
     "@types/node": "^24.3.1",
     "@types/react-router-dom": "^5.3.3",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
   }
 }

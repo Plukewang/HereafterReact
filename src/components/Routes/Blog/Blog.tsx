@@ -15,7 +15,7 @@ import {
   } from "react-router-dom";
 
 
-interface post{
+export interface post{
     title:string;
     id: number;
     post_time: string;

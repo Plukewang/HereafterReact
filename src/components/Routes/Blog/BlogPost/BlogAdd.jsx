@@ -7,6 +7,7 @@ export async function action({request}){
     
 
     try{
+        console.log(request)
         const formData = await request.formData();
         const add = Object.fromEntries(formData);
         if(add.cancel){
