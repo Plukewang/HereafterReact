@@ -3,22 +3,32 @@ import BlogFormStyle from '../../../../styles/Forms/BlogForm.module.css';
 import {Form, useLoaderData, redirect} from "react-router-dom";
 import axios from "axios";
 
-export async function action({request}){
-    
-
+export async function postBlog(add){
     try{
-        console.log(request)
-        const formData = await request.formData();
-        const add = Object.fromEntries(formData);
-        if(add.cancel){
-            return redirect(`/blog`);
-        }
         const finalFormEndpoint = "https://hereafterproject.onrender.com/blog/post";
-        const result = await axios.post(finalFormEndpoint, add, {headers: {'content-type': 'application/x-www-form-urlencoded'}});
-        return redirect('/blog')
+        const result = await axios.post(finalFormEndpoint, add, 
+            {
+                headers: {'content-type': 'application/x-www-form-urlencoded'}
+            }
+        );
+        console.log(result.data);
+        return result.data;
     }catch(err){
         console.error(err);
     }
+}
+
+export async function action({request}){
+    //sends POST request to add a blog post to the database via React Router Form element
+    const formData = await request.formData();
+    const add = Object.fromEntries(formData);
+    if(add.cancel){
+        return redirect(`/blog`);
+    }
+
+    const res = await postBlog(add);
+    return redirect(`/blog`);
+
     
 }
 

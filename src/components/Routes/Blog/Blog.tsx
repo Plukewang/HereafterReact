@@ -28,7 +28,15 @@ interface blogActionArgs{
 
 export async function blogLoader(): Promise<post[]>{
     try {
-        const result = await axios.get("https://hereafterproject.onrender.com/blog", {withCredentials:true}) ;
+        console.log('a')
+        const result = await axios.get("https://hereafterproject.onrender.com/blog", 
+            {
+                headers: 
+                    {
+                        'content-type': 'application/x-www-form-urlencoded',
+                    }, 
+                withCredentials:true
+            }) ;
         return result.data as post[];
     } catch (err) {
         console.error(err);
@@ -43,7 +51,15 @@ export async function action({request}:blogActionArgs){
         
         try{
 
-            const result = await axios.post(finalFormEndpoint, add, {headers: {'content-type': 'application/x-www-form-urlencoded'}, withCredentials: true});
+            const result = await axios.post(finalFormEndpoint, add, 
+                {
+                    headers: 
+                    {
+                        'content-type': 'application/x-www-form-urlencoded',
+                    }, 
+                    withCredentials: true
+                }
+            );
 
             return redirect('')
         }catch(err){
